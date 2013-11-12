@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   after_filter :store_urlback
 
+  # PERMITIONS
+  def is_list_owner? list
+    signed_in? && current_user.id == list.user_id
+  end
+
   # TMP LISTS
   def create_tmp_list list
     cookies.permanent.signed[:owl_lists] = (cookies.signed[:owl_lists]||[]) << list.id.to_s

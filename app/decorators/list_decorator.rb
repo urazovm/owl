@@ -1,12 +1,11 @@
 class ListDecorator < ApplicationDecorator
+  delegate :title
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def linked_title
+    h.link_to model.title, h.list_path(model)
+  end
 
+  def edit_link
+    h.link_to 'edit', h.edit_list_path(model) if h.signed_in? && model.user_id == h.current_user.id
+  end
 end
