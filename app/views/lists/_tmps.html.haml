@@ -1,0 +1,5 @@
+%h2 Tmp lists:
+%p
+  %a{href: new_user_registration_path} register to save your lists
+%ul
+  = render partial: 'lists/item', collection: lists, as: :list

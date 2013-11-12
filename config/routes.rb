@@ -1,5 +1,5 @@
 Owl::Application.routes.draw do
+  devise_for :users
 
-  resources :lists, only: [:index], path: ''
-
+  resources :lists, path: ''
 end

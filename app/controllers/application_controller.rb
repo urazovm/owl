@@ -1,5 +1,43 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  after_filter :store_urlback
+
+  # TMP LISTS
+  def create_tmp_list list
+    cookies.permanent.signed[:owl_lists] = (cookies.signed[:owl_lists]||[]) << list.id.to_s
+  end
+  def remove_tmp_list list
+    cookies.permanent.signed[:owl_lists] = cookies.signed[:owl_lists].reject! {|e| e == list.id.to_s } if cookies.signed[:owl_lists]
+  end
+  def tmp_lists
+    cookies.signed[:owl_lists] || []
+  end
+  def has_tmp_list? list
+    cookies.signed[:owl_lists] && cookies.signed[:owl_lists].include?(list.id.to_s)
+  end
+  def has_tmp_lists?
+    cookies.signed[:owl_lists] && cookies.signed[:owl_lists].count > 0
+  end
+  def assign_tmp_lists user
+    tmp_lists.each {|id| user.lists << List.find(id) }
+  end
+  def clear_tmp_lists
+    cookies.delete :owl_lists
+  end
+
+  # DEVISE
+  def after_sign_in_path_for(resource)
+    assign_tmp_lists(resource)
+    clear_tmp_lists
+    session[:stored_url] ? session[:stored_url] : lists_path
+  end
+  def after_sign_out_path_for(resource)
+    session[:stored_url] ? session[:stored_url] : lists_path
+  end
+
+  # GLOBAL
+  def store_urlback
+    session[:stored_url] = params[:r] ? params[:r] : nil
+  end
 end

@@ -1,0 +1,8 @@
+%p
+  %a{href: lists_path} Back
+
+%h1 New list
+
+= simple_form_for(@list) do |f|
+  = f.input :title
+  = f.button :submit

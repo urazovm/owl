@@ -1,12 +1,17 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 gem 'rails', '4.0.1'
 gem 'sass-rails', '~> 4.0.0'
 gem 'compass-rails', '~> 1.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'sepastian-mongoid-rails4'
+gem 'mongoid', git: 'git://github.com/mongoid/mongoid.git'
 gem 'bson_ext'
 gem 'haml'
 gem 'draper'
+gem 'simple_form'
+gem 'devise'
+gem 'multi_fetch_fragments'
