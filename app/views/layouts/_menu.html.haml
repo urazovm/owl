@@ -7,3 +7,7 @@
   - else
     %a{href: new_user_registration_path} register
     %a{href: new_user_session_path} login
+
+%p
+  - ListCategories.each do |category|
+    = link_to category[0], lists_path(category_id: category[1])

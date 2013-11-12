@@ -1,1 +1,0 @@
-ListForbiddenNames = ['users', 'new']

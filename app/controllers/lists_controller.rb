@@ -16,7 +16,9 @@ class ListsController < ApplicationController
 
   def index
     @tmp_lists = List.where(:_id.in => tmp_lists).decorate if has_tmp_lists?
-    @lists = List.where(user_id: { '$exists' => true }).decorate
+    @lists = List.where(user_id: { '$exists' => true })
+    @lists = @lists.where(category_id: params[:category_id]) if params[:category_id].present?
+    @lists = @lists.decorate
   end
 
   def show
@@ -47,6 +49,6 @@ class ListsController < ApplicationController
 private
 
   def list_params
-    params.require(:list).permit(:title)
+    params.require(:list).permit(:title, :category_id)
   end
 end

@@ -2,7 +2,7 @@
 
 - List
 	- ~~new, create, index, show, edit, update, destroy~~
-	- category
+	- ~~category~~
 	- discription
 	- search
 	- edit / display items
@@ -28,5 +28,7 @@
 	- social tools
 	- facebook connect
 	- twitter connect
+  - locales EN
+  - locales FR
 - Integration
 	- bootstrap 3
