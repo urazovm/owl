@@ -1,8 +1,12 @@
 class ListDecorator < ApplicationDecorator
-  delegate :title
+  delegate :title, :description
 
   def linked_title
     h.link_to model.title, h.list_path(model)
+  end
+
+  def linked_category
+    h.link_to model.category_name, h.lists_path(category_id: model.category_id)
   end
 
   def edit_link

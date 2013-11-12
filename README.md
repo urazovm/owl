@@ -3,7 +3,7 @@
 - List
 	- ~~new, create, index, show, edit, update, destroy~~
 	- ~~category~~
-	- discription
+	- ~~discription~~
 	- search
 	- edit / display items
 	- add /display comments
