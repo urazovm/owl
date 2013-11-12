@@ -25,16 +25,23 @@ class ListsController < ApplicationController
 
   def edit
     @list = List.find(params[:id])
-    redirect_to lists_path and return unless has_tmp_list?(@list) || is_list_owner?(@list)
+    redirect_to lists_path and return unless is_list_owner?(@list)
   end
 
   def update
     @list = List.find(params[:id])
+    redirect_to lists_path and return unless is_list_owner?(@list)
     render :edit and return unless @list.update_attributes(list_params)
     redirect_to list_path(@list)
   end
 
   def destroy
+    list = List.find(params[:id])
+    if is_list_owner?(list)
+      list.soft_delete
+      remove_tmp_list(list)
+    end
+    redirect_to lists_path
   end
 
 private

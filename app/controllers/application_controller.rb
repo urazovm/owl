@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   # PERMITIONS
   def is_list_owner? list
-    signed_in? && current_user.id == list.user_id
+    has_tmp_list?(list) || (signed_in? && current_user.id == list.user_id)
   end
 
   # TMP LISTS

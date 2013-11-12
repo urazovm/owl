@@ -1,8 +1,10 @@
-%p
-  %a{href: lists_path} Back
+= render partial: 'layouts/menu'
 
 %h1= @list.title
 
 = simple_form_for(@list) do |f|
   = f.input :title
   = f.button :submit
+
+%p
+  = link_to 'delete', list_path(@list), method: :delete, confirm: 'Are you sure??'

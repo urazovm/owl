@@ -1,0 +1,9 @@
+%p
+  %strong
+    %a{href: lists_path} OWL
+  %a{href: new_list_path} Create a new list
+  - if signed_in?
+    = link_to 'logout', destroy_user_session_path, method: :delete
+  - else
+    %a{href: new_user_registration_path} register
+    %a{href: new_user_session_path} login

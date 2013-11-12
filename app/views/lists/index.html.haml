@@ -1,5 +1,3 @@
-%p
-  %a{href: new_list_path} Create a new list
-
+= render partial: 'layouts/menu'
 = render partial: 'lists/tmps', locals: {lists: @tmp_lists} if defined?(@tmp_lists)
 = render partial: 'lists/all', locals: {lists: @lists} if @lists.count > 0
