@@ -1,28 +1,32 @@
-## README
+## TODO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- List
+	- ~~new, create, index, show, edit, update, destroy~~
+	- category
+	- discription
+	- search
+	- edit / display items
+	- add /display comments
+	- like / dislike
+	- show likers
+- Items
+	- new, create, update, destroy
+	- reorder
+	- image
+- Comments
+	- new, create, destroy
+- User
+	- show, edit, update
+	- avatar
+	- ~~devise~~
+	- show liked lists
+	- follow / unfollow
+	- following / followers
+- Optimization
+	- caching
+- Misc
+	- social tools
+	- facebook connect
+	- twitter connect
+- Integration
+	- bootstrap 3
