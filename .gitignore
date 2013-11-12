@@ -7,6 +7,7 @@ capybara-*.html
 .ruby-version
 .ruby-gemset
 .DS_Store
+.powenv
 /.bundle
 /vendor/bundle
 /log/*
