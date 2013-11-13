@@ -7,9 +7,9 @@
 	- search
 	- ~~edit / display items~~
 	- ~~add / display comments~~
-	- ~~like / dislike~~
-	- show likers
-  - total likes, comments
+	- ~~love / ignore~~
+	- show lovers
+  - ~~total lovers, comments~~
 - Items
 	- reorder
 	- image
@@ -19,9 +19,9 @@
 	- ~~show, edit, update~~
 	- avatar
 	- ~~devise~~
-	- show liked lists
+	- show loved lists
 	- show comments
-  - total likes, comments, followings, followers, lists
+  - total loves, comments, followings, followers, lists
 	- follow / unfollow
 	- following / followers
 - Optimization

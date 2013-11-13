@@ -44,4 +44,8 @@ class ListDecorator < ApplicationDecorator
   def total_lovers
     object.lovers.count
   end
+
+  def total_comments
+    object.comments.count
+  end
 end

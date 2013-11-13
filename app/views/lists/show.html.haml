@@ -5,6 +5,7 @@
 = render partial: 'loves/button', locals: { list: @list } if signed_in?
 
 %p#total_lovers= @list.total_lovers
+%p#total_comments= @list.total_comments
 
 %p= @list.linked_category
 %p= @list.linked_user
