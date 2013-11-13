@@ -1,5 +1,6 @@
 %ul#comments
   - comments.each do |comment|
     %li
+      = comment.linked_user
       = comment.message
       = comment.delete_link

@@ -4,6 +4,7 @@ class List
   include Mongoid::Slug
 
   belongs_to :user
+  has_many :comments
   embeds_many :items
   embeds_many :comments
   validates_presence_of :title, :category_id
