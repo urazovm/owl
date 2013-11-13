@@ -1,4 +1,5 @@
 //= require_self
+//= require_tree ./helpers
 //= require_tree ./views
 
 window.owl = window.owl || {views:{}, env:{}, func:{}};
