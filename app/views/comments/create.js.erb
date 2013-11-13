@@ -1,0 +1,2 @@
+$('#new_comment').remove();
+$("#comments").replaceWith("<%= escape_javascript(render(partial: 'comments/list', locals: { comments: @comments })) %>");

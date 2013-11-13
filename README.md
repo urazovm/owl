@@ -5,16 +5,15 @@
 	- ~~category~~
 	- ~~discription~~
 	- search
-	- edit / display items
+	- ~~edit / display items~~
 	- add /display comments
 	- like / dislike
 	- show likers
 - Items
-	- new, create, update, destroy
 	- reorder
 	- image
 - Comments
-	- new, create, destroy
+	- ~~new, create, destroy~~
 - User
 	- show, edit, update
 	- avatar

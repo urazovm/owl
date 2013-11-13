@@ -5,5 +5,6 @@ class Item
   embedded_in :list
   validates_length_of :name, maximum: 100, allow_blank: true
 
-  field :name, type: String
+  field :name,     type: String
+  field :position, type: Integer
 end

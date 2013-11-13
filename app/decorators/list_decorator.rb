@@ -1,5 +1,19 @@
 class ListDecorator < ApplicationDecorator
-  delegate :title, :description, :items
+  def title
+    object.title.capitalize
+  end
+
+  def description
+    h.simple_format object.description
+  end
+
+  def items
+      object.items.decorate
+  end
+
+  def comments
+      object.comments.decorate
+  end
 
   def linked_title
     h.link_to model.title, h.list_path(model)

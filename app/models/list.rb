@@ -5,11 +5,12 @@ class List
 
   belongs_to :user
   embeds_many :items
+  embeds_many :comments
   validates_presence_of :title, :category_id
   validates_numericality_of :category_id, greater_than_or_equal_to: 0, less_than: ListCategories.length
   validates_length_of :description, maximum: 900, allow_blank: true
-  default_scope where(deleted_at: nil)
   accepts_nested_attributes_for :items
+  default_scope where(deleted_at: nil)
 
   slug :title, history: true, reserve: ListForbiddenNames
 

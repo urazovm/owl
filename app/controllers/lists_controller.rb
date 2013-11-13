@@ -23,7 +23,10 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = List.find(params[:id]).decorate
+    list = List.find(params[:id])
+    @list = list.decorate
+    @comments = list.comments.desc(:created_at).decorate
+    @comment = list.comments.build if signed_in?
   end
 
   def edit
@@ -37,6 +40,8 @@ class ListsController < ApplicationController
     redirect_to lists_path and return unless is_list_owner?(@list)
     if @list.update_attributes(list_params)
         @list.items.destroy_all(name: '')
+        @list.items.each_with_index {|list, i| list.position = i }
+        @list.save
         redirect_to list_path(@list)
     else
         render :edit

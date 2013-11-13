@@ -6,6 +6,7 @@
 %p= @list.description
 %ul
   - @list.items.each_with_index do |item, i|
-    %li
-      %strong= i
-      %span= item.name
+    %li= item.title
+
+= render partial: 'comments/form', locals: { comment: @comment } if defined? @comment
+= render partial: 'comments/list', locals: { comments: @comments }

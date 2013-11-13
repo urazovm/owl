@@ -1,5 +1,7 @@
 Owl::Application.routes.draw do
   devise_for :users
 
-  resources :lists, path: ''
+  resources :lists, path: '' do
+    resources :comments, only: [:create, :destroy]
+  end
 end
