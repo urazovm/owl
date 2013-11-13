@@ -26,4 +26,8 @@ class ListDecorator < ApplicationDecorator
   def edit_link
     h.link_to 'edit', h.edit_list_path(model) if h.signed_in? && model.user_id == h.current_user.id
   end
+
+  def linked_user
+    h.link_to model.user.login, h.lists_path
+  end
 end
