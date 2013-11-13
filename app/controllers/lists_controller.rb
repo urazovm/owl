@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
   def new
     @list = List.new
+    @list.items.build
   end
 
   def create
@@ -27,6 +28,7 @@ class ListsController < ApplicationController
 
   def edit
     @list = List.find(params[:id])
+    @list.items.build
     redirect_to lists_path and return unless is_list_owner?(@list)
   end
 
@@ -49,6 +51,6 @@ class ListsController < ApplicationController
 private
 
   def list_params
-    params.require(:list).permit(:title, :category_id, :description)
+    params.require(:list).permit(:title, :category_id, :description, items_attributes: [:name, :id])
   end
 end
