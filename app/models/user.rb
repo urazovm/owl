@@ -2,15 +2,24 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Slug
+  include Mongoid::Paperclip
 
   has_many :lists
   validates_presence_of :login
   validates_uniqueness_of :login
+  # validates_attachment :avatar, size: { in: 0..800.kilobytes }
 
   slug :login, history: false
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_mongoid_attached_file :avatar,
+    default_url: '/assets/avatar/:style.jpg',
+    styles: {
+      small:    ['42x42#',   :jpg],
+      medium:   ['128x128#', :jpg],
+      large:    ['200x200#', :jpg] }
 
   field :email,                  type: String, default: ''
   field :login,                  type: String

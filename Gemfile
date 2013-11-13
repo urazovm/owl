@@ -17,6 +17,8 @@ gem 'draper'
 gem 'simple_form'
 gem 'devise'
 gem 'multi_fetch_fragments'
+gem 'mongoid-paperclip', require: "mongoid_paperclip"
+gem 'aws-sdk'
 group :development do
   gem 'quiet_assets'
 end

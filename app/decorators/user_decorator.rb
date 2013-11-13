@@ -1,4 +1,6 @@
 class UserDecorator < ApplicationDecorator
+  delegate :avatar
+
   def login
     object.login
   end

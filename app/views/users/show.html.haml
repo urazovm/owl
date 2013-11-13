@@ -1,6 +1,7 @@
 = render partial: 'layouts/menu'
 
 %h1= @user.login
+%img{ src: @user.avatar.url(:medium)}
 
 %p
   %strong loves

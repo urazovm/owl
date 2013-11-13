@@ -6,7 +6,7 @@ Owl::Application.routes.draw do
     resources :loves, only: [:index]
     resources :comments, only: [:create, :destroy]
   end
-  resources :users, only: :show do
+  resources :users, only: [:show, :edit, :update] do
     resource :love, only: [:create, :destroy]
     resource :follow, only: [:create, :destroy]
     resources :loves, only: [:index]

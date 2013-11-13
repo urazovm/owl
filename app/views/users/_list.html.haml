@@ -1,5 +1,6 @@
 %ul#users
   - users.each do |user|
     %li
+      %img{ src: user.avatar.url(:small)}
       = user.linked_login
       = user.follow_button

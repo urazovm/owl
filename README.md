@@ -1,7 +1,5 @@
 ## TODO
 
-14 / 27
-
 - List
 	- ~~new, create, index, show, edit, update, destroy~~
 	- ~~category~~
@@ -15,11 +13,11 @@
 - Items
 	- reorder
 	- image
-- Comments
+- ~~Comments~~
 	- ~~new, create, destroy~~
-- User
+- ~~User~~
 	- ~~show, edit, update~~
-	- avatar
+	- ~~avatar~~
 	- ~~devise~~
 	- ~~show loved lists~~
   - ~~total loves, followings, followers, lists~~

@@ -5,4 +5,10 @@ class UsersController < ApplicationController
     @user = user.decorate
     @tmp_lists = List.where(:_id.in => tmp_lists).decorate if has_tmp_lists?
   end
+
+private
+
+  def user_params
+    params.require(:user).permit(:avatar)
+  end
 end

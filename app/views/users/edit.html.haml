@@ -1,0 +1,8 @@
+= render partial: 'layouts/menu'
+
+%h1= @user.decorate.linked_login
+%h2 Edit my settings
+
+= simple_form_for(@user) do |f|
+  = f.input :avatar, as: :file
+  = f.button :submit
