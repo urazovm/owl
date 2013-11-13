@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   protect_from_forgery with: :exception
+  before_filter :configure_devise_params, if: :devise_controller?
   after_filter :store_urlback
 
   # PERMITIONS
@@ -44,5 +45,10 @@ class ApplicationController < ActionController::Base
   # GLOBAL
   def store_urlback
     session[:stored_url] = params[:r] ? params[:r] : nil
+  end
+
+  # DEVISE
+  def configure_devise_params
+    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:login, :email, :password) }
   end
 end

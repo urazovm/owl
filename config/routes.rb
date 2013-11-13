@@ -4,4 +4,5 @@ Owl::Application.routes.draw do
   resources :lists, path: '' do
     resources :comments, only: [:create, :destroy]
   end
+  resources :users, only: :show
 end

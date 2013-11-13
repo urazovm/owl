@@ -8,6 +8,6 @@ class CommentDecorator < ApplicationDecorator
   end
 
   def linked_user
-    h.link_to model.user.email, h.lists_path
+    h.link_to model.user.login, h.lists_path
   end
 end

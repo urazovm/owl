@@ -1,5 +1,6 @@
 = render partial: 'layouts/menu'
 
+%h1= @user.login
+
 = render partial: 'lists/tmps', locals: {lists: @tmp_lists} if defined?(@tmp_lists)
-%h1 All lists:
 = render partial: 'lists/all', locals: {lists: @lists} if @lists.count > 0
