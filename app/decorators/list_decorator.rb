@@ -18,7 +18,7 @@ class ListDecorator < ApplicationDecorator
   end
 
   def linked_title
-    h.link_to model.title, h.list_path(model)
+    h.link_to model.title.capitalize, h.list_path(model)
   end
 
   def linked_category
@@ -27,6 +27,10 @@ class ListDecorator < ApplicationDecorator
 
   def edit_link
     h.link_to 'edit', h.edit_list_path(model) if h.signed_in? && model.user_id == h.current_user.id
+  end
+
+  def lovers_link
+    h.link_to 'lovers', h.list_loves_path(model)
   end
 
   def linked_user

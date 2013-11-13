@@ -8,7 +8,7 @@
 	- ~~edit / display items~~
 	- ~~add / display comments~~
 	- ~~love / ignore~~
-	- show lovers
+	- ~~show lovers~~
   - ~~total lovers, comments~~
 - Items
 	- reorder

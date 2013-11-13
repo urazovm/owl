@@ -1,0 +1,6 @@
+= render partial: 'layouts/menu'
+
+%h1= @list.linked_title
+%h2 People who love it:
+
+= render partial: 'users/list', locals: { users: @users }

@@ -14,6 +14,11 @@ class LovesController < ApplicationController
   end
 
   def index
+    if params[:list_id].present?
+      list = List.find(params[:list_id])
+      @users = User.where(:id.in => list.lovers).decorate
+      @list = list.decorate
+    elsif params[:user_id].present?
+    end
   end
 end
-
