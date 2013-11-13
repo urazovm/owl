@@ -20,6 +20,7 @@ class List
   field :category_id, type: Integer
   field :description, type: String
   field :lovers,      type: Array, default: []
+  field :loves,       type: Integer
 
   def soft_delete
     update_attribute(:deleted_at, Time.current)

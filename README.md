@@ -21,7 +21,7 @@
 	- ~~devise~~
 	- ~~show loved lists~~
 	- show comments
-  - total loves, comments, followings, followers, lists
+  - ~~total loves, followings, followers, lists~~
 	- ~~follow / unfollow~~
 	- following / followers
 - Optimization

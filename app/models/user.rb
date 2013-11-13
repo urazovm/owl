@@ -55,16 +55,22 @@ class User
     save and user.save
   end
 
+  def total_loves
+    lists.sum(:loves)
+  end
+
 private
 
   def love list
     lovings.push(list.id.to_s) unless lovings.include? list.id.to_s
     list.lovers.push(id.to_s) unless list.lovers.include? id.to_s
+    list.loves = list.lovers.count
   end
 
   def ignore list
     lovings.reject! {|id| id == list.id.to_s }
     list.lovers.reject! {|user_id| user_id == id.to_s }
+    list.loves = list.lovers.count
   end
 
   def follow user

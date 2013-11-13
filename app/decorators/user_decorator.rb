@@ -26,4 +26,20 @@ class UserDecorator < ApplicationDecorator
   def unfollow_link
     h.link_to "unfollow", h.user_follow_path(object), remote: true, method: :delete
   end
+
+  def total_loves
+    object.total_loves
+  end
+
+  def total_followings
+    object.followings.count
+  end
+
+  def total_followers
+    object.followers.count
+  end
+
+  def total_lists
+    object.lists.count
+  end
 end

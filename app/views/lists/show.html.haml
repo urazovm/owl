@@ -2,8 +2,12 @@
 
 %h1= @list.linked_title
 
-%p#total_lovers= @list.total_lovers
-%p#total_comments= @list.total_comments
+%p
+  %strong lovers
+  %span#total_lovers= @list.total_lovers
+%p
+  %strong comments
+  %span#total_comments= @list.total_comments
 
 %p= @list.linked_category
 %p= @list.linked_user

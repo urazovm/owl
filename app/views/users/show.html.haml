@@ -1,6 +1,20 @@
 = render partial: 'layouts/menu'
 
 %h1= @user.login
+
+%p
+  %strong loves
+  %span#total_loves= @user.total_loves
+%p
+  %strong followings
+  %span#total_followings= @user.total_followings
+%p
+  %strong followers
+  %span#total_followers= @user.total_followers
+%p
+  %strong lists
+  %span#total_lists= @user.total_lists
+
 %p= @user.edit_link
 %p= @user.follow_button
 %p= @user.lovings_link
