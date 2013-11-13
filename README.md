@@ -19,7 +19,7 @@
 	- ~~show, edit, update~~
 	- avatar
 	- ~~devise~~
-	- show loved lists
+	- ~~show loved lists~~
 	- show comments
   - total loves, comments, followings, followers, lists
 	- follow / unfollow

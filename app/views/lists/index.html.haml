@@ -1,5 +1,4 @@
 = render partial: 'layouts/menu'
 
-= render partial: 'lists/tmps', locals: {lists: @tmp_lists} if defined?(@tmp_lists)
-%h1 All lists:
-= render partial: 'lists/all', locals: {lists: @lists} if @lists.count > 0
+= render partial: 'lists/tmp', locals: {lists: @tmp_lists} if defined?(@tmp_lists)
+= render partial: 'lists/list', locals: {lists: @lists} if @lists.count > 0

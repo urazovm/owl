@@ -1,6 +1,11 @@
 = render partial: 'layouts/menu'
 
-%h1= @list.linked_title
-%h2 People who love it:
+- if defined? @users
+  %h1= @list.linked_title
+  %h2 People who love it:
+  = render partial: 'users/list', locals: { users: @users } if defined? @users
 
-= render partial: 'users/list', locals: { users: @users }
+- if defined? @lists
+  %h1= @user.linked_login
+  %h2 Lists that he/she loves:
+  = render partial: 'lists/list', locals: { lists: @lists }

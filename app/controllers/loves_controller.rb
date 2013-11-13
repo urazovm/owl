@@ -19,6 +19,9 @@ class LovesController < ApplicationController
       @users = User.where(:id.in => list.lovers).decorate
       @list = list.decorate
     elsif params[:user_id].present?
+      user = User.find(params[:user_id])
+      @lists = List.where(:id.in => user.lovings).decorate
+      @user = user.decorate
     end
   end
 end
