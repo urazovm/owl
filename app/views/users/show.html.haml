@@ -18,6 +18,8 @@
 %p= @user.edit_link
 %p= @user.follow_button
 %p= @user.lovings_link
+%p= @user.followings_link
+%p= @user.followers_link
 
 = render partial: 'lists/tmp', locals: {lists: @tmp_lists} if defined?(@tmp_lists)
 = render partial: 'lists/list', locals: {lists: @lists} if @lists.count > 0

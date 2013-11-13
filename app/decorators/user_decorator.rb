@@ -19,6 +19,14 @@ class UserDecorator < ApplicationDecorator
     h.link_to 'lovings', h.user_loves_path(model)
   end
 
+  def followings_link
+    h.link_to 'followings', h.user_followings_path(model)
+  end
+
+  def followers_link
+    h.link_to 'followers', h.user_followers_path(model)
+  end
+
   def follow_link
     h.link_to "follow", h.user_follow_path(object), remote: true, method: :post
   end

@@ -1,0 +1,5 @@
+= render partial: 'layouts/menu'
+
+%h1= @user.login
+%h2 Followers:
+= render partial: 'users/list', locals: { users: @users }

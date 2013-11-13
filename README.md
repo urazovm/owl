@@ -1,5 +1,7 @@
 ## TODO
 
+14 / 27
+
 - List
 	- ~~new, create, index, show, edit, update, destroy~~
 	- ~~category~~
@@ -20,10 +22,9 @@
 	- avatar
 	- ~~devise~~
 	- ~~show loved lists~~
-	- show comments
   - ~~total loves, followings, followers, lists~~
 	- ~~follow / unfollow~~
-	- following / followers
+	- ~~following / followers~~
 - Optimization
 	- caching
 - Misc
