@@ -2,20 +2,20 @@
 <html>
 <head>
   <title>Owl</title>
-  <%= stylesheet_link_tag "application", media: "all" %>
+
+  <%= javascript_include_tag "vendor", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <%= yield %>
 
-<script>
-  window.owl = window.owl || {views:{}, env:{}, func:{}};
-  window.owl.env['controller'] = "<%= params['controller'] || 'none' %>";
-  window.owl.env['action'] = "<%= params['action'] || 'none' %>";
-</script>
+  <script>
+    window.owl.env['controller'] = "<%= params['controller'] || 'none' %>";
+    window.owl.env['action'] = "<%= params['action'] || 'none' %>";
+  </script>
 
-<%= javascript_include_tag "vendor" %>
-<%= javascript_include_tag "application" %>
 </body>
 </html>

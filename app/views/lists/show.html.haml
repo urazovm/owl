@@ -2,6 +2,10 @@
 
 %h1= @list.title
 %p= @list.linked_category
+%p= @list.edit_link
 %p= @list.description
-%p
-  = @list.edit_link
+%ul
+  - @list.items.each_with_index do |item, i|
+    %li
+      %strong= i
+      %span= item.name
