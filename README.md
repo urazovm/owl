@@ -6,19 +6,22 @@
 	- ~~discription~~
 	- search
 	- ~~edit / display items~~
-	- add /display comments
+	- ~~add / display comments~~
 	- like / dislike
 	- show likers
+  - total likes, comments
 - Items
 	- reorder
 	- image
 - Comments
 	- ~~new, create, destroy~~
 - User
-	- show, edit, update
+	- ~~show, edit, update~~
 	- avatar
 	- ~~devise~~
 	- show liked lists
+	- show comments
+  - total likes, comments, followings, followers, lists
 	- follow / unfollow
 	- following / followers
 - Optimization
