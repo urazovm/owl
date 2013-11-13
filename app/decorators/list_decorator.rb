@@ -29,12 +29,16 @@ class ListDecorator < ApplicationDecorator
     h.link_to 'edit', h.edit_list_path(model) if h.signed_in? && model.user_id == h.current_user.id
   end
 
+  def love_button
+    h.render partial: 'loves/button', locals: { list: object } if h.signed_in? && model.user_id != h.current_user.id
+  end
+
   def lovers_link
     h.link_to 'lovers', h.list_loves_path(model)
   end
 
   def linked_user
-    h.link_to model.user.login, h.lists_path
+    h.link_to model.user.login, h.user_path(model.user)
   end
 
   def love_link

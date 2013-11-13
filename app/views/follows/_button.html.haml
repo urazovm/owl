@@ -1,0 +1,5 @@
+#follow_button
+  - if current_user.following? user
+    = user.decorate.unfollow_link
+  - else
+    = user.decorate.follow_link

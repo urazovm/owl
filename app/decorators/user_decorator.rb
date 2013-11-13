@@ -11,7 +11,19 @@ class UserDecorator < ApplicationDecorator
     h.link_to 'edit', h.edit_user_registration_path(object) if h.signed_in? && h.current_user.id == object.id
   end
 
+  def follow_button
+    h.render partial: 'follows/button', locals: { user: object } if h.signed_in? && h.current_user.id != object.id
+  end
+
   def lovings_link
     h.link_to 'lovings', h.user_loves_path(model)
+  end
+
+  def follow_link
+    h.link_to "follow", h.user_follow_path(object), remote: true, method: :post
+  end
+
+  def unfollow_link
+    h.link_to "unfollow", h.user_follow_path(object), remote: true, method: :delete
   end
 end

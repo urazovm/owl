@@ -15,6 +15,8 @@ class User
   field :email,                  type: String, default: ''
   field :login,                  type: String
   field :lovings,                type: Array,  default: []
+  field :followings,             type: Array,  default: []
+  field :followers,              type: Array,  default: []
   field :encrypted_password,     type: String, default: ''
   field :reset_password_token,   type: String
   field :reset_password_sent_at, type: Time
@@ -39,6 +41,20 @@ class User
     save and list.save
   end
 
+  def following? user
+    followings.include?(user.id.to_s)
+  end
+
+  def follow! user
+    follow user
+    save and user.save
+  end
+
+  def unfollow! user
+    unfollow user
+    save and user.save
+  end
+
 private
 
   def love list
@@ -49,5 +65,15 @@ private
   def ignore list
     lovings.reject! {|id| id == list.id.to_s }
     list.lovers.reject! {|user_id| user_id == id.to_s }
+  end
+
+  def follow user
+    followings.push(user.id.to_s) unless followings.include? user.id.to_s
+    user.followers.push(id.to_s) unless user.followers.include? id.to_s
+  end
+
+  def unfollow user
+    followings.reject! {|id| id == user.id.to_s}
+    user.followers.reject! {|user_id| user_id == id.to_s }
   end
 end

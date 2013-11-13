@@ -2,14 +2,13 @@
 
 %h1= @list.linked_title
 
-= render partial: 'loves/button', locals: { list: @list } if signed_in?
-
 %p#total_lovers= @list.total_lovers
 %p#total_comments= @list.total_comments
 
 %p= @list.linked_category
 %p= @list.linked_user
 %p= @list.edit_link
+%p= @list.love_button
 %p= @list.lovers_link
 %p= @list.description
 %ul

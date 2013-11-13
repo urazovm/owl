@@ -22,7 +22,7 @@
 	- ~~show loved lists~~
 	- show comments
   - total loves, comments, followings, followers, lists
-	- follow / unfollow
+	- ~~follow / unfollow~~
 	- following / followers
 - Optimization
 	- caching
