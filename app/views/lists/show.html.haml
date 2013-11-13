@@ -1,6 +1,11 @@
 = render partial: 'layouts/menu'
 
 %h1= @list.title
+
+= render partial: 'loves/button', locals: { list: @list } if signed_in?
+
+%p#total_lovers= @list.total_lovers
+
 %p= @list.linked_category
 %p= @list.linked_user
 %p= @list.edit_link

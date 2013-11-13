@@ -7,7 +7,7 @@
 	- search
 	- ~~edit / display items~~
 	- ~~add / display comments~~
-	- like / dislike
+	- ~~like / dislike~~
 	- show likers
   - total likes, comments
 - Items

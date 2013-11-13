@@ -1,4 +1,6 @@
 class ListDecorator < ApplicationDecorator
+  delegate :id
+
   def title
     object.title.capitalize
   end
@@ -29,5 +31,17 @@ class ListDecorator < ApplicationDecorator
 
   def linked_user
     h.link_to model.user.login, h.lists_path
+  end
+
+  def love_link
+    h.link_to "like", h.list_love_path(object), remote: true, method: :post
+  end
+
+  def ignore_link
+    h.link_to "dislike", h.list_love_path(object), remote: true, method: :delete
+  end
+
+  def total_lovers
+    object.lovers.count
   end
 end

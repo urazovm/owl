@@ -1,0 +1,2 @@
+$("#total_lovers").html(parseInt($("#total_lovers").html(), 10) - 1);
+$("#love_button").replaceWith("<%= escape_javascript(render(partial: 'loves/button', locals: { list: @list })) %>");
