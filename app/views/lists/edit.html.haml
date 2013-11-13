@@ -6,8 +6,9 @@
   = f.input :title
   = f.input :description, as: :text
   = f.input :category_id, as: :select, collection: ListCategories
-  = f.simple_fields_for :items do |i|
-    = i.input :name
+  .items
+    = f.simple_fields_for :items do |i|
+      .item= i.input :name
   = f.button :submit
 
 %p

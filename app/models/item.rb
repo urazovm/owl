@@ -3,8 +3,7 @@ class Item
   include Mongoid::Timestamps
 
   embedded_in :list
-  validates_presence_of :name
-  validates_length_of :name, maximum: 100
+  validates_length_of :name, maximum: 100, allow_blank: true
 
   field :name, type: String
 end

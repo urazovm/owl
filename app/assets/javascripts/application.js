@@ -6,7 +6,4 @@ window.owl.func['ready'] = function() {
     typeof window.owl.views[page] == 'function' && window.owl.views[page]();
 }
 
-$(function() {
-    $(document).ready(window.owl.func.ready)
-    $(document).on('page:load', window.owl.func.ready)
-});
+$(document).ready(window.owl.func.ready)

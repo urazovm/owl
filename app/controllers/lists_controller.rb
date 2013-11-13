@@ -35,8 +35,12 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     redirect_to lists_path and return unless is_list_owner?(@list)
-    render :edit and return unless @list.update_attributes(list_params)
-    redirect_to list_path(@list)
+    if @list.update_attributes(list_params)
+        @list.items.destroy_all(name: '')
+        redirect_to list_path(@list)
+    else
+        render :edit
+    end
   end
 
   def destroy
