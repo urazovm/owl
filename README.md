@@ -1,10 +1,10 @@
 ## TODO
 
-- List
+- ~~List~~
 	- ~~new, create, index, show, edit, update, destroy~~
 	- ~~category~~
 	- ~~discription~~
-	- search
+	- ~~search~~
 	- ~~edit / display items~~
 	- ~~add / display comments~~
 	- ~~love / ignore~~
