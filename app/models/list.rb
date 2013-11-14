@@ -5,7 +5,7 @@ class List
 
   belongs_to :user
   has_many :comments
-  embeds_many :items
+  embeds_many :items, cascade_callbacks: true
   embeds_many :comments
   validates_presence_of :title, :category_id
   validates_numericality_of :category_id, greater_than_or_equal_to: 0, less_than: ListCategories.length

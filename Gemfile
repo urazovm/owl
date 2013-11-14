@@ -15,6 +15,7 @@ gem 'bson_ext'
 gem 'haml'
 gem 'draper'
 gem 'simple_form'
+gem 'simple_form_fancy_uploads', github: 'xpac27/simple_form_fancy_uploads'
 gem 'devise'
 gem 'multi_fetch_fragments'
 gem 'mongoid-paperclip', require: "mongoid_paperclip"

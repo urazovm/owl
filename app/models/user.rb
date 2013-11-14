@@ -7,7 +7,6 @@ class User
   has_many :lists
   validates_presence_of :login
   validates_uniqueness_of :login
-  # validates_attachment :avatar, size: { in: 0..800.kilobytes }
 
   slug :login, history: false
 
@@ -20,6 +19,8 @@ class User
       small:    ['42x42#',   :jpg],
       medium:   ['128x128#', :jpg],
       large:    ['200x200#', :jpg] }
+  validates_attachment_size :avatar, less_than: 800.kilobytes
+  validates_attachment_content_type :avatar, content_type: ['image/jpeg', 'image/png', 'image/gif']
 
   field :email,                  type: String, default: ''
   field :login,                  type: String

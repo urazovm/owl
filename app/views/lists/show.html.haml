@@ -17,7 +17,9 @@
 %p= @list.description
 %ul
   - @list.items.each_with_index do |item, i|
-    %li= item.title
+    %li
+      = item.small_image
+      = item.title
 
 = render partial: 'comments/form', locals: { comment: @comment } if defined? @comment
 = render partial: 'comments/list', locals: { comments: @comments }

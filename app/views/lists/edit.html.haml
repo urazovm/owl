@@ -1,6 +1,6 @@
 = render partial: 'layouts/menu'
 
-%h1= @list.title
+%h1= @list.decorate.linked_title
 
 = simple_form_for(@list) do |f|
   = f.input :title
@@ -8,7 +8,9 @@
   = f.input :category_id, as: :select, collection: ListCategories
   .items
     = f.simple_fields_for :items do |i|
-      .item= i.input :name
+      .item
+        = i.input :name
+        = i.input :image, as: :image_preview, input_html: { preview_version: :small }
   = f.button :submit
 
 %p

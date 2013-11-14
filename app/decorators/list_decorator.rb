@@ -2,7 +2,7 @@ class ListDecorator < ApplicationDecorator
   delegate :id
 
   def title
-    object.title.capitalize
+    obect.title.capitalize
   end
 
   def description

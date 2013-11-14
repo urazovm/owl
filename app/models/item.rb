@@ -1,9 +1,17 @@
 class Item
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Paperclip
 
   embedded_in :list
   validates_length_of :name, maximum: 100, allow_blank: true
+
+  has_mongoid_attached_file :image,
+    styles: {
+      small: ['42x42#',   :jpg],
+      large: ['200x200#', :jpg] }
+  validates_attachment_size :image, less_than: 800.kilobytes
+  validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/png', 'image/gif']
 
   field :name,     type: String
   field :position, type: Integer

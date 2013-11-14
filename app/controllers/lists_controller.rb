@@ -6,13 +6,12 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    if (@list.save)
-      current_user.lists << @list if signed_in?
-      create_tmp_list(@list) unless signed_in?
-      redirect_to lists_path
-    else
-      render :new
-    end
+    @list.items.destroy_all(name: '')
+    @list.items.each_with_index {|list, i| list.position = i }
+    render :new and return unless @list.save
+    current_user.lists << @list if signed_in?
+    create_tmp_list(@list) unless signed_in?
+    redirect_to lists_path
   end
 
   def index
@@ -38,28 +37,23 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     redirect_to lists_path and return unless is_list_owner?(@list)
-    if @list.update_attributes(list_params)
-        @list.items.destroy_all(name: '')
-        @list.items.each_with_index {|list, i| list.position = i }
-        @list.save
-        redirect_to list_path(@list)
-    else
-        render :edit
-    end
+    @list.assign_attributes(list_params)
+    @list.items.destroy_all(name: '')
+    @list.items.each_with_index {|list, i| list.position = i }
+    redirect_to list_path(@list) and return if @list.save
+    render :edit
   end
 
   def destroy
     list = List.find(params[:id])
-    if is_list_owner?(list)
-      list.soft_delete
-      remove_tmp_list(list)
-    end
-    redirect_to lists_path
+    redirect_to lists_path and return unless is_list_owner?(list)
+    list.soft_delete
+    remove_tmp_list(list)
   end
 
 private
 
   def list_params
-    params.require(:list).permit(:title, :category_id, :description, items_attributes: [:name, :id])
+    params.require(:list).permit(:title, :category_id, :description, items_attributes: [:name, :id, :image])
   end
 end
