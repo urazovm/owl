@@ -16,9 +16,7 @@ class ListsController < ApplicationController
 
   def index
     @tmp_lists = List.where(:_id.in => tmp_lists).decorate if has_tmp_lists?
-    @lists = List.where(user_id: { '$exists' => true })
-    @lists = @lists.where(category_id: params[:category_id]) if params[:category_id].present?
-    @lists = @lists.decorate
+    @lists = List.search(params, params[:page])
   end
 
   def show

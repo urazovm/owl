@@ -18,8 +18,9 @@ gem 'simple_form'
 gem 'simple_form_fancy_uploads', github: 'xpac27/simple_form_fancy_uploads'
 gem 'devise'
 gem 'multi_fetch_fragments'
-gem 'mongoid-paperclip', require: "mongoid_paperclip"
+gem 'mongoid-paperclip', require: 'mongoid_paperclip'
 gem 'aws-sdk'
+gem 'tire'
 group :development do
   gem 'quiet_assets'
 end

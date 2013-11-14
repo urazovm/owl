@@ -12,7 +12,7 @@
   - ~~total lovers, comments~~
 - Items
 	- reorder
-	- image
+	- ~~image~~
 - ~~Comments~~
 	- ~~new, create, destroy~~
 - ~~User~~

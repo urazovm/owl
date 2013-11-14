@@ -8,6 +8,11 @@
     %a{href: new_user_registration_path} register
     %a{href: new_user_session_path} login
 
+= form_tag lists_path, method: :get do
+  = text_field_tag :q, params[:q]
+  = hidden_field_tag :category_id, params[:category_id] unless params[:category_id].blank?
+  = submit_tag 'Search'
+
 %p
   - ListCategories.each do |category|
     = link_to category[0], lists_path(category_id: category[1])
