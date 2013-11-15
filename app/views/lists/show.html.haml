@@ -1,6 +1,9 @@
 = render partial: 'layouts/menu'
 
 %h1= @list.linked_title
+%p
+  = @user.linked_avatar_image(:small)
+  = @user.linked_login
 
 %p
   %strong lovers

@@ -7,6 +7,7 @@ class User
   has_many :lists
   validates_presence_of :login
   validates_uniqueness_of :login
+  before_save :clear_cache, if: :avatar_changed? # TODO verify that it works
 
   slug :login, history: false
 
@@ -91,5 +92,13 @@ private
   def unfollow user
     followings.reject! {|id| id == user.id.to_s}
     user.followers.reject! {|user_id| user_id == id.to_s }
+  end
+
+  def clear_cache
+    # cache = ActionController::Base.new
+    # cache.expire_action user_path(self)
+    # followers.each {|u| cache.expire_action followings_path(u) }
+    # lovings.each {|l| cache.expire_action list_loves_path(l) }
+    # lists.where(deleted_at: { '$exists' => false }).each {|l| cache.expire_action list_path(l) }
   end
 end

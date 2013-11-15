@@ -4,13 +4,17 @@ class CommentsController < ApplicationController
   def create
     @list = List.find(params[:list_id])
     @comment = @list.comments.create({user: current_user}.merge(comments_params))
-    if request.xhr?
-      render :edit and return unless @comment.errors.empty?
-      @comments = @list.comments.desc(:created_at).decorate
+    if @comment.errors.empty?
+      # expire_action list_path(@list)
+      render :edit and return if request.xhr?
+      redirect_to list_path(@list)
     else
-      redirect_to list_path(@list) and return if @comment.errors.empty?
-      @list = list.decorate
-      render 'lists/show'
+      if request.xhr?
+        @comments = @list.comments.desc(:created_at).decorate
+      else
+        @list = list.decorate
+        render 'lists/show'
+      end
     end
   end
 
@@ -18,6 +22,7 @@ class CommentsController < ApplicationController
     list = List.find(params[:list_id])
     list.comments.destroy_all(id: params[:id], user_id: current_user.id)
     @comments = list.comments.desc(:created_at).decorate
+    # expire_action list_path(list)
     redirect_to list_path(list) unless request.xhr?
   end
 

@@ -1,12 +1,18 @@
 class UserDecorator < ApplicationDecorator
-  delegate :avatar
-
   def login
     object.login
   end
 
   def linked_login
     h.link_to model.login, h.user_path(model)
+  end
+
+  def avatar_image style
+    h.image_tag object.avatar.url(style)
+  end
+
+  def linked_avatar_image style
+    h.link_to avatar_image(style), h.user_path(model)
   end
 
   def edit_link

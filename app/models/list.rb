@@ -41,7 +41,7 @@ class List
   end
 
   def self.search params, page=0
-    params.select! {|k, v| ['q', 'category_id', 'user_id', 'user_ids', 'starts_at', 'ends_at'].include? k }
+    params.select! {|k| ['q', 'category_id', 'user_id', 'user_ids', 'starts_at', 'ends_at'].include? k }
     tire.search({page: page, per_page: 12, load: true}) do
       query { string(params['q'], default_operator: "OR", fields: List.search_fields) } unless params['q'].blank?
       filter(:and, List.search_filters(params)) unless params.except('q').size == 0

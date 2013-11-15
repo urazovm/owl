@@ -1,14 +1,21 @@
 class LovesController < ApplicationController
   before_filter :authenticate_user!
+  # caches_action :index
 
   def create
     @list = List.find(params[:list_id])
     current_user.love! @list
+    # expire_action list_path(@list)
+    # expire_action list_loves_path(@list)
+    # expire_action user_path(current_user)
   end
 
   def destroy
     @list = List.find(params[:list_id])
     current_user.ignore! @list
+    # expire_action list_path(@list)
+    # expire_action list_loves_path(@list)
+    # expire_action user_path(current_user)
   end
 
   def index
