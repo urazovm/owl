@@ -1,12 +1,15 @@
 Owl::Application.routes.draw do
   devise_for :users
 
-  resources :lists, path: '' do
+  root to: 'lists#index', as: 'lists'
+
+  resources :lists, only: [:show, :edit, :update, :destroy, :new, :update] do
     resource :love, only: [:create, :destroy]
     resources :loves, only: [:index]
     resources :comments, only: [:create, :destroy]
   end
-  resources :users, only: [:show, :edit, :update] do
+
+  resources :users, path: '', only: [:show, :edit, :update] do
     resource :love, only: [:create, :destroy]
     resource :follow, only: [:create, :destroy]
     resources :loves, only: [:index]
