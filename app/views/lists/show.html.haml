@@ -1,28 +1,6 @@
 = render partial: 'layouts/menu'
-
-%h1= @list.linked_title
-%p
-  = @user.linked_avatar_image(:small)
-  = @user.linked_login
-
-%p
-  %strong lovers
-  %span#total_lovers= @list.total_lovers
-%p
-  %strong comments
-  %span#total_comments= @list.total_comments
-
-%p= @list.linked_category
-%p= @list.linked_user
-%p= @list.edit_link
-%p= @list.love_button
-%p= @list.lovers_link
-%p= @list.description
-%ul
-  - @list.items.each_with_index do |item, i|
-    %li
-      = item.small_image
-      = item.title
-
+= render partial: 'lists/header', locals: {list: @list}
+= render partial: 'lists/info', locals: {list: @list, user: @user}
+= render partial: 'items/list', locals: {items: @items}
 = render partial: 'comments/form', locals: { comment: @comment } if defined? @comment
 = render partial: 'comments/list', locals: { comments: @comments }

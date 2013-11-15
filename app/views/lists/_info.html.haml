@@ -1,0 +1,17 @@
+%div
+  = user.linked_avatar_image(:small)
+  = user.linked_login
+
+%p
+  %strong lovers
+  %span#total_lovers= list.total_lovers
+%p
+  %strong comments
+  %span#total_comments= list.total_comments
+
+%p= list.linked_category
+%p= list.linked_user
+%p= list.edit_link
+%p= list.love_button
+%p= list.lovers_link
+%p= list.description

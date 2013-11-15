@@ -11,6 +11,7 @@ class List
   validates_presence_of :title, :category_id
   validates_numericality_of :category_id, greater_than_or_equal_to: 0, less_than: ListCategories.length
   validates_length_of :description, maximum: 900, allow_blank: true
+  # TODO validate that there is at least one item
   accepts_nested_attributes_for :items
   after_save :check_search_index
   default_scope where(deleted_at: nil)

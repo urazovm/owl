@@ -29,6 +29,7 @@ class ListsController < ApplicationController
   def show
     list = List.find(params[:id])
     @user = list.user.decorate
+    @items = list.items.decorate
     @list = list.decorate
     @comments = list.comments.desc(:created_at).includes(:user).decorate
     @comment = list.comments.build if signed_in?

@@ -1,26 +1,5 @@
 = render partial: 'layouts/menu'
-
-%h1= @user.login
-%p= @user.avatar_image(:medium)
-
-%p
-  %strong loves
-  %span#total_loves= @user.total_loves
-%p
-  %strong followings
-  %span#total_followings= @user.total_followings
-%p
-  %strong followers
-  %span#total_followers= @user.total_followers
-%p
-  %strong lists
-  %span#total_lists= @user.total_lists
-
-%p= @user.edit_link
-%p= @user.follow_button
-%p= @user.lovings_link
-%p= @user.followings_link
-%p= @user.followers_link
-
+= render partial: 'users/header', locals: {user: @user}
+= render partial: 'users/info', locals: {user: @user}
 = render partial: 'lists/tmp', locals: {lists: @tmp_lists} if defined?(@tmp_lists)
 = render partial: 'lists/list', locals: {lists: @lists} if @lists.count > 0
