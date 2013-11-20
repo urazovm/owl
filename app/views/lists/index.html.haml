@@ -1,5 +1,3 @@
-= render partial: 'layouts/menu'
-
 - if defined?(@tmp_lists)
   - cache ['v1', tmp_list_cookie_updated_at] do
     = render partial: 'lists/tmp', locals: {lists: @tmp_lists.decorate}

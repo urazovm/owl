@@ -10,6 +10,10 @@
 </head>
 <body>
 
+  <% cache ['v1', current_user, 'menu'] do %>
+    <%= render partial: 'layouts/menu' %>
+  <% end %>
+
   <%= yield %>
 
   <script>
