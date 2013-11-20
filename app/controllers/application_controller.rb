@@ -46,10 +46,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     assign_tmp_lists(resource)
     clear_tmp_lists
-    session[:stored_url] ? session[:stored_url] : home_path
+    session[:stored_url] ? session[:stored_url] : lists_path
   end
   def after_sign_out_path_for(resource)
-    session[:stored_url] ? session[:stored_url] : home_path
+    session[:stored_url] ? session[:stored_url] : lists_path
   end
   def after_update_path_for(resource)
     user_path(resource)

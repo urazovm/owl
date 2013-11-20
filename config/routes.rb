@@ -1,7 +1,7 @@
 Owl::Application.routes.draw do
   devise_for :users
 
-  root to: 'lists#index', as: 'home'
+  root to: 'lists#index', as: 'lists'
 
   resources :lists, only: [:show, :edit, :update, :destroy, :new, :create] do
     resource :love, only: [:create, :destroy]

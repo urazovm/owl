@@ -4,5 +4,5 @@
   - cache ['v1', tmp_list_cookie_updated_at] do
     = render partial: 'lists/tmp', locals: {lists: @tmp_lists.decorate}
 
-- cache ['v1', cache_key_for_lists, params[:q], params[:page]] do
+- cache ['v1', cache_key_for_lists, params[:category_id], params[:q], params[:page]] do
   = render partial: 'lists/list', locals: {lists: @lists} if @lists.count > 0
