@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   def index
     @list = List.find(params[:list_id])
     @comments = @list.comments.desc(:created_at).includes(:user)
-    @comment = @list.comments.build if signed_in?
+    @comment = @list.comments.build
     @category_id = @list.category_id
     @user = @list.user
   end
