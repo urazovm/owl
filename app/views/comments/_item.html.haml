@@ -1,0 +1,6 @@
+- cache ['v1', comment, 'item'] do
+  - comment = comment.decorate
+  %li
+    = comment.linked_user
+    = comment.message
+    = comment.delete_link

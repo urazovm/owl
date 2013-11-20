@@ -1,6 +1,2 @@
 %ul#users
-  - users.each do |user|
-    %li
-      = user.linked_avatar_image(:small)
-      = user.linked_login
-      = user.follow_button
+  = render partial: 'users/item', collection: users, as: :user

@@ -1,3 +1,5 @@
-%li
-  = item.small_image
-  = item.title
+- cache ['v1', item, 'item'] do
+  - item = item.decorate
+  %li
+    = item.small_image
+    = item.title

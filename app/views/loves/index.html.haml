@@ -2,7 +2,7 @@
   - cache ['v1', @list, @user, 'info'] do
     = render partial: 'lists/info', locals: { list: @list.decorate, user: @user.decorate }
   - cache ['v1', @list, 'lovers'] do
-    = render partial: 'loves/user_list', locals: { users: @users.decorate }
+    = render partial: 'loves/user_list', locals: { users: @users }
 
 - elsif defined? @lists
   - cache ['v1', @user, 'info'] do

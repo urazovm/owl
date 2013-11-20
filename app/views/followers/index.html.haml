@@ -2,4 +2,4 @@
   = render partial: 'users/info', locals: {user: @user.decorate}
 
 - cache ['v1', @user, 'followers'] do
-  = render partial: 'followers/user_list', locals: {users: @users.decorate}
+  = render partial: 'followers/user_list', locals: {users: @users}
