@@ -7,3 +7,6 @@
 - cache ['v1', @list, 'show'] do
   = render partial: 'items/list', locals: {items: @items.decorate}
   = render partial: 'comments/list', locals: { comments: @comments.decorate }
+
+%script
+  = "window.owl.env['category_id'] = #{@category_id};"

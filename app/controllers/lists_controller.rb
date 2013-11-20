@@ -21,10 +21,13 @@ class ListsController < ApplicationController
     logger.debug tmp_list_cookie_updated_at
     @tmp_lists = List.where(:_id.in => tmp_lists) if has_tmp_lists?
     @lists = List.search(params, params[:page])
+    @query = params[:query] unless params[:query].blank?
+    @category_id = params[:category_id] unless params[:category_id].blank?
   end
 
   def show
     @list = List.find(params[:id])
+    @category_id = @list.category_id
     @user = @list.user
     @items = @list.items
     @comments = @list.comments.desc(:created_at).includes(:user)

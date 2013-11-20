@@ -1,25 +1,12 @@
-%p
-  %a{href: lists_path} OWL
-  %span -
-  %a{href: new_list_path} Create a new list
-
-- if signed_in?
-  %p
-    = link_to current_user.login, user_path(current_user)
-    %span /
-    = link_to 'logout', destroy_user_session_path, method: :delete
-
-- else
-  %p
-    %a{href: new_user_registration_path} register
-    %span /
-    %a{href: new_user_session_path} login
-
-= form_tag lists_path, method: :get do
-  = text_field_tag :q, params[:q]
-  = hidden_field_tag :category_id, params[:category_id] unless params[:category_id].blank?
-  = submit_tag 'Search'
-
-%ul
-  - ListCategories.each do |category|
-    %li= link_to category[0], lists_path(category_id: category[1])
+#header
+  %a.logo{href: lists_path} OWL
+  %a.new.btn.btn-success{href: new_list_path} Create a new list
+  %p.tools
+    - if signed_in?
+      = link_to current_user.login, user_path(current_user)
+      %span /
+      = link_to 'logout', destroy_user_session_path, method: :delete
+    - else
+      %a{href: new_user_registration_path} register
+      %span /
+      %a{href: new_user_session_path} login

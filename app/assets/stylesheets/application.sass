@@ -1,2 +1,46 @@
 $legacy-support-for-ie6: false
 $legacy-support-for-ie7: false
+$brown_pale: #fcfbe3
+$brown_normal: #c4ac88
+$brown_dark: #594430
+$grey_pale: #f9f9f9
+$grey_light: #e5e5e5
+$grey_dark: #555555
+
+@import compass/css3
+
+#header
+  text-align: center
+  .logo
+    display: block
+    font-size: 3em
+    font-family: serif
+  .new
+    font-size: 1.3em
+  .tools
+    margin-top: 1em
+
+#search
+  margin-top: 2em
+  .submit
+    display: block
+    width: 100%
+    margin-top: 0.5em
+
+#categories
+  text-align: center
+  li
+    display: inline-block
+    margin: 0.2em 0.1em
+  a
+    display: block
+    background: $grey_pale
+    width: 60px
+    height: 60px
+    text-align: center
+    font-size: 3em
+    +border-radius(30px)
+    &:hover
+      background: $grey_light
+    &.selected
+      background: $brown_pale

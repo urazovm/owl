@@ -4,3 +4,7 @@
 
 - cache ['v1', cache_key_for_lists, params[:category_id], params[:q], params[:page]] do
   = render partial: 'lists/list', locals: {lists: @lists} if @lists.count > 0
+
+%script
+  = "window.owl.env['category_id'] = #{@category_id};" if defined?  @category_id
+  = "window.owl.env['query'] = '#{@query}';" if defined?  @query
