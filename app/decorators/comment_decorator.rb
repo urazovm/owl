@@ -4,7 +4,7 @@ class CommentDecorator < ApplicationDecorator
   end
 
   def delete_link
-    h.link_to 'delete', h.list_comment_path(object.list, object), method: :delete, remote: true if h.signed_in? && h.current_user.id == object.user_id
+    h.link_to 'delete', h.list_comment_path(object.list, object), method: :delete if h.signed_in? && h.current_user.id == object.user_id
   end
 
   def linked_user
