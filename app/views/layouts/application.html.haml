@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+%html
+%head
+  %title Owl
+  = javascript_include_tag "vendor", "data-turbolinks-track" => true
+  = javascript_include_tag "application", "data-turbolinks-track" => true
+  = stylesheet_link_tag "vendor", media: "all", "data-turbolinks-track" => true
+  = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+  = csrf_meta_tags
+
+%body
+  - cache ['v1', current_user, 'menu'] do
+    = render partial: 'layouts/menu'
+  = yield
+  %script
+    = "window.owl.env['controller'] = #{params['controller'] || 'none'};"
+    = "window.owl.env['action'] = #{params['action'] || 'none'};"
