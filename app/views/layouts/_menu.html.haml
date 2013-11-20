@@ -1,7 +1,12 @@
-#header
-  %a.logo{href: lists_path} OWL
-  %a.new.btn.btn-success{href: new_list_path} Create a new list
-  %p.tools
+.header_logo.col-sm-2
+  = link_to 'OWL', lists_path
+
+.header_description.col-sm-7
+  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt est vel.
+
+.header_controls.col-sm-3
+  = link_to 'Create a new list', new_list_path, class: 'btn btn-primary'
+  %p
     - if signed_in?
       = link_to current_user.login, user_path(current_user, r: 1)
       %span /

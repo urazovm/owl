@@ -1,13 +1,15 @@
-- if defined?(@tmp_lists)
-  - cache ['v1', tmp_list_cookie_updated_at] do
-    = render partial: 'lists/tmp', locals: { lists: @tmp_lists.decorate }
+.row
+  .col-sm-12
+    - if defined?(@tmp_lists)
+      - cache ['v1', tmp_list_cookie_updated_at] do
+        = render partial: 'lists/tmp', locals: { lists: @tmp_lists.decorate }
 
-- if defined? @category_id
-  - cache ['v1', @category_id, 'lists'] do
-    = render partial: 'lists/category', locals: { category_id: @category_id }
+    - if defined? @category_id
+      - cache ['v1', 'category', @category_id] do
+        = render partial: 'lists/category', locals: { category_id: @category_id }
 
-- cache ['v1', cache_key_for_lists, params[:category_id], params[:q], params[:page]] do
-  = render partial: 'lists/list', locals: { lists: @lists } if @lists.count > 0
+    - cache ['v1', cache_key_for_lists, params[:category_id], params[:q], params[:page]] do
+      = render partial: 'lists/list', locals: { lists: @lists } if @lists.count > 0
 
 %script
   = "window.owl.env['category_id'] = #{@category_id};" if defined? @category_id

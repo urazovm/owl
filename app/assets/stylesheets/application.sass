@@ -9,24 +9,36 @@ $grey_dark: #555555
 
 @import compass/css3
 
-#header
-  text-align: center
-  .logo
-    display: block
-    font-size: 3em
-  .new
-    font-size: 1.3em
-  .tools
-    margin-top: 1em
-
-#search
+.container
   margin-top: 2em
-  .submit
-    display: block
-    width: 100%
-    margin-top: 0.5em
 
-#categories
+h1
+  font-size: 1.8em
+  @media (min-width: 768px)
+    font-size: 2.2em
+
+.header_logo
+  text-align: center
+  font-size: 2.5em
+  @media (min-width: 768px)
+    text-align: left
+    font-size: 3.5em
+    line-height: 1em
+.header_description
+  text-align: center
+  @media (min-width: 768px)
+    text-align: left
+    font-size: 1.3em
+.header_controls
+  text-align: center
+  p
+    margin-top: 0.5em
+  @media (min-width: 768px)
+    .btn
+      display: block
+
+.categories
+  padding-top: 0.5em
   text-align: center
   li
     display: inline-block
@@ -34,13 +46,18 @@ $grey_dark: #555555
   a
     display: block
     background: $grey_pale
-    width: 60px
-    height: 60px
     text-align: center
-    font-size: 3em
-    +border-radius(30px)
+    width: 40px
+    height: 40px
+    font-size: 2em
+    +border-radius(20px)
+    @media (min-width: 768px)
+      width: 60px
+      height: 60px
+      font-size: 3em
+      +border-radius(30px)
     &:hover
-      background: $grey_light
+      background: $brown_pale
     &.selected
       background: $brown_pale
 

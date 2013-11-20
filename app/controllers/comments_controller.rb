@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [:create, :destroy]
 
   def create
     @list = List.find(params[:list_id])
