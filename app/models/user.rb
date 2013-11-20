@@ -17,7 +17,7 @@ class User
   has_mongoid_attached_file :avatar,
     default_url: '/assets/avatar/:style.jpg',
     styles: {
-      small:    ['24x24#',   :jpg],
+      small:    ['32x32#',   :jpg],
       medium:   ['128x128#', :jpg],
       large:    ['200x200#', :jpg] }
   validates_attachment_size :avatar, less_than: 800.kilobytes
