@@ -1,4 +1,10 @@
 - cache ['v1', list, 'item'] do
   - list = list.decorate
-  %li
-    = list.linked_title
+  %li.media
+    .love.pull-left= list.total_lovers
+    .media-body
+      %h4
+        = list.linked_title
+        %small
+          %span - by
+          = list.linked_user

@@ -50,10 +50,14 @@ class ListDecorator < ApplicationDecorator
   end
 
   def total_lovers
-    object.lovers.count
+    h.content_tag :strong, "#{object.lovers.count} ♥", class: 'loves'
   end
 
   def total_comments
     object.comments.count
+  end
+
+  def total_items
+    object.items.count
   end
 end
