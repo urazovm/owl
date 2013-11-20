@@ -4,9 +4,5 @@
 
 = render partial: 'lists/actions', locals: { list: @list.decorate }
 
-= render partial: 'comments/form', locals: { comment: @comment } if defined? @comment
-- cache ['v1', @list, 'show'] do
-  = render partial: 'comments/list', locals: { comments: @comments }
-
 %script
   = "window.owl.env['category_id'] = #{@category_id};"

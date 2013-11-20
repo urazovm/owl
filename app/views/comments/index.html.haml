@@ -1,0 +1,11 @@
+- cache ['v1', @list, 'info'] do
+  = render partial: 'lists/info', locals: { list: @list.decorate, user: @user.decorate }
+
+= render partial: 'comments/form', locals: { comment: @comment } if defined? @comment
+
+- cache ['v1', @list, 'show'] do
+  %h2 All comments:
+  = render partial: 'comments/list', locals: { comments: @comments }
+
+%script
+  = "window.owl.env['category_id'] = #{@category_id};"

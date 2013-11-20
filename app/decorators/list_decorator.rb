@@ -42,7 +42,7 @@ class ListDecorator < ApplicationDecorator
   end
 
   def comments_link
-    h.link_to total_comments, h.list_path(model, anchor: 'comments'), class: 'btn btn-default'
+    h.link_to total_comments, h.list_comments_path(model), class: 'btn btn-default'
   end
 
   def linked_user

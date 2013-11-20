@@ -30,8 +30,6 @@ class ListsController < ApplicationController
     @category_id = @list.category_id
     @user = @list.user
     @items = @list.items
-    @comments = @list.comments.desc(:created_at).includes(:user)
-    @comment = @list.comments.build if signed_in?
   end
 
   def edit

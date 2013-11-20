@@ -1,3 +1,4 @@
 = simple_form_for([comment.list, comment], remote: true) do |f|
+  %h4 Post you comment:
   = f.input :message, as: :text
-  = f.button :submit
+  = f.button :submit, class: 'btn-sm'

@@ -1,5 +1,5 @@
 - if defined? @users
-  - cache ['v1', @list, @user, 'info'] do
+  - cache ['v1', @list, 'info'] do
     = render partial: 'lists/info', locals: { list: @list.decorate, user: @user.decorate }
   - cache ['v1', @list, 'lovers'] do
     = render partial: 'loves/user_list', locals: { users: @users }
