@@ -51,13 +51,10 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
     session[:stored_url] ? session[:stored_url] : lists_path
   end
-  def after_update_path_for(resource)
-    user_path(resource)
-  end
 
   # GLOBAL
   def store_urlback
-    session[:stored_url] = params[:r] ? params[:r] : nil
+    session[:stored_url] = params[:r] ? (params[:r] == '1' ? request.referer : params[:r]) : nil
   end
 
   # DEVISE

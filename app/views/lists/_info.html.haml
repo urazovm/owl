@@ -1,17 +1,15 @@
-%h1= list.linked_title
+%h1#list_title
+  = list.linked_title
+  %small
+    %span by
+    = user.linked_login
+    %span the
+    = list.date
 
-%div
-  = user.linked_avatar_image(:small)
-  = user.linked_login
+#list_links
+  %span.btn-group
+    = list.linked_category
+    = list.comments_link
+    = list.lovers_link
 
-%p
-  %strong lovers
-  %span#total_lovers= list.total_lovers
-%p
-  %strong comments
-  %span#total_comments= list.total_comments
-
-%p= list.linked_category
-%p= list.linked_user
-%p= list.lovers_link
-%p= list.description
+.well.well-sm= list.description

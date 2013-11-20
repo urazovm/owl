@@ -17,12 +17,16 @@ class ListDecorator < ApplicationDecorator
       object.comments.decorate
   end
 
+  def date
+    object.created_at.to_s(:short)
+  end
+
   def linked_title
     h.link_to model.title.capitalize, h.list_path(model)
   end
 
   def linked_category
-    h.link_to model.category_name, h.lists_path(category_id: model.category_id)
+    h.link_to model.category_name, h.lists_path(category_id: model.category_id), class: 'btn btn-default'
   end
 
   def edit_link
@@ -34,7 +38,11 @@ class ListDecorator < ApplicationDecorator
   end
 
   def lovers_link
-    h.link_to 'lovers', h.list_loves_path(model)
+    h.link_to total_lovers, h.list_loves_path(model), class: 'btn btn-default'
+  end
+
+  def comments_link
+    h.link_to total_comments, h.list_path(model, anchor: 'comments'), class: 'btn btn-default'
   end
 
   def linked_user
@@ -50,11 +58,11 @@ class ListDecorator < ApplicationDecorator
   end
 
   def total_lovers
-    h.content_tag :strong, "#{object.lovers.count} ♥", class: 'loves'
+    h.content_tag :strong, "#{object.lovers.count} ♥", class: 'loves', id: "#total_lovers_#{object.id}"
   end
 
   def total_comments
-    object.comments.count
+    h.content_tag :strong, "#{object.comments.count} c", class: 'comments', id: "#total_comments_#{object.id}"
   end
 
   def total_items
