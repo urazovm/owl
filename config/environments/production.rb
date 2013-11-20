@@ -77,4 +77,7 @@ Owl::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Cache
+  config.cache_store = :dalli_store
 end

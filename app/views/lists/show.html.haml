@@ -1,6 +1,11 @@
 = render partial: 'layouts/menu'
-= render partial: 'lists/header', locals: {list: @list}
-= render partial: 'lists/info', locals: {list: @list, user: @user}
-= render partial: 'items/list', locals: {items: @items}
+
+- cache ['v1', @list, @user, 'info'] do
+  = render partial: 'lists/info', locals: {list: @list.decorate, user: @user.decorate}
+
+= render partial: 'lists/actions', locals: {list: @list.decorate}
 = render partial: 'comments/form', locals: { comment: @comment } if defined? @comment
-= render partial: 'comments/list', locals: { comments: @comments }
+
+- cache ['v1', @list, 'show'] do
+  = render partial: 'items/list', locals: {items: @items.decorate}
+  = render partial: 'comments/list', locals: { comments: @comments.decorate }

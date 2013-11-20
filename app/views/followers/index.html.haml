@@ -1,3 +1,7 @@
 = render partial: 'layouts/menu'
-= render partial: 'users/header', locals: {user: @user}
-= render partial: 'followers/user_list', locals: {users: @users}
+
+- cache ['v1', @user, 'info'] do
+  = render partial: 'users/info', locals: {user: @user.decorate}
+
+- cache ['v1', @user, 'followers'] do
+  = render partial: 'followers/user_list', locals: {users: @users.decorate}

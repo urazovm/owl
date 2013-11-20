@@ -1,5 +1,13 @@
 = render partial: 'layouts/menu'
-= render partial: 'users/header', locals: {user: @user}
-= render partial: 'users/info', locals: {user: @user}
-= render partial: 'lists/tmp', locals: {lists: @tmp_lists} if defined?(@tmp_lists)
-= render partial: 'lists/list', locals: {lists: @lists} if @lists.count > 0
+
+- cache ['v1', @user, 'info'] do
+  = render partial: 'users/info', locals: { user: @user.decorate }
+
+= render partial: 'users/actions', locals: { user: @user.decorate }
+
+- if defined?(@tmp_lists)
+  - cache ['v1', tmp_list_cookie_updated_at] do
+    = render partial: 'lists/tmp', locals: { lists: @tmp_lists.decorate }
+
+- cache ['v1', @user, 'lists'] do
+  = render partial: 'lists/list', locals: { lists: @lists }

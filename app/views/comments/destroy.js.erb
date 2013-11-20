@@ -1,2 +1,2 @@
-$("#comments").replaceWith("<%= escape_javascript(render(partial: 'comments/list', locals: { comments: @comments })) %>");
+$("#comments").replaceWith("<%= escape_javascript(render(partial: 'comments/list', locals: { comments: @comments.decorate })) %>");
 $("#total_comments").html(parseInt($("#total_comments").html(), 10) - 1);

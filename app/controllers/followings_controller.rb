@@ -1,9 +1,6 @@
 class FollowingsController < ApplicationController
-  # caches_action :index
-
   def index
-    user = User.find(params[:user_id])
-    @users = User.where(:id.in => user.followings).decorate
-    @user = user.decorate
+    @user = (signed_in? && current_user.slug == params[:user_id]) ? current_user : User.find(params[:user_id])
+    @users = User.where(:id.in => @user.followings)
   end
 end

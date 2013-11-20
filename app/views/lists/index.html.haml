@@ -1,3 +1,8 @@
 = render partial: 'layouts/menu'
-= render partial: 'lists/tmp', locals: {lists: @tmp_lists} if defined?(@tmp_lists)
-= render partial: 'lists/list', locals: {lists: @lists} if @lists.count > 0
+
+- if defined?(@tmp_lists)
+  - cache ['v1', tmp_list_cookie_updated_at] do
+    = render partial: 'lists/tmp', locals: {lists: @tmp_lists.decorate}
+
+- cache ['v1', cache_key_for_lists, params[:q], params[:page]] do
+  = render partial: 'lists/list', locals: {lists: @lists} if @lists.count > 0

@@ -4,7 +4,7 @@ class List
   include Mongoid::Slug
   include Tire::Model::Search
 
-  belongs_to :user
+  belongs_to :user, touch: true
   has_many :comments
   embeds_many :items, cascade_callbacks: true
   embeds_many :comments

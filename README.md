@@ -24,7 +24,7 @@
 	- ~~follow / unfollow~~
 	- ~~following / followers~~
 - Optimization
-	- caching
+	- ~~caching~~
 - Misc
 	- social tools
 	- facebook connect

@@ -1,7 +1,13 @@
 = render partial: 'layouts/menu'
+
 - if defined? @users
-  = render partial: 'lists/header', locals: {list: @list}
-  = render partial: 'loves/user_list', locals: { users: @users }
+  - cache ['v1', @list, @user, 'info'] do
+    = render partial: 'lists/info', locals: { list: @list.decorate, user: @user.decorate }
+  - cache ['v1', @list, 'lovers'] do
+    = render partial: 'loves/user_list', locals: { users: @users.decorate }
+
 - elsif defined? @lists
-  = render partial: 'users/header', locals: {user: @user}
-  = render partial: 'loves/list_list', locals: { users: @lists }
+  - cache ['v1', @user, 'info'] do
+    = render partial: 'users/info', locals: { user: @user.decorate }
+  - cache ['v1', @user, 'lovings'] do
+    = render partial: 'loves/list_list', locals: { lists: @lists }

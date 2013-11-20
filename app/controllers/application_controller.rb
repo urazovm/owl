@@ -12,9 +12,11 @@ class ApplicationController < ActionController::Base
   # TMP LISTS
   def create_tmp_list list
     cookies.permanent.signed[:owl_lists] = (cookies.signed[:owl_lists]||[]) << list.id.to_s
+    touch_tmp_list_cookie
   end
   def remove_tmp_list list
     cookies.permanent.signed[:owl_lists] = cookies.signed[:owl_lists].reject! {|e| e == list.id.to_s } if cookies.signed[:owl_lists]
+    touch_tmp_list_cookie
   end
   def tmp_lists
     cookies.signed[:owl_lists] || []
@@ -27,19 +29,27 @@ class ApplicationController < ActionController::Base
   end
   def assign_tmp_lists user
     tmp_lists.each {|id| user.lists << List.find(id) }
+    touch_tmp_list_cookie
   end
   def clear_tmp_lists
     cookies.delete :owl_lists
+    touch_tmp_list_cookie
+  end
+  def touch_tmp_list_cookie
+    cookies.permanent.signed[:owl_updated_at] = Time.now.to_i
+  end
+  def tmp_list_cookie_updated_at
+    cookies.signed[:owl_updated_at] || 0
   end
 
   # DEVISE
   def after_sign_in_path_for(resource)
     assign_tmp_lists(resource)
     clear_tmp_lists
-    session[:stored_url] ? session[:stored_url] : lists_path
+    session[:stored_url] ? session[:stored_url] : home_path
   end
   def after_sign_out_path_for(resource)
-    session[:stored_url] ? session[:stored_url] : lists_path
+    session[:stored_url] ? session[:stored_url] : home_path
   end
   def after_update_path_for(resource)
     user_path(resource)

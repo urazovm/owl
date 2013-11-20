@@ -9,4 +9,6 @@
         = i.input :image, as: :image_preview, input_html: { preview_version: :small }
   = f.button :submit
 
-%p= link_to 'delete', list_path(list), method: :delete, confirm: 'Are you sure??' if list.persisted?
+- if list.persisted?
+  %p= link_to 'cancel', list_path(list)
+  %p= link_to 'delete', list_path(list), method: :delete, confirm: 'Are you sure??'

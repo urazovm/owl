@@ -1,3 +1,7 @@
+%h1
+  = user.avatar_image(:medium)
+  = user.linked_login
+
 %p
   %strong loves
   %span#total_loves= user.total_loves
@@ -11,8 +15,6 @@
   %strong lists
   %span#total_lists= user.total_lists
 
-%p= user.edit_link
-%p= user.follow_button
 %p= user.lovings_link
 %p= user.followings_link
 %p= user.followers_link
