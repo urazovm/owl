@@ -1,3 +1,6 @@
+.row= render partial: 'layouts/header'
+%hr
+.row= render partial: 'layouts/categories' unless defined? @category_id
 .row
   .col-sm-12
     - if defined?(@tmp_lists)
@@ -12,5 +15,4 @@
       = render partial: 'lists/list', locals: { lists: @lists } if @lists.count > 0
 
 %script
-  = "window.owl.env['category_id'] = #{@category_id};" if defined? @category_id
   = "window.owl.env['query'] = '#{@query}';" if defined?  @query

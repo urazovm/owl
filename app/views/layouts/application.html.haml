@@ -10,8 +10,6 @@
 
   %body
     .container
-      .row= render partial: 'layouts/menu'
-      .row= render partial: 'layouts/categories' unless defined? @category_id
       = yield
 
     %script

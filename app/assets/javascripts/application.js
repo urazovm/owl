@@ -6,7 +6,6 @@ window.owl = window.owl || {views:{}, env:{}, func:{}};
 window.owl.func['ready'] = function() {
     var page = window.owl.env.controller + '_' + window.owl.env.action;
     typeof window.owl.views[page] == 'function' && window.owl.views[page]();
-    typeof window.owl.env['category_id'] == 'number' && $('.categories a.category_' + window.owl.env['category_id']).addClass('selected');
     typeof window.owl.env['query'] == 'string' && $('#query').attr('value', window.owl.env['query']);
 }
 
