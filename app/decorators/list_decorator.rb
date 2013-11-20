@@ -30,7 +30,7 @@ class ListDecorator < ApplicationDecorator
   end
 
   def edit_link
-    h.link_to 'edit', h.edit_list_path(model) if h.signed_in? && model.user_id == h.current_user.id
+    h.link_to 'edit this list', h.edit_list_path(model), class: 'btn btn-default btn-full' if h.signed_in? && model.user_id == h.current_user.id
   end
 
   def love_button
@@ -45,16 +45,20 @@ class ListDecorator < ApplicationDecorator
     h.link_to total_comments, h.list_comments_path(model), class: 'btn btn-default'
   end
 
+  def items_link
+    h.link_to total_items, h.list_path(model), class: 'btn btn-default'
+  end
+
   def linked_user
     h.link_to model.user.login, h.user_path(model.user)
   end
 
   def love_link
-    h.link_to "like", h.list_love_path(object), remote: true, method: :post
+    h.link_to "like", h.list_love_path(object), remote: true, method: :post, class: 'btn btn-primary btn-full'
   end
 
   def ignore_link
-    h.link_to "dislike", h.list_love_path(object), remote: true, method: :delete
+    h.link_to "dislike", h.list_love_path(object), remote: true, method: :delete, class: 'btn btn-default btn-full'
   end
 
   def total_lovers
@@ -66,6 +70,6 @@ class ListDecorator < ApplicationDecorator
   end
 
   def total_items
-    object.items.count
+    h.content_tag :strong, "#{object.items.count} i", class: 'items', id: "#total_items_#{object.id}"
   end
 end

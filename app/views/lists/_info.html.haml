@@ -1,4 +1,4 @@
-%h1#list_title
+%h1
   = list.linked_title
   %small
     %span by
@@ -6,10 +6,5 @@
     %span the
     = list.date
 
-#list_links
-  %span.btn-group
-    = list.linked_category
-    = list.comments_link
-    = list.lovers_link
-
-= list.description
+%hr.hidden-xs
+= @list.decorate.description

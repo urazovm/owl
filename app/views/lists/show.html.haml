@@ -1,8 +1,22 @@
-- cache ['v1', @list, 'info'] do
-  = render partial: 'lists/info', locals: { list: @list.decorate, user: @user.decorate }
-  = render partial: 'items/list', locals: { items: @items }
+.row
+  .col-sm-4
+    - cache ['v1', @list, 'info'] do
+      = render partial: 'lists/info', locals: { list: @list.decorate, user: @user.decorate }
+    .row
+      .col-sm-12.col-xs-8
+        - cache ['v1', @list, 'links'] do
+          = render partial: 'lists/links', locals: { list: @list.decorate }
+      .col-sm-12.col-xs-4
+        = render partial: 'lists/actions', locals: { list: @list.decorate }
 
-= render partial: 'lists/actions', locals: { list: @list.decorate }
+    -# = render partial: 'lists/info', locals: { list: @list.decorate, user: @user.decorate }
+    -# = render partial: 'lists/actions', locals: { list: @list.decorate }
+
+    -# %hr
+
+  .col-sm-8
+    - cache ['v1', @list, 'items'] do
+      = render partial: 'items/list', locals: { items: @items }
 
 %script
   = "window.owl.env['category_id'] = #{@category_id};"
