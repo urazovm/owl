@@ -8,8 +8,8 @@ class Item
 
   has_mongoid_attached_file :image,
     styles: {
-      small: ['42x42#',   :jpg],
-      large: ['200x200#', :jpg] }
+      small: ['120x120#',   :jpg],
+      large: ['500x500#', :jpg] }
   validates_attachment_size :image, less_than: 800.kilobytes
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/png', 'image/gif']
 

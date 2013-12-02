@@ -1,10 +1,6 @@
 class ItemDecorator < ApplicationDecorator
-  def title
-    position + name
-  end
-
-  def small_image
-    h.image_tag object.image.url(:small) if object.image.exists?
+  def image(style)
+    h.image_tag object.image.url(style), class: :image if object.image.exists?
   end
 
   def name

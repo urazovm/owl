@@ -28,6 +28,11 @@ h2
   @media (min-width: 768px)
     font-size: 1.8em
 
+h3
+  font-size: 1.4em
+  @media (min-width: 768px)
+    font-size: 1.6em
+
 hr.trans
   border-color: transparent
 
@@ -108,16 +113,17 @@ hr.trans
     padding: 8px 0 0 0
     font-size: 1.3em
     border-top: solid 1px $grey_pale
+    clear: both
     &:first-child
       border: none
-    strong
+    .position
       width: 45px
       text-align: right
-      float: left
-      margin-right: 15px
-    span
+      margin-right: 10px
       display: block
-      margin-left: 60px
+    .image
+      margin: 0 10px 0 0
+      float: left
 
 #comments
   li
@@ -127,3 +133,15 @@ hr.trans
     .delete
       float: right
       font-size: 0.8em
+
+#users
+  li
+    margin: 0 0 10px 0
+    .avatar
+      margin: 0 10px 0 0
+    .login
+      font-weight: bold
+      font-size: 1.2em
+    .btn
+      margin: 8px 0 0 0
+      float: right

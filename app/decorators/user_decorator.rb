@@ -36,11 +36,11 @@ class UserDecorator < ApplicationDecorator
   end
 
   def follow_link
-    h.link_to "follow", h.user_follow_path(object), remote: true, method: :post
+    h.link_to "follow", h.user_follow_path(object), remote: true, method: :post, class: 'btn btn-primary'
   end
 
   def unfollow_link
-    h.link_to "unfollow", h.user_follow_path(object), remote: true, method: :delete
+    h.link_to "unfollow", h.user_follow_path(object), remote: true, method: :delete, class: 'btn btn-default'
   end
 
   def total_loves
