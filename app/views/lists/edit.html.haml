@@ -1,1 +1,5 @@
-= render partial: 'lists/form', locals: {list: @list}
+.row= render partial: 'layouts/header'
+%hr
+.row
+  .col-sm-12
+    = render partial: 'lists/form', locals: {list: @list}
