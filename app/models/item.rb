@@ -14,5 +14,5 @@ class Item
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/png', 'image/gif']
 
   field :name,     type: String
-  field :position, type: Integer, default: Float::INFINITY
+  field :position, type: Integer, default: 99999
 end

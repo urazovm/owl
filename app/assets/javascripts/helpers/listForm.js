@@ -13,7 +13,7 @@
 
     ListForm.prototype.onKeyup = function(e) {
         if ((e.keyCode < 112 || e.keyCode > 123) && this.options.specialKeys.indexOf(e.keyCode) == -1) {
-            this.container.append($('<div class="item"></div>').append(this.lastItem.html().replace(new RegExp(this.totalItems - 1, 'g'), this.totalItems)));
+            this.container.append($('<li class="item"></li>').append(this.lastItem.html().replace(new RegExp(this.totalItems - 1, 'g'), this.totalItems)));
             this.totalItems ++;
             this.lastItem.off('keyup', $.proxy(this.onKeyup, this));
             this.lastItem = this.container.find('.item').last();
