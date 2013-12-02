@@ -71,6 +71,10 @@ class List
     ListCategories.at(category_id)[0]
   end
 
+  def items_ordered
+    items.sort_by(&:position)
+  end
+
 private
 
   def check_search_index

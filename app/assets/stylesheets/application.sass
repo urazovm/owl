@@ -99,6 +99,25 @@ hr.trans
   display: block
   width: 100%
 
+#list_form_items
+  font-weight: bold
+  li
+    font-size: 1.3em
+    margin: 0 0 15px 0
+    padding: 15px 0 0 0
+    border-top: solid 1px $grey_light
+    .item-body
+      font-size: 0.7em
+      .text
+        margin: 0
+        textarea
+          height: 60px
+      img
+        margin: 0 10px 0 0
+        width: 60px
+        height: 60px
+        float: left
+
 #lists
   margin-top: 2em
   li
@@ -108,6 +127,7 @@ hr.trans
       font-size: 2em
 
 #items
+  font-weight: bold
   li
     margin: 0 0 8px 0
     padding: 8px 0 0 0
@@ -116,14 +136,11 @@ hr.trans
     clear: both
     &:first-child
       border: none
-    .position
-      width: 45px
-      text-align: right
-      margin-right: 10px
-      display: block
     .image
-      margin: 0 10px 0 0
+      margin: 0 10px 8px 0
       float: left
+    .name
+      font-weight: normal
 
 #comments
   li

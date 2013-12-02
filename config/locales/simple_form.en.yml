@@ -10,3 +10,6 @@ en:
     placeholders:
       defaults:
         message: "Add a comment..."
+        title: "Title..."
+        name: "Name..."
+        description: "Description... (optional)"

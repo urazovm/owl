@@ -1,1 +1,2 @@
-$('#item_<%= @item.id %> img, #item_<%= @item.id %> a.delete').remove();
+$('#item_<%= @item.id %> img').replaceWith('<img src="/assets/images/small.jpg">');
+$('#item_<%= @item.id %> a.delete').remove();

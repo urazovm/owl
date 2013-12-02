@@ -1,8 +1,5 @@
 - cache ['v1', item, 'item'] do
   - item = item.decorate
-  %li.media
-    .pull-left
-      = item.position
-    .media-body
-      = item.image(:small)
-      = item.name
+  %li
+    = item.image(:small)
+    = item.name

@@ -4,7 +4,7 @@ class Item
   include Mongoid::Paperclip
 
   embedded_in :list
-  validates_length_of :name, maximum: 100, allow_blank: true
+  validates_length_of :name, maximum: 900, allow_blank: true
 
   has_mongoid_attached_file :image,
     styles: {
@@ -14,5 +14,5 @@ class Item
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/png', 'image/gif']
 
   field :name,     type: String
-  field :position, type: Integer
+  field :position, type: Integer, default: Float::INFINITY
 end

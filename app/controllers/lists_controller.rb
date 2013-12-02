@@ -31,7 +31,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @category_id = @list.category_id
     @user = @list.user
-    @items = @list.items
+    @items = @list.items_ordered
   end
 
   def edit
