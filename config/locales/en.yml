@@ -9,3 +9,7 @@ en:
     zero: "%{count} item"
     one: "%{count} item"
     other: "%{count} items"
+
+  comments:
+    form:
+      submit: 'Comment'
