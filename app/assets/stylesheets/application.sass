@@ -59,6 +59,13 @@ hr.trans
     .btn
       display: block
 
+.avatar-small
+  +border-radius(5px)
+.avatar-medium
+  +border-radius(15px)
+.avatar-large
+  +border-radius(30px)
+
 .categories
   padding-top: 0.5em
   text-align: center
@@ -97,8 +104,8 @@ hr.trans
 
 #items
   li
-    margin: 0 0 5px 0
-    padding: 5px 0 0 0
+    margin: 0 0 8px 0
+    padding: 8px 0 0 0
     font-size: 1.3em
     border-top: solid 1px $grey_pale
     &:first-child
@@ -111,3 +118,12 @@ hr.trans
     span
       display: block
       margin-left: 60px
+
+#comments
+  li
+    .login
+      font-weight: bold
+      font-size: 1.2em
+    .delete
+      float: right
+      font-size: 0.8em

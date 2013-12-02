@@ -4,11 +4,11 @@ class UserDecorator < ApplicationDecorator
   end
 
   def linked_login
-    h.link_to model.login, h.user_path(model)
+    h.link_to model.login, h.user_path(model), class: :login
   end
 
   def avatar_image style
-    h.image_tag object.avatar.url(style)
+    h.image_tag object.avatar.url(style), class: "avatar avatar-#{style}"
   end
 
   def linked_avatar_image style
