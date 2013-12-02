@@ -4,8 +4,9 @@ $brown_pale: #fcfbe3
 $brown_normal: #c4ac88
 $brown_dark: #594430
 $grey_pale: #f9f9f9
-$grey_light: #e5e5e5
+$grey_light: #e3e3e3
 $grey_dark: #555555
+$white_normal: #ffffff
 
 @import compass/css3
 
@@ -92,3 +93,20 @@ hr.trans
     .love
       padding: 0em 0.5em
       font-size: 2em
+
+#items
+  li
+    margin: 0 0 5px 0
+    padding: 5px 0 0 0
+    font-size: 1.3em
+    border-top: solid 1px $grey_pale
+    &:first-child
+      border: none
+    strong
+      width: 45px
+      text-align: right
+      float: left
+      margin-right: 15px
+    span
+      display: block
+      margin-left: 60px

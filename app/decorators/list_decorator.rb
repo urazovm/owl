@@ -66,10 +66,10 @@ class ListDecorator < ApplicationDecorator
   end
 
   def total_comments
-    h.content_tag :strong, "#{object.comments.count} c", class: 'comments', id: "#total_comments_#{object.id}"
+    h.content_tag :strong, h.t('comment', count: object.comments.count), class: 'comments', id: "#total_comments_#{object.id}"
   end
 
   def total_items
-    h.content_tag :strong, "#{object.items.count} i", class: 'items', id: "#total_items_#{object.id}"
+    h.content_tag :strong, h.t('item', count: object.items.count), class: 'items', id: "#total_items_#{object.id}"
   end
 end

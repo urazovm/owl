@@ -1,6 +1,6 @@
 class ItemDecorator < ApplicationDecorator
   def title
-    position + ' - ' + name
+    position + name
   end
 
   def small_image
@@ -12,6 +12,6 @@ class ItemDecorator < ApplicationDecorator
   end
 
   def position
-    h.content_tag :strong, (object.position + 1), class: 'position'
+    h.content_tag :strong, "##{(object.position + 1)}", class: 'position'
   end
 end
