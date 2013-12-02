@@ -44,18 +44,18 @@ class UserDecorator < ApplicationDecorator
   end
 
   def total_loves
-    object.total_loves
+    h.content_tag :strong, h.t('love', count: object.total_loves), class: 'loves', id: "total_loves_#{object.id}"
   end
 
   def total_followings
-    object.followings.count
+    h.content_tag :strong, h.t('following', count: object.followings.count), class: 'followings', id: "total_followings_#{object.id}"
   end
 
   def total_followers
-    object.followers.count
+    h.content_tag :strong, h.t('follower', count: object.followers.count), class: 'followers', id: "total_followers_#{object.id}"
   end
 
   def total_lists
-    object.lists.count
+    h.content_tag :strong, h.t('list', count: object.lists.count), class: 'lists', id: "total_lists_#{object.id}"
   end
 end

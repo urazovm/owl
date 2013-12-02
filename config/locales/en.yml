@@ -10,6 +10,26 @@ en:
     one: "%{count} item"
     other: "%{count} items"
 
+  list:
+    zero: "%{count} list"
+    one: "%{count} list"
+    other: "%{count} lists"
+
+  follower:
+    zero: "%{count} follower"
+    one: "%{count} follower"
+    other: "%{count} followers"
+
+  following:
+    zero: "%{count} following"
+    one: "%{count} following"
+    other: "%{count} followings"
+
+  love:
+    zero: "%{count} love"
+    one: "%{count} love"
+    other: "%{count} loves"
+
   comments:
     form:
       submit: 'Comment'

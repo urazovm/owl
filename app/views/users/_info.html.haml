@@ -2,18 +2,10 @@
   = user.avatar_image(:medium)
   = user.linked_login
 
-%p
-  %strong loves
-  %span#total_loves= user.total_loves
-%p
-  %strong followings
-  %span#total_followings= user.total_followings
-%p
-  %strong followers
-  %span#total_followers= user.total_followers
-%p
-  %strong lists
-  %span#total_lists= user.total_lists
+%p= user.total_loves
+%p= user.total_followings
+%p= user.total_followers
+%p= user.total_lists
 
 %p= user.lovings_link
 %p= user.followings_link

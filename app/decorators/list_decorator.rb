@@ -62,14 +62,14 @@ class ListDecorator < ApplicationDecorator
   end
 
   def total_lovers
-    h.content_tag :strong, "#{object.lovers.count} ♥", class: 'loves', id: "#total_lovers_#{object.id}"
+    h.content_tag :strong, "#{object.lovers.count} ♥", class: 'loves', id: "total_lovers_#{object.id}"
   end
 
   def total_comments
-    h.content_tag :strong, h.t('comment', count: object.comments.count), class: 'comments', id: "#total_comments_#{object.id}"
+    h.content_tag :strong, h.t('comment', count: object.comments.count), class: 'comments', id: "total_comments_#{object.id}"
   end
 
   def total_items
-    h.content_tag :strong, h.t('item', count: object.items.count), class: 'items', id: "#total_items_#{object.id}"
+    h.content_tag :strong, h.t('item', count: object.items.count), class: 'items', id: "total_items_#{object.id}"
   end
 end
