@@ -64,9 +64,9 @@ hr.trans
 .avatar-small
   +border-radius(5px)
 .avatar-medium
-  +border-radius(15px)
+  +border-radius(10px)
 .avatar-large
-  +border-radius(30px)
+  +border-radius(20px)
 
 #categories
   text-align: center
@@ -165,13 +165,32 @@ hr.trans
       float: right
 
 #user_info
+  .left
+    padding-right: 15px
+  .right_2
+    vertical-align: bottom
+  .avatar
+    width: 96px
+    @media (min-width: 768px)
+      width: 128px
   .edit
     float: right
+  h1
+    margin-bottom: 0
+    @media (min-width: 768px)
+      margin-bottom: 5px
   .loves
-    font-size: 1.8em
+    font-size: 1.4em
+    @media (min-width: 768px)
+      font-size: 1.8em
+  .follow,
+  .unfollow
+    display: block
+    position: relative
+    margin-top: -10px
+    +border-top-radius(0)
 
 #user_links
-  margin-top: 1em
   .btn
     padding-bottom: 0
     line-height: 1.5em

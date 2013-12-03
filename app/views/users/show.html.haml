@@ -2,7 +2,6 @@
 %hr
 - cache ['v1', @user, 'info'] do
   = render partial: 'users/info', locals: { user: @user.decorate }
-  = render partial: 'users/links', locals: { user: @user.decorate }
 
 - if defined?(@tmp_lists)
   - cache ['v1', tmp_list_cookie_updated_at] do

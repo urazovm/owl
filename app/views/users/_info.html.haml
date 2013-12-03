@@ -1,8 +1,17 @@
-#user_info.media
-  .pull-left= user.avatar_image(:medium)
-  .media-body
-    %h1= user.linked_login
-    %p
+%table#user_info
+  %tr
+    %td.left{rowspan: 3}
+      = user.avatar_image(:medium)
+      = user.follow_action
+  %tr.right_1
+    %td
+      %h1= user.linked_login
       = user.total_loves
-    = user.edit_link
-    = user.follow_action
+      = user.edit_link
+  %tr.right_2
+    %td
+      #user_links.btn-group.btn-group-justified.list-unstyled
+        = user.lists_link(user.total_lists)
+        = user.lovings_link(user.total_loved)
+        = user.followings_link(user.total_followings)
+        = user.followers_link(user.total_followers)

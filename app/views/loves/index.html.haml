@@ -20,7 +20,6 @@
 - elsif defined? @lists
   - cache ['v1', @user, 'info'] do
     = render partial: 'users/info', locals: { user: @user.decorate }
-    = render partial: 'users/links', locals: { user: @user.decorate }
   - cache ['v1', @user, 'lovings'] do
     = render partial: 'loves/list_list', locals: { user: @user.decorate, lists: @lists }
   %script
