@@ -24,4 +24,9 @@ module ApplicationHelper
     options[:html][:class] = (options[:html][:class] || '') << " form-vertical"
     simple_form_for(object, *(args << options.merge(:builder => SimpleForm::FormBuilder)), &block)
   end
+
+  def image_lazy_tag(source, options = {})
+      options['data-echo'] = source
+      image_tag('/assets/blank.gif', options)
+  end
 end

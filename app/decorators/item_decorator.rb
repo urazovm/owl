@@ -1,6 +1,6 @@
 class ItemDecorator < ApplicationDecorator
   def image(style)
-    h.image_tag object.image.url(style), class: :image if object.image.exists?
+    h.image_lazy_tag object.image.url(style), class: :image if object.image.exists?
   end
 
   def name

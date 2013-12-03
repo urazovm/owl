@@ -8,6 +8,7 @@ window.owl.func['ready'] = function() {
     typeof window.owl.views[page] == 'function' && window.owl.views[page]();
     typeof window.owl.env['query'] == 'string' && $('#query').attr('value', window.owl.env['query']);
     typeof window.owl.env['category_id'] == 'number' && $('#categories a.category_' + window.owl.env['category_id']).addClass('selected');
+    window.Echo.init();
 }
 
 $(document).ready(window.owl.func.ready)

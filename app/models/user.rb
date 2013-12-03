@@ -15,7 +15,8 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
 
   has_mongoid_attached_file :avatar,
-    default_url: '/assets/avatar/:style.jpg',
+    url: '/system/:class/:id/:basename-:style.:extension',
+    default_url: '/assets/avatars/:style.jpg',
     styles: {
       small:    ['48x48#',   :jpg],
       medium:   ['128x128#', :jpg],

@@ -7,6 +7,8 @@ class Item
   validates_length_of :name, maximum: 900, allow_blank: true
 
   has_mongoid_attached_file :image,
+    url: '/system/:class/:id/:basename-:style.:extension',
+    default_url: '/assets/images/:style.jpg',
     styles: {
       small: ['120x120#',   :jpg],
       large: ['500x500#', :jpg] }
