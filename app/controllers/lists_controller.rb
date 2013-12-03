@@ -20,7 +20,6 @@ class ListsController < ApplicationController
   end
 
   def index
-    logger.debug tmp_list_cookie_updated_at
     @tmp_lists = List.where(:_id.in => tmp_lists) if has_tmp_lists?
     @lists = List.search(params, params[:page])
     @query = params[:query] unless params[:query].blank?

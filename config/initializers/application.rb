@@ -1,11 +1,11 @@
 ListForbiddenNames = ['users', 'lists']
 ListCategories = [
-  ['First category', 0],
-  ['Second category', 1],
-  ['Third category', 2],
-  ['Fourth category', 3],
-  ['Fivth category', 4],
-  ['Sixth category', 5],
-  ['Seventh category', 6],
-  ['Heigth category', 7]
+  ['First', 0],
+  ['Second', 1],
+  ['Third', 2],
+  ['Fourth', 3],
+  ['Fivth', 4],
+  ['Sixth', 5],
+  ['Seventh', 6],
+  ['Heigth', 7]
 ]

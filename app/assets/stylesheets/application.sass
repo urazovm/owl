@@ -1,8 +1,5 @@
 $legacy-support-for-ie6: false
 $legacy-support-for-ie7: false
-$brown_pale: #fcfbe3
-$brown_normal: #c4ac88
-$brown_dark: #594430
 $grey_pale: #f9f9f9
 $grey_light: #e3e3e3
 $grey_dark: #555555
@@ -71,29 +68,19 @@ hr.trans
 .avatar-large
   +border-radius(30px)
 
-.categories
-  padding-top: 0.5em
+#categories
   text-align: center
   li
+    margin: 0.2em 0.5em
     display: inline-block
-    margin: 0.2em 0.1em
   a
-    display: block
-    background: $grey_pale
-    text-align: center
-    width: 40px
-    height: 40px
-    font-size: 2em
-    +border-radius(20px)
+    font-size: 1.2em
+    text-transform: uppercase
     @media (min-width: 768px)
-      width: 60px
-      height: 60px
-      font-size: 3em
-      +border-radius(30px)
-    &:hover
-      background: $brown_pale
+      font-size: 1.4em
     &.selected
-      background: $brown_pale
+      color: #000
+      font-weight: bold
 
 .btn-full
   display: block
@@ -119,7 +106,7 @@ hr.trans
         float: left
 
 #lists
-  margin-top: 2em
+  margin-top: 1em
   li
     background: $grey_pale
     .love
