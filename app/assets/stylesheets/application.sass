@@ -110,9 +110,21 @@ hr.trans
 #lists
   margin-top: 1em
   li
-    background: $grey_pale
+    border-top: solid 1px $grey_pale
+    margin-top: 5px
+    padding-top: 5px
+    font-size: 0.8em
+    @media (min-width: 768px)
+      margin-top: 10px
+      padding-top: 10px
+      font-size: 1em
+    &:first-child
+      border: none
+      margin-top: 0
     .love
-      padding: 0em 0.5em
+      padding: 0.15em 0.3em 0 0.3em
+      @media (min-width: 768px)
+        padding: 0em 0.5em
       font-size: 2em
 
 #items
@@ -151,3 +163,28 @@ hr.trans
     .btn
       margin: 8px 0 0 0
       float: right
+
+#user_info
+  .edit
+    float: right
+  .loves
+    font-size: 1.8em
+
+#user_links
+  margin-top: 1em
+  .btn
+    padding-bottom: 0
+    line-height: 1.5em
+    @media (min-width: 768px)
+      padding-bottom: 6px
+      line-height: 2em
+  a
+    font-size: 1em
+    @media (min-width: 768px)
+      font-size: 1.2em
+  strong
+    display: block
+    font-size: 1.4em
+    @media (min-width: 768px)
+      display: inline
+      margin-right: 5px

@@ -10,20 +10,25 @@ en:
     one: "%{count} item"
     other: "%{count} items"
 
-  list:
-    zero: "%{count} list"
-    one: "%{count} list"
-    other: "%{count} lists"
+  list_html:
+    zero: "<strong>%{count}</strong> list"
+    one: "<strong>%{count}</strong> list"
+    other: "<strong>%{count}</strong> lists"
 
-  follower:
-    zero: "%{count} follower"
-    one: "%{count} follower"
-    other: "%{count} followers"
+  follower_html:
+    zero: "<strong>%{count}</strong> follower"
+    one: "<strong>%{count}</strong> follower"
+    other: "<strong>%{count}</strong> followers"
 
-  following:
-    zero: "%{count} following"
-    one: "%{count} following"
-    other: "%{count} followings"
+  following_html:
+    zero: "<strong>%{count}</strong> following"
+    one: "<strong>%{count}</strong> following"
+    other: "<strong>%{count}</strong> followings"
+
+  loved_html:
+    zero: "<strong>%{count}</strong> loved"
+    one: "<strong>%{count}</strong> loved"
+    other: "<strong>%{count}</strong> loved"
 
   love:
     zero: "%{count} love"

@@ -1,3 +1,4 @@
-$("#follow_button").replaceWith("<%= escape_javascript(render(partial: 'follows/button', locals: { user: @user })) %>");
+$('#follow_button .follow').hide();
+$('#follow_button .unfollow').hide().fadeIn();
 var count = $("#total_followers_<%= @user.id %>");
 count.html(count.html().replace(/\d+/g, function(x) { return Number(x) + 1; }));

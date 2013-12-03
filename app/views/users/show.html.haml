@@ -1,11 +1,16 @@
+.row= render partial: 'layouts/header'
+%hr
 - cache ['v1', @user, 'info'] do
   = render partial: 'users/info', locals: { user: @user.decorate }
-
-= render partial: 'users/actions', locals: { user: @user.decorate }
+  = render partial: 'users/links', locals: { user: @user.decorate }
 
 - if defined?(@tmp_lists)
   - cache ['v1', tmp_list_cookie_updated_at] do
     = render partial: 'lists/tmp', locals: { lists: @tmp_lists.decorate }
 
 - cache ['v1', @user, 'lists'] do
-  = render partial: 'lists/list', locals: { lists: @lists }
+  = render partial: 'users/list_list', locals: { user: @user.decorate, lists: @lists }
+
+%script
+  = "window.owl.env['following'] = #{current_user.following? @user};" if signed_in? && current_user.id != @user.id
+  = "window.owl.env['owner'] = true;" if signed_in? && current_user.id == @user.id

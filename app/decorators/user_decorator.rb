@@ -16,46 +16,54 @@ class UserDecorator < ApplicationDecorator
   end
 
   def edit_link
-    h.link_to 'edit', h.edit_user_registration_path(r: 1) if h.signed_in? && h.current_user.id == object.id
+    h.link_to 'edit my profile', h.edit_user_registration_path(r: 1), class: 'edit hidden'
   end
 
-  def follow_button
+  def follow_action
     h.render partial: 'follows/button', locals: { user: object } if h.signed_in? && h.current_user.id != object.id
   end
 
-  def lovings_link
-    h.link_to 'lovings', h.user_loves_path(model)
+  def lovings_link content
+    h.link_to content, h.user_loves_path(model), class: 'btn btn-default lovings'
   end
 
-  def followings_link
-    h.link_to 'followings', h.user_followings_path(model)
+  def followings_link content
+    h.link_to content, h.user_followings_path(model), class: 'btn btn-default followings'
   end
 
-  def followers_link
-    h.link_to 'followers', h.user_followers_path(model)
+  def followers_link content
+    h.link_to content, h.user_followers_path(model), class: 'btn btn-default followers'
   end
 
-  def follow_link
-    h.link_to "follow", h.user_follow_path(object), remote: true, method: :post, class: 'btn btn-primary'
+  def lists_link content
+    h.link_to content, h.user_path(model), class: 'btn btn-default lists'
   end
 
-  def unfollow_link
-    h.link_to "unfollow", h.user_follow_path(object), remote: true, method: :delete, class: 'btn btn-default'
+  def follow_button
+    h.link_to "follow", h.user_follow_path(object), remote: true, method: :post, class: 'btn btn-primary follow'
+  end
+
+  def unfollow_button
+    h.link_to "unfollow", h.user_follow_path(object), remote: true, method: :delete, class: 'btn btn-default unfollow'
   end
 
   def total_loves
-    h.content_tag :strong, h.t('love', count: object.total_loves), class: 'loves', id: "total_loves_#{object.id}"
+    h.content_tag :span, "#{object.total_loves} ♥", class: 'loves', id: "total_loves_#{object.id}"
+  end
+
+  def total_loved
+    h.content_tag :span, h.t('loved_html', count: object.total_loved), class: 'loved', id: "total_loved_#{object.id}"
   end
 
   def total_followings
-    h.content_tag :strong, h.t('following', count: object.followings.count), class: 'followings', id: "total_followings_#{object.id}"
+    h.content_tag :span, h.t('following_html', count: object.followings.count), class: 'followings', id: "total_followings_#{object.id}"
   end
 
   def total_followers
-    h.content_tag :strong, h.t('follower', count: object.followers.count), class: 'followers', id: "total_followers_#{object.id}"
+    h.content_tag :span, h.t('follower_html', count: object.followers.count), class: 'followers', id: "total_followers_#{object.id}"
   end
 
   def total_lists
-    h.content_tag :strong, h.t('list', count: object.lists.count), class: 'lists', id: "total_lists_#{object.id}"
+    h.content_tag :span, h.t('list_html', count: object.lists.count), class: 'lists', id: "total_lists_#{object.id}"
   end
 end

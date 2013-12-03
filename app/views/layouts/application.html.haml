@@ -13,7 +13,6 @@
       = yield
 
     %script
-      = "window.owl.env['controller'] = '#{params['controller'] || 'none'}';"
-      = "window.owl.env['action'] = '#{params['action'] || 'none'}';"
-      = "window.owl.env['signed'] = #{signed_in?};"
-
+      = "window.owl.env['controller'] = '#{request.parameters['controller']}';"
+      = "window.owl.env['action'] = '#{request.parameters['action']}';"
+      = "window.owl.env['signed_in'] = #{signed_in?};"

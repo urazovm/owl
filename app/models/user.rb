@@ -71,6 +71,10 @@ class User
     lists.sum(:loves)
   end
 
+  def total_loved
+    2
+  end
+
 private
 
   def love list

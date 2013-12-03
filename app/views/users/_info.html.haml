@@ -1,12 +1,8 @@
-%h1
-  = user.avatar_image(:medium)
-  = user.linked_login
-
-%p= user.total_loves
-%p= user.total_followings
-%p= user.total_followers
-%p= user.total_lists
-
-%p= user.lovings_link
-%p= user.followings_link
-%p= user.followers_link
+#user_info.media
+  .pull-left= user.avatar_image(:medium)
+  .media-body
+    %h1= user.linked_login
+    %p
+      = user.total_loves
+    = user.edit_link
+    = user.follow_action
