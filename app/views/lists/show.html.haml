@@ -10,3 +10,4 @@
 
 %script
   = "window.owl.env['loving'] = #{current_user.loves? @list};" if signed_in? && @list.user_id != current_user.id
+  = "window.owl.env['owner'] = true;" if signed_in? && @list.user_id == current_user.id

@@ -29,8 +29,8 @@ class ListDecorator < ApplicationDecorator
     h.link_to model.category_name, h.lists_path(category_id: model.category_id), class: 'btn btn-default'
   end
 
-  def edit_link
-    h.link_to 'edit this list', h.edit_list_path(model), class: 'btn btn-default btn-full edit' if h.signed_in? && model.user_id == h.current_user.id
+  def edit_button
+    h.link_to 'edit this list', h.edit_list_path(model), class: 'btn btn-default btn-full edit hidden'
   end
 
   def love_button
