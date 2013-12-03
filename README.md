@@ -32,4 +32,4 @@
   - locales EN
   - locales FR
 - Integration
-	- bootstrap 3
+	- ~~bootstrap 3~~
