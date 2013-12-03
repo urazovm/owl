@@ -1,5 +1,3 @@
-#love_button
-  - if current_user.loves? list
-    = list.decorate.ignore_link
-  - else
-    = list.decorate.love_link
+#love_button.love.hidden
+  = list.ignore_link
+  = list.love_link

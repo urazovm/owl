@@ -1,16 +1,22 @@
-.header_logo.col-sm-4
-  = link_to 'OWL', lists_path
+#header.row
 
-.header_user.col-sm-5
-  %p
-    - if signed_in?
-      = link_to current_user.login, user_path(current_user)
-      %span /
-      = link_to 'logout', destroy_user_session_path(r: 1), method: :delete
-    - else
-      = link_to 'register', new_user_registration_path(r: 1)
-      %span /
-      = link_to 'login', new_user_session_path(r: 1)
+  .header_logo.col-sm-4
+    = link_to 'OWL', lists_path
 
-.header_controls.col-sm-3
-  = link_to 'Create a new list', new_list_path, class: 'btn btn-primary'
+  .header_user.col-sm-5
+    %p
+      - if signed_in?
+        = link_to current_user.login, user_path(current_user)
+        %span /
+        = link_to 'logout', destroy_user_session_path(r: 1), method: :delete
+      - else
+        = link_to 'register', new_user_registration_path(r: 1)
+        %span /
+        = link_to 'login', new_user_session_path(r: 1)
+
+  .header_controls.col-sm-3
+    = link_to 'Create a new list', new_list_path, class: 'btn btn-primary'
+
+.row
+  .col-sm-12
+    %hr

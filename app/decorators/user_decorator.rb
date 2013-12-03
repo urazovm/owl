@@ -20,7 +20,7 @@ class UserDecorator < ApplicationDecorator
   end
 
   def follow_action
-    h.render partial: 'follows/button', locals: { user: object } if h.signed_in? && h.current_user.id != object.id
+    h.render partial: 'follows/button', locals: { user: self }
   end
 
   def lovings_link content

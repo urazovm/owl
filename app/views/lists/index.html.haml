@@ -1,7 +1,6 @@
-.row= render partial: 'layouts/header'
+= render partial: 'layouts/header'
 
 - cache ['v1', 'lists', 'header'] do
-  %hr
   .row= render partial: 'lists/categories'
   .row= render partial: 'lists/search', locals: { category_id: @category_id }
 

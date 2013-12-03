@@ -1,5 +1,5 @@
-.row= render partial: 'layouts/header'
-%hr
+= render partial: 'layouts/header'
+
 - cache ['v1', @user, 'info'] do
   = render partial: 'users/info', locals: { user: @user.decorate }
 

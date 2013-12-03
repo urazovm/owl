@@ -107,6 +107,16 @@ hr.trans
         height: 60px
         float: left
 
+#list
+  .actions,
+  .edit,
+  .love
+    margin-top: 0.5em
+    margin-bottom: 0.5em
+    @media (min-width: 768px)
+      margin-top: 1em
+      margin-bottom: 0
+
 #lists
   margin-top: 1em
   li
@@ -140,8 +150,14 @@ hr.trans
     .image
       margin: 0 10px 8px 0
       float: left
+      width: 90px
+      @media (min-width: 768px)
+        width: 120px
     .name
       font-weight: normal
+      font-size: 0.9em
+      @media (min-width: 768px)
+        font-size: 1em
 
 #comments
   li

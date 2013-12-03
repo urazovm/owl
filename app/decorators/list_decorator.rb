@@ -6,7 +6,7 @@ class ListDecorator < ApplicationDecorator
   end
 
   def description
-    h.simple_format object.description
+    h.content_tag :div, h.simple_format(object.description), class: :description
   end
 
   def items
@@ -30,19 +30,19 @@ class ListDecorator < ApplicationDecorator
   end
 
   def edit_link
-    h.link_to 'edit this list', h.edit_list_path(model), class: 'btn btn-default btn-full' if h.signed_in? && model.user_id == h.current_user.id
+    h.link_to 'edit this list', h.edit_list_path(model), class: 'btn btn-default btn-full edit' if h.signed_in? && model.user_id == h.current_user.id
   end
 
   def love_button
-    h.render partial: 'loves/button', locals: { list: object } if h.signed_in? && model.user_id != h.current_user.id
+    h.render partial: 'loves/button', locals: { list: self }
   end
 
   def lovers_link
-    h.link_to total_lovers, h.list_loves_path(model), class: 'btn btn-default'
+    h.link_to total_lovers, h.list_loves_path(model), class: 'btn btn-default lovers'
   end
 
   def comments_link
-    h.link_to total_comments, h.list_comments_path(model), class: 'btn btn-default'
+    h.link_to total_comments, h.list_comments_path(model), class: 'btn btn-default comments'
   end
 
   def items_link
@@ -54,11 +54,11 @@ class ListDecorator < ApplicationDecorator
   end
 
   def love_link
-    h.link_to "like", h.list_love_path(object), remote: true, method: :post, class: 'btn btn-primary btn-full'
+    h.link_to "like", h.list_love_path(object), remote: true, method: :post, class: 'btn btn-primary btn-full love'
   end
 
   def ignore_link
-    h.link_to "dislike", h.list_love_path(object), remote: true, method: :delete, class: 'btn btn-default btn-full'
+    h.link_to "dislike", h.list_love_path(object), remote: true, method: :delete, class: 'btn btn-default btn-full ignore'
   end
 
   def total_lovers
@@ -66,7 +66,7 @@ class ListDecorator < ApplicationDecorator
   end
 
   def total_comments
-    h.content_tag :strong, h.t('comment', count: object.comments.count), class: 'comments', id: "total_comments_#{object.id}"
+    h.content_tag :strong, "#{object.comments.count} ✍", class: 'comments', id: "total_comments_#{object.id}"
   end
 
   def total_items

@@ -11,6 +11,7 @@ window.owl.func['ready'] = function() {
 
     var signed_in = typeof window.owl.env['signed_in'] == 'boolean' && window.owl.env['signed_in'] == true;
     var following = typeof window.owl.env['following'] == 'boolean' && window.owl.env['following'] == true;
+    var loving = typeof window.owl.env['loving'] == 'boolean' && window.owl.env['loving'] == true;
     var owner = typeof window.owl.env['owner'] == 'boolean' && window.owl.env['owner'] == true;
     if (signed_in && owner) {
         $('#user_info .edit').removeClass('hidden');
@@ -22,6 +23,14 @@ window.owl.func['ready'] = function() {
         } else {
             $('#follow_button .follow').show();
             $('#follow_button .unfollow').hide();
+        }
+        $('#love_button').removeClass('hidden');
+        if (loving) {
+            $('#love_button .love').hide();
+            $('#love_button .ignore').show();
+        } else {
+            $('#love_button .love').show();
+            $('#love_button .ignore').hide();
         }
     }
 }

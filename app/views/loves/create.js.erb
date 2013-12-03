@@ -1,3 +1,4 @@
-$("#love_button").replaceWith("<%= escape_javascript(render(partial: 'loves/button', locals: { list: @list })) %>");
+$('#love_button .love').hide();
+$('#love_button .ignore').hide().fadeIn();
 var count = $("#total_lovers_<%= @list.id %>");
 count.html(count.html().replace(/\d+/g, function(x) { return Number(x) + 1; }));

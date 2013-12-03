@@ -7,4 +7,5 @@ window.owl.views.comments_index = function()
     $('#new_comment textarea').on('focus', function() {
         $('#new_comment input[type=submit]').removeClass('hidden').hide().fadeIn();
     });
+    $('#list .comments').addClass('active');
 }
