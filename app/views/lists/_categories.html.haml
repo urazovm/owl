@@ -1,3 +1,4 @@
 %ul#categories.list-unstyled.col-sm-12
+  %li= link_to 'All', lists_path, class: "category_999"
   - ListCategories.each_with_index do |category, i|
     %li= link_to category[0], lists_path(category_id: category[1]), class: "category_#{category[1]}"
