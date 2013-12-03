@@ -51,8 +51,8 @@ class UserDecorator < ApplicationDecorator
     h.content_tag :span, "#{object.total_loves} ♥", class: 'loves', id: "total_loves_#{object.id}"
   end
 
-  def total_loved
-    h.content_tag :span, h.t('loved_html', count: object.total_loved), class: 'loved', id: "total_loved_#{object.id}"
+  def total_lovings
+    h.content_tag :span, h.t('loving_html', count: object.total_lovings), class: 'lovings', id: "total_lovings_#{object.id}"
   end
 
   def total_followings

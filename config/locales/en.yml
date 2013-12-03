@@ -25,7 +25,7 @@ en:
     one: "<strong>%{count}</strong> following"
     other: "<strong>%{count}</strong> followings"
 
-  loved_html:
+  loving_html:
     zero: "<strong>%{count}</strong> loved"
     one: "<strong>%{count}</strong> loved"
     other: "<strong>%{count}</strong> loved"
