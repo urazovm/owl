@@ -38,11 +38,11 @@ class ListDecorator < ApplicationDecorator
   end
 
   def lovers_link
-    h.link_to total_lovers, h.list_loves_path(model), class: 'btn btn-default'
+    h.link_to total_lovers, h.list_loves_path(model), class: 'btn btn-default lovers'
   end
 
   def comments_link
-    h.link_to total_comments, h.list_comments_path(model), class: 'btn btn-default'
+    h.link_to total_comments, h.list_comments_path(model), class: 'btn btn-default comments'
   end
 
   def items_link
@@ -62,11 +62,11 @@ class ListDecorator < ApplicationDecorator
   end
 
   def total_lovers
-    h.content_tag :strong, object.lovers.count, class: 'lovers', id: "total_lovers_#{object.id}"
+    h.content_tag :strong, object.lovers.count, id: "total_lovers_#{object.id}"
   end
 
   def total_comments
-    h.content_tag :strong, object.comments.count, class: 'comments', id: "total_comments_#{object.id}"
+    h.content_tag :strong, object.comments.count, id: "total_comments_#{object.id}"
   end
 
   def total_items
