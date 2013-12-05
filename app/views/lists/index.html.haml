@@ -7,7 +7,7 @@
         = render partial: 'lists/tmp', locals: { lists: @tmp_lists.decorate }
 
     - cache ['v1', cache_key_for_lists, params[:category_id], params[:q], params[:page]] do
-      = render partial: 'lists/list', locals: { lists: @lists } if @lists.count > 0
+      = render partial: 'lists/list', locals: { lists: @lists }
 
 %script
   = "window.owl.env['category_id'] = #{@category_id||999};"

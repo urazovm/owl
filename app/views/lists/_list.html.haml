@@ -1,2 +1,10 @@
+%h1= ListCategories.at(params[:category_id].to_i)[0] unless params[:category_id].blank?
+
+- if @lists.count == 0
+  %p.empty
+    Nothing here for the moment…
+    = link_to 'be the 1st the create a list !', new_list_path
+
+- else
 %ul#lists.list-unstyled
   = render partial: 'lists/item', collection: lists, as: :list
