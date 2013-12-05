@@ -5,6 +5,9 @@
       = user.follow_action
   %tr.right_1
     %td
+      .btn-group.visible-xs.actions.hidden
+        = user.edit_link
+        = user.logout_link
       %h1= user.linked_login
       = user.total_loves
   %tr.right_2

@@ -14,7 +14,8 @@ window.owl.func['ready'] = function() {
     var loving = typeof window.owl.env['loving'] == 'boolean' && window.owl.env['loving'] == true;
     var owner = typeof window.owl.env['owner'] == 'boolean' && window.owl.env['owner'] == true;
     if (signed_in && owner) {
-        // Nothing
+        $('#user_info .actions').removeClass('hidden');
+        $('#list .edit').removeClass('hidden');
     } else if (signed_in) {
         $('#follow_button').removeClass('hidden');
         if (following) {
