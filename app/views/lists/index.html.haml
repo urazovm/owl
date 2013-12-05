@@ -1,9 +1,5 @@
 = render partial: 'layouts/header'
 
-- cache ['v1', 'lists', 'header'] do
-  .row= render partial: 'lists/categories'
-  .row= render partial: 'lists/search', locals: { category_id: @category_id }
-
 .row
   .col-sm-12
     - if defined?(@tmp_lists)

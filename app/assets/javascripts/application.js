@@ -34,6 +34,28 @@ window.owl.func['ready'] = function() {
             $('#love_button .ignore').hide();
         }
     }
+
+
+    var searchCollapsed = true;
+    var categoriesCollapsed = true;
+    $('#search-collapse').on('hide.bs.collapse', function () {
+        searchCollapsed = true;
+        $('#header .search-collapser').removeClass('active');
+    });
+    $('#categories-collapse').on('hide.bs.collapse', function () {
+        categoriesCollapsed = true;
+        $('#header .categories-collapser').removeClass('active');
+    });
+    $('#search-collapse').on('show.bs.collapse', function () {
+        searchCollapsed = false;
+        if (!categoriesCollapsed) $('#categories-collapse').collapse('hide');
+        $('#header .search-collapser').addClass('active');
+    });
+    $('#categories-collapse').on('show.bs.collapse', function () {
+        categoriesCollapsed = false;
+        if (!searchCollapsed) $('#search-collapse').collapse('hide');
+        $('#header .categories-collapser').addClass('active');
+    });
 }
 
 $(document).ready(window.owl.func.ready)

@@ -36,31 +36,6 @@ hr.trans
 .hidden
   display: none
 
-.header_logo
-  text-align: center
-  font-size: 2em
-  line-height: 1.5em
-  @media (min-width: 768px)
-    line-height: 1em
-    font-size: 2.5em
-    text-align: left
-
-.header_user
-  text-align: center
-  line-height: 2.5em
-  @media (min-width: 768px)
-    text-align: right
-  p
-    margin: 0
-
-.header_controls
-  text-align: center
-  p
-    margin-top: 0.5em
-  @media (min-width: 768px)
-    .btn
-      display: block
-
 .avatar-small
   +border-radius(5px)
 .avatar-medium
@@ -68,25 +43,44 @@ hr.trans
 .avatar-large
   +border-radius(20px)
 
-#categories
-  text-align: center
-  li
-    margin: 0.2em 0.8em
-    display: inline-block
-    @media (min-width: 768px)
-      margin: 0.3em 1.2em
-  a
-    font-size: 1.2em
-    text-transform: uppercase
-    @media (min-width: 768px)
-      font-size: 1.4em
-    &.selected
-      color: #000
-      font-weight: bold
-
 .btn-full
   display: block
   width: 100%
+
+#header
+  background: #f0f0f9
+  margin-bottom: 2em
+  padding: 5px 0
+  margin-top: -28px
+  @media (min-width: 768px)
+    margin-top: 0
+    +border-radius(5px)
+  .logo
+    font-weight: bold
+    font-size: 1.3em
+  .right
+    text-align: right
+  .search
+    clear: both
+    @media (min-width: 768px)
+      clear: none
+    form
+      padding-top: 10px
+      @media (min-width: 768px)
+        padding-top: 0
+  .hidden-xs
+    display: none !important
+    @media (min-width: 768px)
+      display: inline-block !important
+  .visible-xs
+    display: inline-block !important
+    @media (min-width: 768px)
+      display: none !important
+
+.collapse-xs
+  @media (min-width: 768px)
+    height: auto !important
+    display: block !important
 
 #list_form_items
   font-weight: bold
@@ -108,6 +102,8 @@ hr.trans
         float: left
 
 #list
+  .actions
+    max-width: 220px
   .actions,
   .edit,
   .love
@@ -126,7 +122,6 @@ hr.trans
     content: '\f0e5'
 
 #lists
-  margin-top: 1em
   li
     border-top: solid 1px $grey_pale
     margin-top: 5px
@@ -190,6 +185,7 @@ hr.trans
       float: right
 
 #user_info
+  margin-bottom: 1.5em
   .left
     padding-right: 15px
   .right_2

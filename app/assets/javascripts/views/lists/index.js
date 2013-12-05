@@ -6,7 +6,7 @@ window.owl.views.lists_index = function()
     console.log(category_id);
 
     if (category_id != null) {
-        $('#categories a.category_' + category_id).addClass('selected')
+        $('#categories .category_' + category_id).addClass('active')
     }
     $('#query').attr('value', query);
     $('.edit_list').listForm();

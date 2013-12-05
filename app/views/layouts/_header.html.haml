@@ -1,22 +1,44 @@
 #header.row
 
-  .header_logo.col-sm-4
-    = link_to 'OWL', lists_path
+  .col-sm-4.col-xs-4
+    .logo
+      = link_to 'OWL', lists_path, class: 'logo'
 
-  .header_user.col-sm-5
-    %p
-      - if signed_in?
-        = link_to current_user.login, user_path(current_user)
-        %span /
-        = link_to 'logout', destroy_user_session_path(r: 1), method: :delete
-      - else
-        = link_to 'register', new_user_registration_path(r: 1)
-        %span /
-        = link_to 'login', new_user_session_path(r: 1)
+  .col-sm-3.col-xs-8.col-sm-push-5.right
+    %button.btn.btn-default.create
+      %span.hidden-xs Create a list
+      %i.visible-xs.fa.fa-plus
+    .btn-group
+      %button.btn.btn-default.visible-xs.search-collapser{ 'data-toggle' => "collapse", 'data-target' => '#search-collapse' }
+        %i.fa.fa-search
+      %button.btn.btn-default.categories-collapser{ 'data-toggle' => "collapse", 'data-target' => '#categories-collapse' }
+        %i.fa.fa-bars
 
-  .header_controls.col-sm-3
-    = link_to 'Create a new list', new_list_path, class: 'btn btn-primary'
+  .col-xs-12.col-sm-5.col-sm-pull-3.right.search
+    = form_tag lists_path, method: :get, id: 'search-collapse', class: 'collapse collapse-xs' do
+      = hidden_field_tag :category_id, params[:category_id]
+      .input-group
+        = text_field_tag :query, '', class: 'form-control', placeholder: '…'
+        .input-group-btn
+          %button.btn.btn-default.submit
+            %span.visible-xs Search
+            %i.hidden-xs.fa.fa-search
 
 .row
-  .col-sm-12
-    %hr
+
+  #categories.col-sm-12
+    %ul#categories-collapse.collapse
+      %li= link_to 'All', lists_path, class: "category_999"
+      - ListCategories.each_with_index do |category, i|
+        %li{ class: "category_#{category[1]}" }= link_to category[0], lists_path(category_id: category[1])
+
+
+  -#     - if signed_in?
+  -#       = link_to current_user.login, user_path(current_user)
+  -#       %span /
+  -#       = link_to 'logout', destroy_user_session_path(r: 1), method: :delete
+  -#     - else
+  -#       = link_to 'register', new_user_registration_path(r: 1)
+  -#       %span /
+  -#       = link_to 'login', new_user_session_path(r: 1)
+  -#     = link_to 'Create a new list', new_list_path, class: 'btn btn-primary'
