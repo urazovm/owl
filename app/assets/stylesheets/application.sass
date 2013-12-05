@@ -27,7 +27,7 @@ a
     color: $blue_dark
 
 h1
-  font-size: 1.8em
+  font-size: 1.6em
   margin-top: 0
   @media (min-width: 768px)
     font-size: 2.2em
@@ -80,7 +80,7 @@ hr.trans
   width: 100%
 
 #header
-  background: $blue_light
+  background: $blue_dark
   margin-bottom: 1em
   padding: 5px 0
   margin-top: -28px
@@ -90,6 +90,11 @@ hr.trans
   .logo
     font-weight: bold
     font-size: 1.7em
+    a
+      color: $white_normal
+      text-decoration: none
+      &:hover
+        color: $blue_light
   .user
     margin-top: -10px
     margin-left: 10px
@@ -97,14 +102,19 @@ hr.trans
     margin-left: 10px
   .right
     text-align: right
+  .actions
+    margin-top: 2px
   .search
     clear: both
     @media (min-width: 768px)
       clear: none
     form
+      margin-top: 2px
       padding-top: 10px
       @media (min-width: 768px)
         padding-top: 0
+      .form-control
+        height: 30px
   .hidden-xs
     display: none !important
     @media (min-width: 768px)
@@ -170,6 +180,7 @@ hr.trans
       font-size: 1em
     &:first-child
       border: none
+      padding-top: 0
       margin-top: 0
     .love
       padding: 0.15em 0.3em 0 0.3em
@@ -268,10 +279,6 @@ hr.trans
 #categories-collapse
   text-align: center
   line-height: 30px
-  border-bottom: 1px solid $grey_light
-  padding-bottom: 0.5em
-  @media (min-width: 768px)
-    padding-bottom: 1em
   li
     display: inline
     a

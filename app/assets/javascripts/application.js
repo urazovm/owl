@@ -37,8 +37,8 @@ window.owl.func['ready'] = function() {
     }
 
 
-    var searchCollapsed = true;
-    var categoriesCollapsed = true;
+    var searchCollapsed = $('#search-collapse').hasClass('collapse');
+    var categoriesCollapsed = $('#categories-collapse').hasClass('collapse');
     $('#search-collapse').on('hide.bs.collapse', function () {
         searchCollapsed = true;
         $('#header .search-collapser').removeClass('active');

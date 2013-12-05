@@ -6,6 +6,10 @@ window.owl.views.lists_index = function()
     console.log(category_id);
 
     if (category_id != null) {
+        if (category_id == 999) {
+            $('#categories-collapse').collapse('show');
+            $('#header .categories-collapser').addClass('active');
+        }
         $('#categories .category_' + category_id + ' a').addClass('active')
     }
     $('#query').attr('value', query);

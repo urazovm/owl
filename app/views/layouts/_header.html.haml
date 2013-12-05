@@ -4,10 +4,10 @@
     .col-sm-4.col-xs-7
       %span.logo= link_to 'OWL', lists_path
       - if signed_in?
-        = link_to user_path(current_user), class: 'visible-xs btn btn-default user' do
+        = link_to user_path(current_user), class: 'visible-xs btn btn-sm btn-default user' do
           %i.fa.fa-user
         .btn-group.user.hidden-xs
-          %button.btn.btn-default.dropdown-toggle{ 'data-toggle' => :dropdown }
+          %button.btn.btn-sm.btn-default.dropdown-toggle{ 'data-toggle' => :dropdown }
             %span= current_user.login
             %span.caret
           %ul.dropdown-menu{ role: :menu }
@@ -22,13 +22,13 @@
           = link_to 'login', new_user_session_path(r: 1)
 
     .col-sm-3.col-xs-5.col-sm-push-5.right
-      .btn-group
-        = link_to new_list_path, class: 'btn btn-default create' do
+      .btn-group.actions
+        = link_to new_list_path, class: 'btn btn-sm btn-default create' do
           %span.hidden-xs Create a list
           %i.visible-xs.fa.fa-plus
-        %button.btn.btn-default.visible-xs.search-collapser{ 'data-toggle' => "collapse", 'data-target' => '#search-collapse' }
+        %button.btn.btn-sm.btn-default.visible-xs.search-collapser{ 'data-toggle' => "collapse", 'data-target' => '#search-collapse' }
           %i.fa.fa-search
-        %button.btn.btn-default.categories-collapser{ 'data-toggle' => "collapse", 'data-target' => '#categories-collapse' }
+        %button.btn.btn-sm.btn-default.categories-collapser{ 'data-toggle' => "collapse", 'data-target' => '#categories-collapse' }
           %i.fa.fa-bars
 
     .col-xs-12.col-sm-5.col-sm-pull-3.right.search
@@ -37,7 +37,7 @@
         .input-group
           = text_field_tag :query, '', class: 'form-control', placeholder: '…'
           .input-group-btn
-            %button.btn.btn-default.submit
+            %button.btn.btn-sm.btn-default.submit
               %span.visible-xs Search
               %i.hidden-xs.fa.fa-search
 
