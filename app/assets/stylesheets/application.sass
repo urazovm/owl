@@ -1,3 +1,5 @@
+@import compass/css3
+
 $legacy-support-for-ie6: false
 $legacy-support-for-ie7: false
 
@@ -15,18 +17,26 @@ $white_normal: #ffffff
 $black_normal: #786556
 $black_dark: #362918
 
-@import compass/css3
-
 body
+  font-family: 'Cabin Sketch', cursive
   color: $black_normal
   background: url('background.png')
 
 a
+  font-family: 'Cabin Sketch', cursive
   color: $blue_normal
+  +transition-property(color, background-color)
+  +transition-timing-function(ease)
+  +transition-duration(0.3s)
   &:hover
     color: $blue_dark
 
+hr
+  border-color: transparent
+  margin-top: 0
+
 h1
+  font-family: 'Cabin Sketch', cursive
   font-size: 1.6em
   margin-top: 0
   @media (min-width: 768px)
@@ -37,11 +47,13 @@ h1
     display: block
 
 h2
+  font-family: 'Cabin Sketch', cursive
   font-size: 1.6em
   @media (min-width: 768px)
     font-size: 1.8em
 
 h3
+  font-family: 'Cabin Sketch', cursive
   font-size: 1.4em
   @media (min-width: 768px)
     font-size: 1.6em
@@ -54,15 +66,17 @@ hr.trans
 
 .btn
   color: $black_normal
+  +transition-property(color, background-color)
+  +transition-timing-function(ease)
+  +transition-duration(0.3s)
 .btn.active
   color: $black_dark
 
 .btn-primary
   color: $white_normal
-  border-color: $blue_dark
   background: $blue_normal
+  border: none
   &:hover
-    border-color: $blue_dark
     background: $blue_dark
 
 .hidden
@@ -102,6 +116,9 @@ hr.trans
   .user
     margin-top: -10px
     margin-left: 10px
+  .avatar
+    width: 24px
+    margin: -3px 2px -3px -7px
   .sign
     margin-left: 10px
   .right
@@ -155,6 +172,10 @@ hr.trans
 #list
   .actions
     max-width: 220px
+  .description
+    margin-top: 8px
+    @media (min-width: 768px)
+      margin-top: 15px
   .actions,
   .edit,
   .love
@@ -191,6 +212,11 @@ hr.trans
       @media (min-width: 768px)
         padding: 0em 0.5em
       font-size: 2em
+      &:after
+        font-family: 'FontAwesome'
+        margin-left: 5px
+        font-size: 0.85em
+        content: '\f08a'
 
 #items
   font-weight: bold
@@ -250,12 +276,15 @@ hr.trans
     float: right
   h1
     margin-bottom: 0
-    @media (min-width: 768px)
-      margin-bottom: 5px
   .loves
     font-size: 1.4em
     @media (min-width: 768px)
-      font-size: 1.8em
+      font-size: 2.4em
+    &:after
+      font-family: 'FontAwesome'
+      margin-left: 5px
+      content: '\f08a'
+      font-size: 0.85em
 
 #user_links
   .btn
@@ -285,15 +314,37 @@ hr.trans
   line-height: 30px
   li
     display: inline
+    &:nth-child(3n) a:before
+      +transform(rotate(-2deg))
+    &:nth-child(3n-1) a:before
+      +transform(rotate(-1deg))
+    &:nth-child(3n-2) a:before
+      +transform(rotate(-3deg))
     a
       font-size: 1.3em
       margin: 0 3px
       padding: 1px 4px
-      background: $blue_light
       text-decoration: none
+      position: relative
+      &:before
+        content: ""
+        position: absolute
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        z-index: -1
+        background: $blue_light
+        +transition-property(transform)
+        +transition-timing-function(ease)
+        +transition-duration(0.3s)
+      &:hover:before
+        background: $blue_dark
+        +transform(rotate(2deg))
+      &.active:before
+        background: $blue_dark
       &:hover,
       &.active
-        background: $blue_dark
         color: $white_normal
       @media (min-width: 768px)
         font-size: 1.5em

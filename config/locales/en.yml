@@ -35,6 +35,11 @@ en:
     one: "%{count} love"
     other: "%{count} loves"
 
+  lover:
+    zero: "%{count} lover"
+    one: "%{count} lover"
+    other: "%{count} lovers"
+
   comments:
     form:
       submit: 'Comment'

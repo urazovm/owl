@@ -6,4 +6,8 @@
       = render partial: 'lists/info', locals: { list: @list.decorate, user: @user.decorate }
   .col-sm-8
     - cache ['v1', @list, 'show'] do
-      = render partial: 'comments/list', locals: { comments: @comments }
+      = render partial: 'comments/list', locals: { comments: @comments, list: @list.decorate }
+
+%script
+  = "window.owl.env['loving'] = #{current_user.loves? @list};" if signed_in? && @list.user_id != current_user.id
+  = "window.owl.env['owner'] = true;" if signed_in? && @list.user_id == current_user.id

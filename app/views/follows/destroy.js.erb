@@ -1,4 +1,4 @@
 $('#follow_button .follow').hide().fadeIn();
 $('#follow_button .unfollow').hide();
-var count = $("#total_followers_<%= @user.id %>");
+var count = $(".total_followers_<%= @user.id %>");
 count.html(count.html().replace(/\d+/g, function(x) { return Number(x) - 1; }));

@@ -52,22 +52,22 @@ class UserDecorator < ApplicationDecorator
   end
 
   def total_loves
-    h.content_tag :span, "#{object.total_loves} ♥", class: 'loves', id: "total_loves_#{object.id}"
+    h.content_tag :span, object.total_loves, class: "loves total_loves_#{object.id}"
   end
 
   def total_lovings
-    h.content_tag :span, h.t('loving_html', count: object.total_lovings), class: 'lovings', id: "total_lovings_#{object.id}"
+    h.content_tag :span, h.t('loving_html', count: object.total_lovings), class: "lovings total_lovings_#{object.id}"
   end
 
   def total_followings
-    h.content_tag :span, h.t('following_html', count: object.followings.count), class: 'followings', id: "total_followings_#{object.id}"
+    h.content_tag :span, h.t('following_html', count: object.followings.count), class: "followings total_followings_#{object.id}"
   end
 
   def total_followers
-    h.content_tag :span, h.t('follower_html', count: object.followers.count), class: 'followers', id: "total_followers_#{object.id}"
+    h.content_tag :span, h.t('follower_html', count: object.followers.count), class: "followers total_followers_#{object.id}"
   end
 
   def total_lists
-    h.content_tag :span, h.t('list_html', count: object.lists.count), class: 'lists', id: "total_lists_#{object.id}"
+    h.content_tag :span, h.t('list_html', count: object.lists.count), class: "lists total_lists_#{object.id}"
   end
 end

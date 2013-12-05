@@ -61,15 +61,23 @@ class ListDecorator < ApplicationDecorator
     h.link_to "dislike", h.list_love_path(object), remote: true, method: :delete, class: 'btn btn-default btn-full ignore'
   end
 
+  def total_lovers_named
+    h.content_tag :strong, h.t('lover', count: object.lovers.count)
+  end
+
+  def total_comments_named
+    h.content_tag :strong, h.t('comment', count: object.comments.count)
+  end
+
   def total_lovers
-    h.content_tag :strong, object.lovers.count, id: "total_lovers_#{object.id}"
+    h.content_tag :strong, object.lovers.count, class: "total_lovers_#{object.id}"
   end
 
   def total_comments
-    h.content_tag :strong, object.comments.count, id: "total_comments_#{object.id}"
+    h.content_tag :strong, object.comments.count, class: "total_comments_#{object.id}"
   end
 
   def total_items
-    h.content_tag :strong, h.t('item', count: object.items.count), class: 'items', id: "total_items_#{object.id}"
+    h.content_tag :strong, h.t('item', count: object.items.count), class: "items total_items_#{object.id}"
   end
 end
