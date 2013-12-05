@@ -22,10 +22,10 @@
           = link_to 'login', new_user_session_path(r: 1)
 
     .col-sm-3.col-xs-5.col-sm-push-5.right
-      = link_to new_list_path, class: 'btn btn-default create' do
-        %span.hidden-xs Create a list
-        %i.visible-xs.fa.fa-plus
       .btn-group
+        = link_to new_list_path, class: 'btn btn-default create' do
+          %span.hidden-xs Create a list
+          %i.visible-xs.fa.fa-plus
         %button.btn.btn-default.visible-xs.search-collapser{ 'data-toggle' => "collapse", 'data-target' => '#search-collapse' }
           %i.fa.fa-search
         %button.btn.btn-default.categories-collapser{ 'data-toggle' => "collapse", 'data-target' => '#categories-collapse' }

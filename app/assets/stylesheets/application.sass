@@ -1,14 +1,25 @@
 $legacy-support-for-ie6: false
 $legacy-support-for-ie7: false
+
 $grey_pale: #f9f9f9
 $grey_light: #e3e3e3
 $grey_dark: #555555
+
+$blue_light: #f0f0ff
+$blue_normal: #428bca
+$blue_dark: #2a6496
+
 $white_normal: #ffffff
 
 @import compass/css3
 
 .container
   margin-top: 2em
+
+a
+  color: $blue_normal
+  &:hover
+    color: $blue_dark
 
 h1
   font-size: 1.8em
@@ -33,6 +44,11 @@ h3
 hr.trans
   border-color: transparent
 
+.btn-primary
+  background: $blue_normal
+  &:hover
+    background: $blue_dark
+
 .hidden
   display: none
 
@@ -48,7 +64,7 @@ hr.trans
   width: 100%
 
 #header
-  background: #f0f0f9
+  background: $blue_light
   margin-bottom: 1em
   padding: 5px 0
   margin-top: -28px
@@ -240,7 +256,7 @@ hr.trans
 #categories-collapse
   text-align: center
   line-height: 30px
-  border-bottom: 1px solid #f0f0f0
+  border-bottom: 1px solid $grey_light
   padding-bottom: 0.5em
   @media (min-width: 768px)
     padding-bottom: 1em
@@ -250,12 +266,12 @@ hr.trans
       font-size: 1.3em
       margin: 0 3px
       padding: 1px 4px
-      background: #f0f0ff
+      background: $blue_light
       text-decoration: none
       &:hover,
       &.active
-        background: #2a6496
-        color: #fff
+        background: $blue_dark
+        color: $white_normal
       @media (min-width: 768px)
         font-size: 1.5em
         margin: 0 5px
