@@ -15,10 +15,6 @@ class UserDecorator < ApplicationDecorator
     h.link_to avatar_image(style), h.user_path(model)
   end
 
-  def edit_link
-    h.link_to 'edit my profile', h.edit_user_registration_path(r: 1), class: 'edit hidden'
-  end
-
   def follow_action
     h.render partial: 'follows/button', locals: { user: self }
   end
