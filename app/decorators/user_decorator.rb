@@ -16,11 +16,11 @@ class UserDecorator < ApplicationDecorator
   end
 
   def logout_link
-    h.link_to 'logout', h.destroy_user_session_path(r: 1), method: :delete, class: 'btn btn-default btn-xs'
+    h.link_to 'logout', h.destroy_user_session_path(r: 1), method: :delete, class: 'btn btn-default btn-xs hidden logout'
   end
 
   def edit_link
-    h.link_to 'edit my profile', h.edit_user_registration_path(r: 1), class: 'btn btn-default btn-xs'
+    h.link_to 'edit my profile', h.edit_user_registration_path(r: 1), class: 'btn btn-default btn-xs hidden edit'
   end
 
   def follow_action

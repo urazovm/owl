@@ -1,20 +1,25 @@
 $legacy-support-for-ie6: false
 $legacy-support-for-ie7: false
 
+// http://www.colourlovers.com/palette/2170717/Sketch_APC284
+
 $grey_pale: #f9f9f9
 $grey_light: #e3e3e3
-$grey_dark: #555555
 
-$blue_light: #f0f0ff
-$blue_normal: #428bca
-$blue_dark: #2a6496
+$blue_light: #FCE3AB
+$blue_normal: #BE9D74
+$blue_dark: #715142
 
 $white_normal: #ffffff
 
+$black_normal: #786556
+$black_dark: #362918
+
 @import compass/css3
 
-.container
-  margin-top: 2em
+body
+  color: $black_normal
+  background: url('background.png')
 
 a
   color: $blue_normal
@@ -44,9 +49,20 @@ h3
 hr.trans
   border-color: transparent
 
+.container
+  margin-top: 2em
+
+.btn
+  color: $black_normal
+.btn.active
+  color: $black_dark
+
 .btn-primary
+  color: $white_normal
+  border-color: $blue_dark
   background: $blue_normal
   &:hover
+    border-color: $blue_dark
     background: $blue_dark
 
 .hidden
@@ -109,7 +125,7 @@ hr.trans
     font-size: 1.3em
     margin: 0 0 15px 0
     padding: 15px 0 0 0
-    border-top: solid 1px $grey_light
+    // border-top: solid 1px $grey_light
     .item-body
       font-size: 0.7em
       .text
@@ -144,7 +160,7 @@ hr.trans
 
 #lists
   li
-    border-top: solid 1px $grey_pale
+    // border-top: solid 1px $grey_pale
     margin-top: 5px
     padding-top: 5px
     font-size: 0.8em
@@ -167,7 +183,7 @@ hr.trans
     margin: 0 0 8px 0
     padding: 8px 0 0 0
     font-size: 1.3em
-    border-top: solid 1px $grey_pale
+    // border-top: solid 1px $grey_pale
     clear: both
     &:first-child
       border: none
@@ -225,19 +241,15 @@ hr.trans
     font-size: 1.4em
     @media (min-width: 768px)
       font-size: 1.8em
-  .follow,
-  .unfollow
-    display: block
-    position: relative
-    margin-top: -10px
-    +border-top-radius(0)
 
 #user_links
   .btn
-    padding: 6px 0 0 0
-    line-height: 1.5em
+    padding: 3px 0 0 0
+    line-height: 1.4em
+    font-size: 0.8em
     @media (min-width: 768px)
       padding: 6px 12px
+      font-size: 1em
       line-height: 2em
   a
     font-size: 1em
