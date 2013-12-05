@@ -1,48 +1,49 @@
-#header.row
+- cache ['v1', 'header', signed_in?, current_user||nil] do
+  #header.row
 
-  .col-sm-4.col-xs-7
-    %span.logo= link_to 'OWL', lists_path
-    - if signed_in?
-      .btn-group.user
-        %button.btn.btn-default.dropdown-toggle{ 'data-toggle' => :dropdown }
-          %span.hidden-xs= current_user.login
-          %i.visible-xs.fa.fa-user
-          %span.caret
-        %ul.dropdown-menu{ role: :menu }
-          %li= link_to 'My profile', user_path(current_user)
-          %li= link_to 'My settings', edit_user_registration_path(r: 1)
-          %li.divider
-          %li= link_to 'logout', destroy_user_session_path(r: 1), method: :delete
-    - else
-      %span.sign
-        = link_to 'register', new_user_registration_path(r: 1)
-        %span /
-        = link_to 'login', new_user_session_path(r: 1)
+    .col-sm-4.col-xs-7
+      %span.logo= link_to 'OWL', lists_path
+      - if signed_in?
+        .btn-group.user
+          %button.btn.btn-default.dropdown-toggle{ 'data-toggle' => :dropdown }
+            %span.hidden-xs= current_user.login
+            %i.visible-xs.fa.fa-user
+            %span.caret
+          %ul.dropdown-menu{ role: :menu }
+            %li= link_to 'My profile', user_path(current_user)
+            %li= link_to 'My settings', edit_user_registration_path(r: 1)
+            %li.divider
+            %li= link_to 'logout', destroy_user_session_path(r: 1), method: :delete
+      - else
+        %span.sign
+          = link_to 'register', new_user_registration_path(r: 1)
+          %span /
+          = link_to 'login', new_user_session_path(r: 1)
 
-  .col-sm-3.col-xs-5.col-sm-push-5.right
-    = link_to new_list_path, class: 'btn btn-default create' do
-      %span.hidden-xs Create a list
-      %i.visible-xs.fa.fa-plus
-    .btn-group
-      %button.btn.btn-default.visible-xs.search-collapser{ 'data-toggle' => "collapse", 'data-target' => '#search-collapse' }
-        %i.fa.fa-search
-      %button.btn.btn-default.categories-collapser{ 'data-toggle' => "collapse", 'data-target' => '#categories-collapse' }
-        %i.fa.fa-bars
+    .col-sm-3.col-xs-5.col-sm-push-5.right
+      = link_to new_list_path, class: 'btn btn-default create' do
+        %span.hidden-xs Create a list
+        %i.visible-xs.fa.fa-plus
+      .btn-group
+        %button.btn.btn-default.visible-xs.search-collapser{ 'data-toggle' => "collapse", 'data-target' => '#search-collapse' }
+          %i.fa.fa-search
+        %button.btn.btn-default.categories-collapser{ 'data-toggle' => "collapse", 'data-target' => '#categories-collapse' }
+          %i.fa.fa-bars
 
-  .col-xs-12.col-sm-5.col-sm-pull-3.right.search
-    = form_tag lists_path, method: :get, id: 'search-collapse', class: 'collapse collapse-xs' do
-      = hidden_field_tag :category_id, params[:category_id]
-      .input-group
-        = text_field_tag :query, '', class: 'form-control', placeholder: '…'
-        .input-group-btn
-          %button.btn.btn-default.submit
-            %span.visible-xs Search
-            %i.hidden-xs.fa.fa-search
+    .col-xs-12.col-sm-5.col-sm-pull-3.right.search
+      = form_tag lists_path, method: :get, id: 'search-collapse', class: 'collapse collapse-xs' do
+        = hidden_field_tag :category_id, params[:category_id]
+        .input-group
+          = text_field_tag :query, '', class: 'form-control', placeholder: '…'
+          .input-group-btn
+            %button.btn.btn-default.submit
+              %span.visible-xs Search
+              %i.hidden-xs.fa.fa-search
 
-.row
+  .row
 
-  #categories.col-sm-12
-    %ul#categories-collapse.collapse
-      %li= link_to 'All', lists_path, class: "category_999"
-      - ListCategories.each_with_index do |category, i|
-        %li{ class: "category_#{category[1]}" }= link_to category[0], lists_path(category_id: category[1])
+    #categories.col-sm-12
+      %ul#categories-collapse.collapse.list-unstyled
+        %li.category_999= link_to 'All', lists_path
+        - ListCategories.each_with_index do |category, i|
+          %li{ class: "category_#{category[1]}" }= link_to category[0], lists_path(category_id: category[1])
