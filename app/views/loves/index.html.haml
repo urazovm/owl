@@ -13,4 +13,8 @@
   - cache ['v1', @user, 'info'] do
     = render partial: 'users/info', locals: { user: @user.decorate }
   - cache ['v1', @user, 'lovings'] do
-    = render partial: 'loves/list_list', locals: { user: @user.decorate, lists: @lists }
+    .col-sm-8
+      = render partial: 'loves/list_list', locals: { user: @user.decorate, lists: @lists }
+  - cache ['v1', @user, 'notes', :loved] do
+    .col-sm-4.hidden-xs
+      = render partial: 'users/notes', locals: { user: @user.decorate, type: :loved }

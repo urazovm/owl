@@ -2,4 +2,9 @@
   = render partial: 'users/info', locals: { user: @user.decorate }
 
 - cache ['v1', @user, 'followings'] do
-  = render partial: 'followings/user_list', locals: { user: @user.decorate, users: @users }
+  .col-sm-8
+    = render partial: 'followings/user_list', locals: { user: @user.decorate, users: @users }
+
+- cache ['v1', @user, 'notes', :followings] do
+  .col-sm-4.hidden-xs
+    = render partial: 'users/notes', locals: { user: @user.decorate, type: :followings }

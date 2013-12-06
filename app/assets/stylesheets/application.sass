@@ -100,7 +100,10 @@ hr.trans
   width: 100%
 
 #footer
-  margin-top: 2em
+  clear: both
+  padding-top: 2em
+  @media (min-width: 768px)
+    padding-top: 3em
   span:before
     content: " - "
   span:first-child:before
@@ -299,7 +302,9 @@ hr.trans
       float: right
 
 #user_info
-  margin-bottom: 1.5em
+  margin-bottom: 2em
+  @media (min-width: 768px)
+    margin-bottom: 2.5em
   .left
     padding-right: 15px
   .right_2
@@ -342,8 +347,15 @@ hr.trans
       display: inline
       margin-right: 5px
 
+#list_notes
+  margin-bottom: 1.5em
+  h2
+    margin-top: 0
+
 #categories
-  margin-bottom: 1em
+  margin-bottom: .5em
+  @media (min-width: 768px)
+    margin-bottom: 1.5em
 
 #categories-collapse
   text-align: center
