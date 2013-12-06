@@ -7,5 +7,5 @@
   = render partial: 'followers/user_list', locals: { user: @user.decorate, users: @users}
 
 %script
-  = "window.owl.env['following'] = #{current_user.following? @user};" if signed_in? && current_user.id != @user.id
-  = "window.owl.env['owner'] = true;" if signed_in? && current_user.id == @user.id
+  = "window.owl.env['following'] = #{signed_in? && current_user.id != @user.id && current_user.following?(@user)};"
+  = "window.owl.env['owner'] = #{signed_in? && current_user.id == @user.id};"
