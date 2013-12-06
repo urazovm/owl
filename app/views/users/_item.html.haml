@@ -1,6 +1,6 @@
 - cache ['v1', user, 'item'] do
-  - user = user.decorate
-  %li
+  %li{ id: "user_#{user.id}" }
+    - user = user.decorate
     = user.follow_button
     = user.linked_avatar_image(:small)
     = user.linked_login
