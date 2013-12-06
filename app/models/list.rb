@@ -28,7 +28,7 @@ class List
   settings TireListSettings do
     mapping do
       indexes :slug,        type: 'string', index: :no
-      indexes :user_id,     type: 'string', as: 'user_id.to_s', index: :no
+      indexes :user_id,     type: 'string', as: 'user_id.to_s'
       indexes :user_login,  type: 'string', as: 'user.login', analyzer: 'full_login', boost: 20
       indexes :category_id, type: 'integer'
       indexes :loves,       type: 'integer'
