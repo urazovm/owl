@@ -4,5 +4,5 @@ $('.love_button .ignore').hide().fadeIn();
 var count = $(".total_lovers_<%= @list.id %> strong");
 if (count.size() > 0) count.html(count.html().replace(/\d+/g, function(x) { return Number(x) + 1; }));
 
-$('#users').append("<%= escape_javascript(render(partial: 'users/item', locals: { user: current_user })) %>");
-$('#user_' + '<%= current_user.id %>' + ' .follow').remove();
+$('#users').prepend("<%= escape_javascript(render(partial: 'users/item', locals: { user: current_user })) %>");
+$('#user_' + '<%= current_user.id %>' + ' .follow_button').remove();

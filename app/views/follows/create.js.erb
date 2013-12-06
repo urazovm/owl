@@ -7,5 +7,5 @@ if (count1.size() > 0) count1.html(count1.html().replace(/\d+/g, function(x) { r
 var count2 = $(".total_followings_<%= current_user.id.to_s %> strong");
 if (count2.size() > 0) count2.html(count2.html().replace(/\d+/g, function(x) { return Number(x) + 1; }));
 
-$('#users').append("<%= escape_javascript(render(partial: 'users/item', locals: { user: current_user })) %>");
+$('#users').prepend("<%= escape_javascript(render(partial: 'users/item', locals: { user: current_user })) %>");
 $('#user_' + '<%= current_user.id %>' + ' .follow_button').remove();

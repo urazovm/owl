@@ -9,4 +9,4 @@
       = render partial: 'items/list', locals: { items: @items }
 
 %script
-  = "window.owl.env['loving'] = #{signed_in? && @list.user_id != current_user.id && current_user.loves?(@list)};"
+  = "window.owl.env['loving'] = #{signed_in? && current_user.loves?(@list)};"

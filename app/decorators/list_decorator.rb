@@ -58,11 +58,11 @@ class ListDecorator < ApplicationDecorator
   end
 
   def total_lovers_named
-    h.content_tag :span, h.t('lover_html', count: object.lovers.count)
+    h.content_tag :span, h.t('lover_html', count: object.lovers.count), class: "total_lovers_#{object.id}"
   end
 
   def total_comments_named
-    h.content_tag :span, h.t('comment_html', count: object.comments.count)
+    h.content_tag :span, h.t('comment_html', count: object.comments.count), class: "total_comments_#{object.id}"
   end
 
   def total_lovers
