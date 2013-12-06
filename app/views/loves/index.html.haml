@@ -10,13 +10,9 @@
         = render partial: 'loves/user_list', locals: { users: @users, list: @list.decorate }
   %script
     = "window.owl.env['loving'] = #{signed_in? && @list.user_id != current_user.id && current_user.loves?(@list)};"
-    = "window.owl.env['owner'] = #{signed_in? && @list.user_id == current_user.id};"
 
 - elsif defined? @lists
   - cache ['v1', @user, 'info'] do
     = render partial: 'users/info', locals: { user: @user.decorate }
   - cache ['v1', @user, 'lovings'] do
     = render partial: 'loves/list_list', locals: { user: @user.decorate, lists: @lists }
-  %script
-    = "window.owl.env['following'] = #{signed_in? && current_user.id != @user.id && current_user.following?(@user)};"
-    = "window.owl.env['owner'] = #{signed_in? && current_user.id == @user.id};"

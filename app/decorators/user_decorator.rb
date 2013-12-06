@@ -23,8 +23,11 @@ class UserDecorator < ApplicationDecorator
     h.link_to h.content_tag(:i, '', class: 'fa fa-cog'), h.edit_user_registration_path(r: 1), class: 'btn btn-default hidden edit'
   end
 
-  def follow_action
-    h.render partial: 'follows/button', locals: { user: self }
+  def follow_button
+    h.content_tag(:div, class: 'follow_button', 'data-user' => object.id.to_s) do
+        h.link_to("follow", h.user_follow_path(object), remote: true, method: :post, class: 'btn btn-primary follow') + \
+        h.link_to("unfollow", h.user_follow_path(object), remote: true, method: :delete, class: 'btn btn-default unfollow')
+    end
   end
 
   def lovings_link content
@@ -41,14 +44,6 @@ class UserDecorator < ApplicationDecorator
 
   def lists_link content
     h.link_to content, h.user_path(model), class: 'btn btn-default lists'
-  end
-
-  def follow_button
-    h.link_to "follow", h.user_follow_path(object), remote: true, method: :post, class: 'btn btn-primary follow'
-  end
-
-  def unfollow_button
-    h.link_to "unfollow", h.user_follow_path(object), remote: true, method: :delete, class: 'btn btn-default unfollow'
   end
 
   def total_loves

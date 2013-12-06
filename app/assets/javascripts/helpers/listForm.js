@@ -1,8 +1,8 @@
 (function($){
 
     function ListForm(el, options) {
-        this.options = options;
         this.el = $(el);
+        this.options = options;
         this.container = this.el.find('.items');
         this.items = this.container.find('.item');
         this.totalItems = this.items.length;

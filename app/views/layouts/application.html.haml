@@ -17,4 +17,7 @@
       = "window.owl.env['controller'] = '#{request.parameters['controller']}';"
       = "window.owl.env['action'] = '#{request.parameters['action']}';"
       = "window.owl.env['signed_in'] = #{signed_in?};"
-      = "window.owl.env['current_user'] = '#{current_user.id}';" if signed_in?
+      - if signed_in?
+        - cache ['v1', current_user, 'envs'] do
+          = "window.owl.env['current_user'] = '#{current_user.id.to_s}';"
+          = "window.owl.env['followings'] = #{current_user.followings.to_s};".html_safe

@@ -1,7 +1,7 @@
-$('#love_button .love').hide().fadeIn();
-$('#love_button .ignore').hide();
-var count = $(".total_lovers_<%= @list.id %>");
-count.html(count.html().replace(/\d+/g, function(x) { return Number(x) - 1; }));
-<% if request.params['controller'] == 'loves' %>
+$('.love_button .love').hide().fadeIn();
+$('.love_button .ignore').hide();
+
+var count = $(".total_lovers_<%= @list.id %> strong");
+if (count.size() > 0) count.html(count.html().replace(/\d+/g, function(x) { return Number(x) - 1; }));
+
 $('#user_<%= current_user.id %>').remove();
-<% end %>

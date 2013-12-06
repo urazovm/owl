@@ -5,7 +5,3 @@
 
 - cache ['v1', @user, 'followings'] do
   = render partial: 'followings/user_list', locals: { user: @user.decorate, users: @users }
-
-%script
-  = "window.owl.env['following'] = #{signed_in? && current_user.id != @user.id && current_user.following?(@user)};"
-  = "window.owl.env['owner'] = #{signed_in? && current_user.id == @user.id};"

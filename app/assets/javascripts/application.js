@@ -4,38 +4,21 @@
 
 window.owl = window.owl || {views:{}, env:{}, func:{}};
 window.owl.func['ready'] = function() {
+    function getEnv(name, type, fallback) {
+        return typeof window.owl.env[name] == type ? window.owl.env[name] : fallback;
+    }
+    window.owl.env['signed_in'] = getEnv('signed_in', 'boolean', false);
+    window.owl.env['loving'] = getEnv('loving', 'boolean', false);
+    window.owl.env['current_user'] = getEnv('current_user', 'string', '');
+    window.owl.env['followers'] = getEnv('followers', 'object', null);
+    window.owl.env['followings'] = getEnv('followings', 'object', null);
+    window.owl.env['query'] = getEnv('query', 'string', '');
+    window.owl.env['category_id'] = getEnv('category_id', 'number', null);
+
     var page = window.owl.env.controller + '_' + window.owl.env.action;
     typeof window.owl.views[page] == 'function' && window.owl.views[page]();
 
     window.Echo.init();
-
-    var signed_in = typeof window.owl.env['signed_in'] == 'boolean' && window.owl.env['signed_in'] == true;
-    var following = typeof window.owl.env['following'] == 'boolean' && window.owl.env['following'] == true;
-    var loving = typeof window.owl.env['loving'] == 'boolean' && window.owl.env['loving'] == true;
-    var owner = typeof window.owl.env['owner'] == 'boolean' && window.owl.env['owner'] == true;
-    if (signed_in && owner) {
-        $('#user_info .logout').removeClass('hidden');
-        $('#user_info .edit').removeClass('hidden');
-        $('#list .edit').removeClass('hidden');
-    } else if (signed_in) {
-        $('#follow_button').removeClass('hidden');
-        if (following) {
-            $('#follow_button .follow').hide();
-            $('#follow_button .unfollow').show();
-        } else {
-            $('#follow_button .follow').show();
-            $('#follow_button .unfollow').hide();
-        }
-        $('#love_button').removeClass('hidden');
-        if (loving) {
-            $('#love_button .love').hide();
-            $('#love_button .ignore').show();
-        } else {
-            $('#love_button .love').show();
-            $('#love_button .ignore').hide();
-        }
-    }
-
 
     var searchCollapsed = $('#search-collapse').hasClass('collapse');
     var categoriesCollapsed = $('#categories-collapse').hasClass('collapse');

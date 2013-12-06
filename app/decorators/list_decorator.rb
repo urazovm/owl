@@ -45,10 +45,6 @@ class ListDecorator < ApplicationDecorator
     h.link_to total_comments, h.list_comments_path(model), class: 'btn btn-default comments'
   end
 
-  def items_link
-    h.link_to total_items, h.list_path(model), class: 'btn btn-default'
-  end
-
   def linked_user
     h.link_to model.user.login, h.user_path(model.user)
   end
@@ -62,22 +58,18 @@ class ListDecorator < ApplicationDecorator
   end
 
   def total_lovers_named
-    h.content_tag :strong, h.t('lover', count: object.lovers.count)
+    h.content_tag :span, h.t('lover_html', count: object.lovers.count)
   end
 
   def total_comments_named
-    h.content_tag :strong, h.t('comment', count: object.comments.count)
+    h.content_tag :span, h.t('comment_html', count: object.comments.count)
   end
 
   def total_lovers
-    h.content_tag :strong, object.lovers.count, class: "total_lovers_#{object.id}"
+    h.content_tag :span, h.content_tag(:strong, object.lovers.count), class: "total_lovers_#{object.id}"
   end
 
   def total_comments
-    h.content_tag :strong, object.comments.count, class: "total_comments_#{object.id}"
-  end
-
-  def total_items
-    h.content_tag :strong, h.t('item', count: object.items.count), class: "items total_items_#{object.id}"
+    h.content_tag :span, h.content_tag(:strong, object.comments.count), class: "total_comments_#{object.id}"
   end
 end

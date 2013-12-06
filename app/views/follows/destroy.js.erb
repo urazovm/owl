@@ -1,4 +1,10 @@
-$('#follow_button .follow').hide().fadeIn();
-$('#follow_button .unfollow').hide();
-var count = $(".total_followers_<%= @user.id %>");
-count.html(count.html().replace(/\d+/g, function(x) { return Number(x) - 1; }));
+$('.follow_button[data-user=<%= @user.id.to_s %>] .follow').hide().fadeIn();
+$('.follow_button[data-user=<%= @user.id.to_s %>] .unfollow').hide();
+
+var count1 = $(".total_followers_<%= @user.id.to_s %> strong");
+if (count1.size() > 0) count1.html(count1.html().replace(/\d+/g, function(x) { return Number(x) - 1; }));
+
+var count2 = $(".total_followings_<%= current_user.id.to_s %> strong");
+if (count2.size() > 0) count2.html(count2.html().replace(/\d+/g, function(x) { return Number(x) - 1; }));
+
+$('#user_<%= current_user.id %>').remove();

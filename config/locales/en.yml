@@ -1,14 +1,9 @@
 en:
 
-  comment:
-    zero: "%{count} comment"
-    one: "%{count} comment"
-    other: "%{count} comments"
-
-  item:
-    zero: "%{count} item"
-    one: "%{count} item"
-    other: "%{count} items"
+  comment_html:
+    zero: "<strong>%{count}</strong> comment"
+    one: "<strong>%{count}</strong> comment"
+    other: "<strong>%{count}</strong> comments"
 
   list_html:
     zero: "<strong>%{count}</strong> list"
@@ -30,15 +25,10 @@ en:
     one: "<strong>%{count}</strong> loved"
     other: "<strong>%{count}</strong> loved"
 
-  love:
-    zero: "%{count} love"
-    one: "%{count} love"
-    other: "%{count} loves"
-
-  lover:
-    zero: "%{count} lover"
-    one: "%{count} lover"
-    other: "%{count} lovers"
+  lover_html:
+    zero: "<strong>%{count}</strong> lover"
+    one: "<strong>%{count}</strong> lover"
+    other: "<strong>%{count}</strong> lovers"
 
   comments:
     form:
