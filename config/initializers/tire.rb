@@ -18,6 +18,11 @@ TireListSettings = {
         filter:    %w(standard lowercase asciifolding elision title_ngrams),
         type:      "custom",
         tokenizer: "standard"
+      },
+      full_login: {
+        filter:    %w(lowercase),
+        type:      "custom",
+        tokenizer: "keyword"
       }
     }
   }

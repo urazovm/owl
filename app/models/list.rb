@@ -29,7 +29,7 @@ class List
     mapping do
       indexes :slug,        type: 'string', index: :no
       indexes :user_id,     type: 'string', as: 'user_id.to_s', index: :no
-      indexes :user_login,  type: 'string', as: 'user.login', analyzer: 'keyword', boost: 20
+      indexes :user_login,  type: 'string', as: 'user.login', analyzer: 'full_login', boost: 20
       indexes :category_id, type: 'integer'
       indexes :loves,       type: 'integer'
       indexes :items,       type: 'integer', as: 'items.size'
@@ -42,7 +42,7 @@ class List
   end
 
   def self.search params, page=0
-    params.select! {|k| ['query', 'category_id', 'user_id', 'user_ids', 'starts_at', 'ends_at'].include? k }
+    params.select! {|k, v| ['query', 'category_id', 'user_id', 'user_ids', 'starts_at', 'ends_at'].include?(k) && !v.blank? }
     tire.search({page: page, per_page: 12, load: true}) do
       query { string(params['query'], default_operator: "OR", fields: List.search_fields) } unless params['query'].blank?
       filter(:and, List.search_filters(params)) unless params.except('query').size == 0
