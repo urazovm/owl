@@ -12,6 +12,9 @@ Owl::Application.routes.draw do
     end
   end
 
+  match "/about", to: "pages#about", via: "get", as: :about
+  match "/legal", to: "pages#legal", via: "get", as: :legal
+
   resources :users, path: '', only: [:show, :edit, :update] do
     resource :love, only: [:create, :destroy]
     resource :follow, only: [:create, :destroy]

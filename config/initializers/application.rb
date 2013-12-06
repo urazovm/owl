@@ -1,4 +1,4 @@
-ListForbiddenNames = ['users', 'lists']
+ListForbiddenNames = ['users', 'lists', 'about', 'legal']
 ListCategories = [
   ['First', 0],
   ['Second', 1],
