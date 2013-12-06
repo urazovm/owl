@@ -4,11 +4,12 @@
     .col-sm-12
       %h1
         = list.linked_title
-        %small
-          %span by
-          = user.linked_login
-          %span the
-          = list.date
+      %p.info
+        %span by
+        = user.linked_avatar_image(:small)
+        = user.linked_login
+        %span the
+        = list.date
 
   .row
     .col-sm-12.col-xs-8
