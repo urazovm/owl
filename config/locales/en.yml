@@ -30,6 +30,11 @@ en:
     one: "<strong>%{count}</strong> lover"
     other: "<strong>%{count}</strong> lovers"
 
+  item_html:
+    zero: "<strong>%{count}</strong> item"
+    one: "<strong>%{count}</strong> item"
+    other: "<strong>%{count}</strong> items"
+
   comments:
     form:
       submit: 'Comment'

@@ -9,10 +9,6 @@ class ListDecorator < ApplicationDecorator
     h.content_tag :div, h.simple_format(object.description), class: :description
   end
 
-  def items
-      object.items.decorate
-  end
-
   def comments
       object.comments.decorate
   end
@@ -46,7 +42,9 @@ class ListDecorator < ApplicationDecorator
   end
 
   def linked_user
-    h.link_to model.user.login, h.user_path(model.user)
+    user = model.user.decorate
+    user.linked_avatar_image(:small) + \
+    user.linked_login
   end
 
   def love_link
@@ -63,6 +61,10 @@ class ListDecorator < ApplicationDecorator
 
   def total_comments_named
     h.content_tag :span, h.t('comment_html', count: object.comments.count), class: "total_comments_#{object.id}"
+  end
+
+  def total_items_named
+    h.content_tag :span, h.t('item_html', count: object.items.count), class: "total_items_#{object.id}"
   end
 
   def total_lovers
