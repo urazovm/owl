@@ -11,6 +11,8 @@
 
   %body
     .container
+      - cache ['v1', 'header', signed_in?, current_user||nil] do
+        = render partial: 'layouts/header'
       = yield
 
     %script
