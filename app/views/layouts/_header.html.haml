@@ -1,13 +1,15 @@
 - cache ['v1', 'header', signed_in?, current_user||nil] do
   #header.row
 
-    .col-sm-4.col-xs-7
+    .col-sm-2.col-xs-4
       %span.logo= link_to 'OWL', lists_path
+
+    .col-sm-5.col-xs-8.col-sm-push-5.right
       - if signed_in?
         = link_to user_path(current_user), class: 'visible-xs btn btn-sm btn-default user' do
           %i.fa.fa-user
-        .btn-group.user.hidden-xs
-          %button.btn.btn-sm.btn-default.dropdown-toggle{ 'data-toggle' => :dropdown }
+        .btn-group.hidden-xs
+          %button.user.btn.btn-sm.btn-default.dropdown-toggle{ 'data-toggle' => :dropdown }
             %span
               = current_user.decorate.avatar_image :small
               = current_user.login
@@ -22,8 +24,6 @@
           = link_to 'register', new_user_registration_path(r: 1)
           %span /
           = link_to 'login', new_user_session_path(r: 1)
-
-    .col-sm-3.col-xs-5.col-sm-push-5.right
       .btn-group.actions
         = link_to new_list_path, class: 'btn btn-sm btn-default create' do
           %span.hidden-xs Create a list
@@ -33,11 +33,11 @@
         %button.btn.btn-sm.btn-default.categories-collapser{ 'data-toggle' => "collapse", 'data-target' => '#categories-collapse' }
           %i.fa.fa-bars
 
-    .col-xs-12.col-sm-5.col-sm-pull-3.right.search
+    .col-xs-12.col-sm-5.col-sm-pull-5.right.search
       = form_tag lists_path, method: :get, id: 'search-collapse', class: 'collapse collapse-xs' do
         = hidden_field_tag :category_id, params[:category_id]
         .input-group
-          = text_field_tag :query, '', class: 'form-control', placeholder: '…'
+          = text_field_tag :query, '', class: 'form-control', placeholder: '...'
           .input-group-btn
             %button.btn.btn-sm.btn-default.submit
               %span.visible-xs Search

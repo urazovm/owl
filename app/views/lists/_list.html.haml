@@ -1,9 +1,10 @@
 %h1= ListCategories.at(params[:category_id].to_i)[0] unless params[:category_id].blank?
+%h1= "Search results for: #{params[:query]}" unless params[:query].blank?
 
 - if @lists.count == 0
   %p.empty
     Nothing here for the moment…
-    = link_to 'be the 1st the create a list !', new_list_path
+    = link_to 'be the 1st the create a list about this!', new_list_path
 
 - else
 %ul#lists.list-unstyled
