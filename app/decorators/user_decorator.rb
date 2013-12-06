@@ -8,7 +8,7 @@ class UserDecorator < ApplicationDecorator
   end
 
   def avatar_image style
-    h.image_tag object.avatar.url(style), class: "avatar avatar-#{style}"
+    h.image_lazy_tag object.avatar.url(style), class: "avatar avatar-#{style}"
   end
 
   def linked_avatar_image style
