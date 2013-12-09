@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:edit, :update, :destroy]
 
   def new
     @list = List.new

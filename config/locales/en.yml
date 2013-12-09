@@ -47,6 +47,11 @@ en:
       create: "Create a list"
       search: "Search"
       all: "All"
+      profile_link: "Profile"
+      settings_link: "Parameters"
+      logout_link: "Logout"
+      register_link: "Register"
+      login_link: "Login"
   loves:
     button:
       love: "Love"
@@ -97,3 +102,38 @@ en:
   comments:
     item:
       delete: "Delete"
+  devise:
+    passwords:
+      edit:
+        title: "Change your password"
+        text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal la"
+        submit: "Change my password"
+      new:
+        title: "Forgot your password?"
+        text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal la"
+        submit: "Send me reset password instructions"
+        hint: "Enter the email address you registered with"
+    sessions:
+      new:
+        title: "Login in to your account"
+        text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal la"
+        sign_up_text: "Don't have an account?"
+        sign_up_link: "sign up now!"
+        forgot_password_text: "Forgot your password?"
+        forgot_password_link: "click here to recover it"
+        submit: "Sign in"
+    registrations:
+      new:
+        title: "Create a new account"
+        text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal la"
+        sign_in_text: "Allready have an account?"
+        sign_in_link: "sign in"
+        submit: "Let's go!"
+      edit:
+        title: "My settings"
+        text: "For security reason, you need to fill your password before updating your settings."
+        submit: "Update my settings"
+        delete_title: "Cancel my account"
+        delete_text: "Unhappy?"
+        delete_link: "Delete my account"
+        delete_confirm: "Are you sure? this can not be undone."

@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
     session[:stored_url] ? session[:stored_url] : lists_path
   end
   def after_sign_out_path_for(resource)
-    session[:stored_url] ? session[:stored_url] : lists_path
+    lists_path
   end
 
   # GLOBAL

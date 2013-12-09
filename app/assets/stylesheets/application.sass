@@ -5,7 +5,7 @@ $legacy-support-for-ie7: false
 
 // http://www.colourlovers.com/palette/2170717/Sketch_APC284
 
-$grey_light: #e3e3e3
+$grey_normal: #aaaaaa
 
 $blue_light: #FCE3AB
 $blue_normal: #BE9D74
@@ -112,9 +112,12 @@ hr.trans
   @media (min-width: 768px)
     padding-top: 3em
   span:before
-    content: " - "
+    content: "-"
+    margin: 0 5px
+    color: $grey_normal
   span:first-child:before
     content: ""
+    margin: 0
 
 #header
   background: $blue_dark
@@ -139,7 +142,8 @@ hr.trans
     width: 28px
     margin: -5px 2px -5px -10px
   .sign
-    margin-left: 10px
+    margin-top: 2px
+    margin-right: 10px
   .right
     text-align: right
   .dropdown-menu
