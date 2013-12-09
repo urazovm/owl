@@ -29,7 +29,7 @@
 	- social tools
 	- facebook connect
 	- twitter connect
-  - locales EN
+  - ~~locales EN~~
   - locales FR
 - Integration
 	- ~~bootstrap 3~~

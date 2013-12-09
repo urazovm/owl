@@ -38,3 +38,62 @@ en:
   comments:
     form:
       submit: 'Comment'
+
+  layouts:
+    footer:
+      about: "About us"
+      legal: "Legal"
+    header:
+      create: "Create a list"
+      search: "Search"
+      all: "All"
+  loves:
+    button:
+      love: "Love"
+      ignore: "Ignore"
+  lists:
+    info:
+      edit: "Edit this list"
+    form:
+      submit: "Save this list"
+      delete_image: "delete image"
+    list:
+      search_title: "Search results for:"
+      empty: "Nothing here for the moment…"
+      empty_link: "be the 1st the create a list about this!"
+    notes:
+      title_main: "Welcome to OWL!"
+      text_main: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+      text_category_0: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+      text_category_1: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+      text_category_2: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+      text_category_3: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+      text_category_4: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+      text_category_5: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+      text_category_6: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+      text_category_7: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+    tmp:
+      title: "Tmp lists:"
+      link: "register to save your lists"
+  pages:
+    about:
+      title: "About us"
+    legal:
+      title: "Legal information"
+  users:
+    notes:
+      title_lists: "All %{login}'s lists"
+      text_lists: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+      title_loved: "%{login}'s loved lists"
+      text_loved: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+      title_followings: "People %{login}'s following"
+      text_followings: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+      title_followers: "People following %{login}"
+      text_followers: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+    info:
+      logout: "Logout"
+      follow: "Follow"
+      unfollow: "Unfollow"
+  comments:
+    item:
+      delete: "Delete"

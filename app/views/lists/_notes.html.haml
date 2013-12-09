@@ -1,7 +1,7 @@
 #list_notes
   - if params[:category_id].blank?
-    %h2 Welcome to OWL!
-    %p lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la
+    %h2= t('.title_main')
+    %p= t('.text_main')
   - else
     %h2= ListCategories.at(params[:category_id].to_i)[0]
-    %p lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la
+    %p= t(".text_category_#{params[:category_id]}")

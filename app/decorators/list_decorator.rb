@@ -26,7 +26,7 @@ class ListDecorator < ApplicationDecorator
   end
 
   def edit_button
-    h.link_to 'edit this list', h.edit_list_path(model), class: 'btn btn-default btn-full edit hidden'
+    h.link_to h.t('.edit'), h.edit_list_path(model), class: 'btn btn-default btn-full edit hidden'
   end
 
   def love_button
@@ -48,11 +48,11 @@ class ListDecorator < ApplicationDecorator
   end
 
   def love_link
-    h.link_to "like", h.list_love_path(object), remote: true, method: :post, class: 'btn btn-primary btn-full love'
+    h.link_to h.t('.love'), h.list_love_path(object), remote: true, method: :post, class: 'btn btn-primary btn-full love'
   end
 
   def ignore_link
-    h.link_to "dislike", h.list_love_path(object), remote: true, method: :delete, class: 'btn btn-default btn-full ignore'
+    h.link_to h.t('.ignore'), h.list_love_path(object), remote: true, method: :delete, class: 'btn btn-default btn-full ignore'
   end
 
   def total_lovers_named

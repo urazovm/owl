@@ -14,8 +14,8 @@
           .col-sm-5
             = image_tag '/assets/images/small.jpg' unless i.object.image.file?
             = i.input :image, as: :image_preview, input_html: { preview_version: :small }
-            = link_to 'delete image', list_item_image_path(list, i.object), remote: true, method: :delete, class: :delete if i.object.image.file?
-  = f.button :submit, class: 'btn btn-full btn-primary'
+            = link_to t('.delete_image'), list_item_image_path(list, i.object), remote: true, method: :delete, class: :delete if i.object.image.file?
+  = f.button :submit, t('.submit'), class: 'btn btn-full btn-primary'
 
 - if list.persisted?
   %hr

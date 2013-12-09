@@ -1,10 +1,12 @@
 - unless params[:query].blank?
-  %h1= "Search results for: #{params[:query]}"
+  %h1
+    = t('.search_title')
+    = params[:query]
 
 - if @lists.count == 0
   %p.empty
-    Nothing here for the moment…
-    = link_to 'be the 1st the create a list about this!', new_list_path
+    = t('.empty')
+    = link_to t('.empty_link'), new_list_path
 
 - else
 %ul#lists.list-unstyled

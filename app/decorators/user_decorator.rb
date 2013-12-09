@@ -16,7 +16,7 @@ class UserDecorator < ApplicationDecorator
   end
 
   def logout_link
-    h.link_to 'logout', h.destroy_user_session_path(r: 1), method: :delete, class: 'btn btn-default hidden logout'
+    h.link_to h.t('.logout'), h.destroy_user_session_path(r: 1), method: :delete, class: 'btn btn-default hidden logout'
   end
 
   def edit_link
@@ -25,8 +25,8 @@ class UserDecorator < ApplicationDecorator
 
   def follow_button
     h.content_tag(:div, class: 'follow_button', 'data-user' => object.id.to_s) do
-        h.link_to("follow", h.user_follow_path(object), remote: true, method: :post, class: 'btn btn-primary follow') + \
-        h.link_to("unfollow", h.user_follow_path(object), remote: true, method: :delete, class: 'btn btn-default unfollow')
+        h.link_to(h.t('.follow'), h.user_follow_path(object), remote: true, method: :post, class: 'btn btn-primary follow') + \
+        h.link_to(h.t('.unfollow'), h.user_follow_path(object), remote: true, method: :delete, class: 'btn btn-default unfollow')
     end
   end
 

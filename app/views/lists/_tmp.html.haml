@@ -1,5 +1,5 @@
-%h2 Tmp lists:
+%h2= t('.title')
 %p
-  %a{href: new_user_registration_path} register to save your lists
+  %a{href: new_user_registration_path}= t('.link')
 %ul
   = render partial: 'lists/item', collection: lists, as: :list

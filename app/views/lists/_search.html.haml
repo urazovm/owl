@@ -1,7 +1,0 @@
-.search.col-sm-12
-  = form_tag lists_path, method: :get, class: 'search' do
-    = hidden_field_tag :category_id, params[:category_id]
-    .input-group
-      = text_field_tag :query, '', class: 'form-control'
-      .input-group-btn
-        = submit_tag 'Search', class: 'btn submit'

@@ -25,7 +25,7 @@
         = link_to 'login', new_user_session_path(r: 1)
     .btn-group.actions
       = link_to new_list_path, class: 'btn btn-sm btn-default create' do
-        %span.hidden-xs Create a list
+        %span.hidden-xs= t('.create')
         %i.visible-xs.fa.fa-plus
       %button.btn.btn-sm.btn-default.visible-xs.search-collapser{ 'data-toggle' => "collapse", 'data-target' => '#search-collapse' }
         %i.fa.fa-search
@@ -39,12 +39,12 @@
         = text_field_tag :query, '', class: 'form-control', placeholder: '...'
         .input-group-btn
           %button.btn.btn-sm.btn-default.submit
-            %span.visible-xs Search
+            %span.visible-xs= t('.search')
             %i.hidden-xs.fa.fa-search
 
 #categories.row
   .col-sm-12
     %ul#categories-collapse.collapse.list-unstyled
-      %li.category_999= link_to 'All', lists_path
+      %li.category_999= link_to t('.all'), lists_path
       - ListCategories.each_with_index do |category, i|
         %li{ class: "category_#{category[1]}" }= link_to category[0], lists_path(category_id: category[1])
