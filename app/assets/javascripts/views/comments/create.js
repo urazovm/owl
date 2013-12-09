@@ -1,4 +1,4 @@
-window.owl.views.comments_index = function()
+window.owl.views.comments_create = function()
 {
     if (window.owl.env['signed_in']){
         $('#new_comment').removeClass('hidden').hide().fadeIn();
@@ -6,6 +6,4 @@ window.owl.views.comments_index = function()
             $('#new_comment input[type=submit]').removeClass('hidden').hide().fadeIn();
         });
     }
-    $('#list .comments').addClass('active');
-    $('.love_button').loveButton();
 };

@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
 
   def index
     @list = List.find(params[:list_id])
-    @comments = @list.comments.desc(:created_at).includes(:user)
+    @comments = @list.comments.where(:created_at.exists => true).desc(:created_at).includes(:user)
     @comment = @list.comments.build
     @category_id = @list.category_id
     @user = @list.user
