@@ -10,12 +10,18 @@
     = csrf_meta_tags
 
   %body
-    .container
-      - cache ['v1', 'header', signed_in?, current_user||nil] do
-        = render partial: 'layouts/header'
-      = yield
-      - cache ['v1', 'footer'] do
-        = render partial: 'layouts/footer'
+
+    #main
+      .container
+        - cache ['v1', 'header', signed_in?, current_user||nil] do
+          = render partial: 'layouts/header'
+        = yield
+      #push_footer
+
+    - cache ['v1', 'footer'] do
+      #footer
+        .container
+          = render partial: 'layouts/footer'
 
     %script
       = "window.owl.env['controller'] = '#{request.parameters['controller']}';"
