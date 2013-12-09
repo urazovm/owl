@@ -26,7 +26,7 @@ class ListDecorator < ApplicationDecorator
   end
 
   def edit_button
-    h.link_to h.t('.edit'), h.edit_list_path(model), class: 'btn btn-default btn-full edit hidden'
+    h.link_to h.t('.edit'), h.edit_list_path(model), class: 'btn btn-default btn-full edit_button hidden', 'data-user' => object.user.id.to_s
   end
 
   def love_button
