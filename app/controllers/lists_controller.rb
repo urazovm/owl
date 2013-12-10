@@ -64,6 +64,6 @@ class ListsController < ApplicationController
 private
 
   def list_params
-    params.require(:list).permit(:title, :category_id, :description, items_attributes: [:name, :id, :image])
+    params.require(:list).permit(:title, :category_id, items_attributes: [:name, :id, :image])
   end
 end

@@ -5,12 +5,8 @@ class ListDecorator < ApplicationDecorator
     obect.title.capitalize
   end
 
-  def description
-    h.content_tag :div, h.simple_format(object.description), class: :description
-  end
-
   def comments
-      object.comments.decorate
+    object.comments.decorate
   end
 
   def date
@@ -38,7 +34,7 @@ class ListDecorator < ApplicationDecorator
   end
 
   def lovers_link
-    h.link_to total_lovers_named, h.list_loves_path(model), remote: true, class: 'lovers'
+    h.link_to total_lovers, h.list_loves_path(model), remote: true, class: 'lovers'
   end
 
   def comments_link

@@ -1,10 +1,8 @@
 - cache ['v1', comment, 'item'] do
   - user = comment.user.decorate
   - comment = comment.decorate
-  %li.media
-    .pull-left
-      = user.linked_avatar_image(:small)
-    .media-body
-      = comment.delete_link
-      = user.linked_login
-      = comment.message
+  %li
+    = comment.delete_link
+    = user.linked_avatar_image(:small)
+    = user.linked_login
+    = comment.message

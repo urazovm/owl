@@ -9,6 +9,7 @@ $legacy-support-for-ie7: false
 // http://www.colourlovers.com/palette/2170717/Sketch_APC284
 
 $grey_normal: #aaaaaa
+$grey_light: #e3e3e3
 
 $blue_light: #FCE3AB
 $blue_normal: #BE9D74
@@ -200,20 +201,16 @@ hr.trans
   margin-bottom: 1em
   h1
     margin-bottom: 10px
-  .description
-    margin-top: 8px
-    @media (min-width: 768px)
-      margin-top: 15px
   .info
     .avatar
       width: 24px
       margin-top: -5px
 
-// #list_nav
-//   .lovers:after
-//     font-family: 'FontAwesome'
-//     margin-left: 5px
-//     content: '\f08a'
+#list_nav
+  .lovers:after
+    font-family: 'FontAwesome'
+    margin-left: 5px
+    content: '\f08a'
 //   .comments:after
 //     font-family: 'FontAwesome'
 //     margin-left: 5px
@@ -294,12 +291,15 @@ hr.trans
 #comments
   textarea
     height: 40px
-    &:focus
-      height: 80px
   .submit
     margin-bottom: 20px
     margin-top: -10px
   li
+    border-top: 1px dashed $grey_light
+    padding-top: 5px
+    margin-top: -8px
+    &:first-child
+      border: none
     .delete
       float: right
       font-size: 0.8em
@@ -307,9 +307,19 @@ hr.trans
       width: 24px
 
 #loves_users
+  .btn
+    margin-top: 8px
+    float: right
+  .info
+    @media (min-width: 768px)
+      display: none
   li
-    .avatar
-      width: 24px
+    border-top: 1px dashed $grey_light
+    padding-top: 5px
+    margin-top: 5px
+    &:first-child
+      border: none
+      margin-top: -5px
 
 #users
   margin-top: 1em

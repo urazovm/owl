@@ -12,7 +12,7 @@
         this.el.on('click', $.proxy(function(e) {
         console.log(2);
             e.preventDefault();
-            if (confirm('Are you realy sure you want to report this list?\n\nClick "ok" if so, otherwise click "cancel".\nDuplicated reports will be ignored and abusive reports will be punished.')) {
+            if (confirm('Are you realy sure you want to report this list as inapropriate?\n\nClick "ok" if so, otherwise click "cancel".\n\nWARNING: Duplicated reports will be ignored and abusive reports will be punished.')) {
                 var m = prompt('Please explain briefly the reason why this list is inapropriate.', '');
                 if (m != null) {
                     m = $.trim(m);

@@ -2,5 +2,6 @@
   $('#list_side_info').html("<%= escape_javascript(render(partial: 'loves/user_list', locals: { users: @users })) %>").hide().fadeIn();
   $('#list_nav .comments').parent().removeClass('active');
   $('#list_nav .lovers').parent().addClass('active');
+  $('.follow_button').followButton();
   window.Echo.init();
 <% end %>

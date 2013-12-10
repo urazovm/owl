@@ -13,6 +13,7 @@
             this.el.removeClass('hidden').hide().fadeIn();
             this.textarea.on('focus', $.proxy(function() {
                 this.submit.removeClass('hidden').hide().fadeIn();
+                this.textarea.height(80);
             }, this));
         }
     };

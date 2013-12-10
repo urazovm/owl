@@ -10,7 +10,6 @@ class List
   embeds_many :comments, cascade_callbacks: true
   validates_presence_of :title, :category_id
   validates_numericality_of :category_id, greater_than_or_equal_to: 0, less_than: ListCategories.length
-  validates_length_of :description, maximum: 900, allow_blank: true
   # TODO validate that there is at least one item
   accepts_nested_attributes_for :items
   after_save :check_search_index
@@ -21,7 +20,6 @@ class List
   field :title,       type: String
   field :deleted_at,  type: Time
   field :category_id, type: Integer
-  field :description, type: String
   field :lovers,      type: Array, default: []
   field :loves,       type: Integer
 
