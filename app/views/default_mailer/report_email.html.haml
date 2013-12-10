@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+
+  %body
+    %h1 Content reported!
+    %h3 Report:
+    %ul
+      %li
+        %strong From IP:
+        %span= @report.ip
+      %li
+        %strong Date:
+        %span= @report.created_at
+      %li
+        %strong Message:
+        %span= @report.message
+    %h3 List: #{link_to @report.list.title, list_url(@report.list)}
+    - if @user.nil?
+      %p User was not signed in.
+    - else
+      %h3 User: #{link_to @user.login, user_url(@user)} (#{@user.email})

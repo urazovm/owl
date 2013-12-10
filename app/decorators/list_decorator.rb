@@ -29,6 +29,10 @@ class ListDecorator < ApplicationDecorator
     h.link_to h.t('.edit'), h.edit_list_path(model), class: 'btn btn-default btn-full edit_button hidden', 'data-user' => object.user.id.to_s
   end
 
+  def report_button
+    h.link_to h.t('.report'), '#', remote: false, class: 'report_button text-danger', 'data-list' => object.id.to_s
+  end
+
   def love_button
     h.render partial: 'loves/button', locals: { list: self }
   end

@@ -5,6 +5,7 @@ class List
   include Tire::Model::Search
 
   belongs_to :user, touch: true
+  has_many :reports
   embeds_many :items, cascade_callbacks: true
   embeds_many :comments, cascade_callbacks: true
   validates_presence_of :title, :category_id

@@ -59,6 +59,7 @@ en:
   lists:
     info:
       edit: "Edit this list"
+      report: "Report as inapropriate"
     form:
       submit: "Save this list"
       delete_image: "delete image"

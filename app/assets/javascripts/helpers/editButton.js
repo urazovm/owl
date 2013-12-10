@@ -8,14 +8,10 @@
     };
 
     EditButton.prototype.init = function(e) {
-        console.log(1);
         if (window.owl.env['signed_in']) {
-        console.log(2);
             if (window.owl.env['current_user'] == this.user) {
-        console.log(3);
                 this.el.removeClass('hidden');
             } else {
-        console.log(4);
                 this.el.remove();
             }
         }

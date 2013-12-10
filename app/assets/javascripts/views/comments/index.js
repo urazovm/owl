@@ -8,4 +8,5 @@ window.owl.views.comments_index = function()
     }
     $('#list .comments').addClass('active');
     $('.love_button').loveButton();
+    $('.report_button').reportButton();
 };
