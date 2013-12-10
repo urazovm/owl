@@ -13,9 +13,9 @@ class LovesController < ApplicationController
 
   def index
     if params[:list_id].present?
-      @list = List.find(params[:list_id])
-      @user = @list.user
-      @users = User.where(:id.in => @list.lovers)
+      redirect_to lists_path unless request.xhr?
+      list = List.find(params[:list_id])
+      @users = User.where(:id.in => list.lovers)
     elsif params[:user_id].present?
       @user = User.find(params[:user_id])
       @lists = List.where(:id.in => @user.lovings)

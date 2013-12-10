@@ -18,11 +18,10 @@ class CommentsController < ApplicationController
   end
 
   def index
-    @list = List.find(params[:list_id])
-    @comments = @list.comments.where(:created_at.exists => true).desc(:created_at).includes(:user)
-    @comment = @list.comments.build
-    @category_id = @list.category_id
-    @user = @list.user
+    redirect_to lists_path unless request.xhr?
+    list = List.find(params[:list_id])
+    @comments = list.comments.where(:created_at.exists => true).desc(:created_at).includes(:user)
+    @comment = list.comments.build
   end
 
 private

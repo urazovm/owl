@@ -140,9 +140,6 @@ hr.trans
       text-decoration: none
       &:hover
         color: $blue_light
-  .user
-    margin-top: 2px
-    margin-right: 5px
   .avatar
     width: 28px
     margin: -5px 2px -5px -10px
@@ -154,6 +151,7 @@ hr.trans
   .dropdown-menu
     text-align: left
   .actions
+    display: inline-block
     margin-top: 2px
   .search
     clear: both
@@ -199,26 +197,21 @@ hr.trans
         float: left
 
 #list
+  margin-bottom: 1em
   h1
     margin-bottom: 10px
-  .actions
-    max-width: 220px
   .description
     margin-top: 8px
     @media (min-width: 768px)
       margin-top: 15px
-  .avatar
-    width: 20px
-    margin-top: -5px
-    +border-radius(2px)
-  .actions,
-  .edit_button,
+  .info
+    .avatar
+      width: 24px
+      margin-top: -5px
   .love_button
-    margin-top: 0.5em
-    margin-bottom: 0.5em
-    @media (min-width: 768px)
-      margin-top: 1em
-      margin-bottom: 0
+    margin-bottom: 10px
+
+#list_nav
   .lovers:after
     font-family: 'FontAwesome'
     margin-left: 5px
@@ -242,10 +235,9 @@ hr.trans
       padding-top: 0
       margin-top: 0
     .avatar
-      width: 20px
+      width: 24px
       margin-right: 5px
       margin-top: -5px
-      +border-radius(2px)
     .love
       // &:nth-child(3n):before
       //   +transform(rotate(-2deg))
@@ -302,13 +294,24 @@ hr.trans
         font-size: 1em
 
 #comments
+  textarea
+    height: 40px
+    &:focus
+      height: 80px
+  .submit
+    margin-bottom: 20px
+    margin-top: -10px
   li
-    .login
-      font-weight: bold
-      font-size: 1.2em
     .delete
       float: right
       font-size: 0.8em
+    .avatar
+      width: 24px
+
+#loves_users
+  li
+    .avatar
+      width: 24px
 
 #users
   margin-top: 1em
@@ -374,6 +377,9 @@ hr.trans
     @media (min-width: 768px)
       display: inline
       margin-right: 5px
+
+#list_side_info
+  margin-top: 1em
 
 #list_notes
   margin-bottom: 1.5em

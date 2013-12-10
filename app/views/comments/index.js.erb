@@ -1,0 +1,7 @@
+<%= cache ['v1', @list, 'comments'] do %>
+  $('#list_side_info').html("<%= escape_javascript(render(partial: 'comments/list', locals: { comment: @comment, comments: @comments })) %>").hide().fadeIn();
+  $('#list_nav .comments').parent().addClass('active');
+  $('#list_nav .lovers').parent().removeClass('active');
+  $('.comment_form').commentForm();
+  window.Echo.init();
+<% end %>

@@ -28,6 +28,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @comments = @list.comments.where(:created_at.exists => true).desc(:created_at).includes(:user)
+    @comment = @list.comments.build
     @category_id = @list.category_id
     @user = @list.user
     @items = @list.items_ordered

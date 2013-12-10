@@ -1,20 +1,8 @@
-- if defined? @users
-  .row
-    .col-sm-4
-      - cache ['v1', @list, 'info'] do
-        = render partial: 'lists/info', locals: { list: @list.decorate, user: @user.decorate }
-    .col-sm-8
-      - cache ['v1', @list, 'lovers'] do
-        = render partial: 'loves/user_list', locals: { users: @users, list: @list.decorate }
-  %script
-    = "window.owl.env['loving'] = #{signed_in? && current_user.loves?(@list)};"
-
-- elsif defined? @lists
-  - cache ['v1', @user, 'info'] do
-    = render partial: 'users/info', locals: { user: @user.decorate }
-  - cache ['v1', @user, 'lovings'] do
-    .col-sm-8
-      = render partial: 'loves/list_list', locals: { user: @user.decorate, lists: @lists }
-  - cache ['v1', @user, 'notes', :loved] do
-    .col-sm-4.hidden-xs
-      = render partial: 'users/notes', locals: { user: @user.decorate, type: :loved }
+- cache ['v1', @user, 'info'] do
+  = render partial: 'users/info', locals: { user: @user.decorate }
+- cache ['v1', @user, 'lovings'] do
+  .col-sm-8
+    = render partial: 'loves/list_list', locals: { user: @user.decorate, lists: @lists }
+- cache ['v1', @user, 'notes', :loved] do
+  .col-sm-4.hidden-xs
+    = render partial: 'users/notes', locals: { user: @user.decorate, type: :loved }

@@ -1,26 +1,11 @@
 #list
-
-  .row
-    .col-sm-12
-      %h1
-        = list.linked_title
-      %p.info
-        %span by
-        = user.linked_avatar_image(:small)
-        = user.linked_login
-        %span the
-        = list.date
-
-  .row
-    .col-sm-12.col-xs-8
-      .btn-group.btn-group-justified.actions
-        = list.lovers_link
-        = list.comments_link
-    .col-sm-12.col-xs-4
-      = list.love_button
-      = list.edit_button
-
-  .row
-    .col-sm-12
-      = list.description
-      %small= list.report_button
+  %h1
+    = list.linked_title
+  %p.info
+    %span by
+    = user.linked_avatar_image(:small)
+    = user.linked_login
+    %span the
+    = list.date
+    = list.edit_button
+    %span - #{list.report_button}

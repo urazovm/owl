@@ -54,11 +54,11 @@ en:
       login_link: "Login"
   loves:
     button:
-      love: "Love"
-      ignore: "Ignore"
+      love: "I love this list!"
+      ignore: "Ignore this list"
   lists:
     info:
-      edit: "Edit this list"
+      edit: "(edit)"
       report: "Report as inapropriate"
     form:
       submit: "Save this list"
@@ -103,6 +103,8 @@ en:
   comments:
     item:
       delete: "Delete"
+    form:
+      submit: "Comment"
   devise:
     passwords:
       edit:

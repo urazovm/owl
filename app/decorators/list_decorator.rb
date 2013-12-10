@@ -26,7 +26,7 @@ class ListDecorator < ApplicationDecorator
   end
 
   def edit_button
-    h.link_to h.t('.edit'), h.edit_list_path(model), class: 'btn btn-default btn-full edit_button hidden', 'data-user' => object.user.id.to_s
+    h.link_to h.t('.edit'), h.edit_list_path(model), class: 'edit_button hidden', 'data-user' => object.user.id.to_s
   end
 
   def report_button
@@ -38,11 +38,11 @@ class ListDecorator < ApplicationDecorator
   end
 
   def lovers_link
-    h.link_to total_lovers, h.list_loves_path(model), class: 'btn btn-default lovers'
+    h.link_to total_lovers, h.list_loves_path(model), remote: true, class: 'lovers'
   end
 
   def comments_link
-    h.link_to total_comments, h.list_comments_path(model), class: 'btn btn-default comments'
+    h.link_to total_comments, h.list_comments_path(model), remote: true, class: 'comments'
   end
 
   def linked_user
@@ -76,6 +76,6 @@ class ListDecorator < ApplicationDecorator
   end
 
   def total_comments
-    h.content_tag :span, h.content_tag(:strong, object.comments.count), class: "total_comments_#{object.id}"
+    h.content_tag :span, h.content_tag(:strong, object.comments.where(:created_at.exists => true).count), class: "total_comments_#{object.id}"
   end
 end

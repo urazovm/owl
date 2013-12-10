@@ -22,7 +22,7 @@
       %div.btn-group.sign
         = link_to t('.register_link'), new_user_registration_path(r: 1), class: 'btn btn-sm btn-default'
         = link_to t('.login_link'), new_user_session_path(r: 1), class: 'btn btn-sm btn-default'
-    .btn-group.actions
+    .actions
       = link_to new_list_path, class: 'btn btn-sm btn-default create' do
         %span.hidden-xs= t('.create')
         %i.visible-xs.fa.fa-plus

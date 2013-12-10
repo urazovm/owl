@@ -3,7 +3,7 @@
     - cache ['v1', @list, 'info'] do
       = render partial: 'lists/info', locals: { list: @list.decorate, user: @user.decorate }
   .col-sm-8
-    - cache ['v1', @list, 'show'] do
+    - cache ['v1', @list, 'comments'] do
       = render partial: 'comments/list', locals: { comments: @comments, list: @list.decorate }
 
 %script

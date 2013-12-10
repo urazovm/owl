@@ -1,5 +1,4 @@
-%h3= list.total_comments_named
-%hr
-= render partial: 'comments/form', locals: { comment: @comment }
-%ul#comments.list-unstyled
-  = render partial: 'comments/item', collection: comments, as: :comment
+#comments
+  = render partial: 'comments/form', locals: { comment: comment }
+  %ul.list-unstyled
+    = render partial: 'comments/item', collection: comments, as: :comment
