@@ -1,4 +1,12 @@
-%p= list.love_button
+- if signed_in?
+  %p= list.love_button
+- else
+  %hr
+  %p.text-center
+    = link_to t('.login_link'), new_user_session_path(r: 1), class: 'btn btn-sm btn-default'
+    %strong= t('.or')
+    = link_to t('.register_link'), new_user_registration_path(r: 1), class: 'btn btn-sm btn-default'
+  %p.text-center= t('.to')
 %hr
 %ul#list_nav.nav.nav-tabs.actions
   %li.active= list.comments_link

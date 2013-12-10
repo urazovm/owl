@@ -2,13 +2,13 @@
   - if params[:category_id].blank?
     %h1= t('.title_main')
     - if signed_in?
-      %span.create= link_to t('.create'), new_list_path, class: 'btn btn-primary create'
+      %span.create= link_to t('.create_link'), new_list_path, class: 'btn btn-primary create'
     - else
       %p.call_to_action
         = link_to t('.login_link'), new_user_session_path(r: 1), class: 'btn btn-sm btn-default'
-        %strong or
+        %strong= t('.or')
         = link_to t('.register_link'), new_user_registration_path(r: 1), class: 'btn btn-sm btn-default'
-        %span to create your first list!
+        %span= t('.to')
   - else
     %h1= ListCategories.at(params[:category_id].to_i)[0]
     %p= t(".text_category_#{params[:category_id]}")

@@ -6,7 +6,7 @@
 
   .col-sm-4
     #list_side
-      - cache ['v1', @list, 'side'] do
+      - cache ['v1', @list, 'side', signed_in?] do
         = render partial: 'lists/nav', locals: { list: @list.decorate }
         #list_side_info
           - cache ['v1', @list, 'comments'] do

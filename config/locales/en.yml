@@ -60,6 +60,8 @@ en:
     info:
       edit: "(edit)"
       report: "report"
+      by: "by"
+      the: "the"
     form:
       submit: "Save this list"
       delete_image: "delete image"
@@ -67,9 +69,18 @@ en:
       search_title: "Search results for:"
       empty: "Nothing here for the moment…"
       empty_link: "be the 1st the create a list about this!"
+    nav:
+      register_link: "Register"
+      login_link: "Login"
+      or: "or"
+      to: "to love and comment lists!"
     notes:
       title_main: "Welcome to OWL!"
-      create: "Create a new list!"
+      create_link: "Create a new list!"
+      register_link: "Register"
+      login_link: "Login"
+      or: "or"
+      to: "to create your first list!"
       text_main: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
       text_category_0: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
       text_category_1: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
