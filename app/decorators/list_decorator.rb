@@ -38,11 +38,11 @@ class ListDecorator < ApplicationDecorator
   end
 
   def lovers_link
-    h.link_to total_lovers, h.list_loves_path(model), remote: true, class: 'lovers'
+    h.link_to total_lovers_named, h.list_loves_path(model), remote: true, class: 'lovers'
   end
 
   def comments_link
-    h.link_to total_comments, h.list_comments_path(model), remote: true, class: 'comments'
+    h.link_to total_comments_named, h.list_comments_path(model), remote: true, class: 'comments'
   end
 
   def linked_user
@@ -76,6 +76,6 @@ class ListDecorator < ApplicationDecorator
   end
 
   def total_comments
-    h.content_tag :span, h.content_tag(:strong, object.comments.where(:created_at.exists => true).count), class: "total_comments_#{object.id}"
+    h.content_tag h.content_tag(:strong, object.comments.where(:created_at.exists => true).count), class: "total_comments_#{object.id}"
   end
 end

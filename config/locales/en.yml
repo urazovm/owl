@@ -1,9 +1,9 @@
 en:
 
   comment_html:
-    zero: "<strong>%{count}</strong> comment"
-    one: "<strong>%{count}</strong> comment"
-    other: "<strong>%{count}</strong> comments"
+    zero: "<strong>%{count}</strong> com"
+    one: "<strong>%{count}</strong> com"
+    other: "<strong>%{count}</strong> coms"
 
   list_html:
     zero: "<strong>%{count}</strong> list"
