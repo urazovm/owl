@@ -20,12 +20,12 @@ $black_normal: #786556
 $black_dark: #362918
 
 body
-  font-family: 'Cabin Sketch', cursive
+  // font-family: 'Cabin Sketch', cursive
   color: $black_normal
-  background: url('background.jpg')
+  // background: url('background.jpg')
 
 a
-  font-family: 'Cabin Sketch', cursive
+  // font-family: 'Cabin Sketch', cursive
   color: $blue_normal
   +transition-property(color, background-color)
   +transition-timing-function(ease)
@@ -38,7 +38,7 @@ hr
   margin-top: 0
 
 h1
-  font-family: 'Cabin Sketch', cursive
+  // font-family: 'Cabin Sketch', cursive
   font-size: 1.6em
   margin-top: 0
   margin-bottom: 20px
@@ -50,13 +50,13 @@ h1
     display: block
 
 h2
-  font-family: 'Cabin Sketch', cursive
+  // font-family: 'Cabin Sketch', cursive
   font-size: 1.6em
   @media (min-width: 768px)
     font-size: 1.8em
 
 h3
-  font-family: 'Cabin Sketch', cursive
+  // font-family: 'Cabin Sketch', cursive
   font-size: 1.4em
   @media (min-width: 768px)
     font-size: 1.6em
@@ -247,12 +247,12 @@ hr.trans
       margin-top: -5px
       +border-radius(2px)
     .love
-      &:nth-child(3n):before
-        +transform(rotate(-2deg))
-      &:nth-child(3n-1):before
-        +transform(rotate(-1deg))
-      &:nth-child(3n-2):before
-        +transform(rotate(-3deg))
+      // &:nth-child(3n):before
+      //   +transform(rotate(-2deg))
+      // &:nth-child(3n-1):before
+      //   +transform(rotate(-1deg))
+      // &:nth-child(3n-2):before
+      //   +transform(rotate(-3deg))
       &:before
         content: ""
         position: absolute
@@ -390,12 +390,12 @@ hr.trans
   line-height: 30px
   li
     display: inline
-    &:nth-child(3n) a:before
-      +transform(rotate(-2deg))
-    &:nth-child(3n-1) a:before
-      +transform(rotate(-1deg))
-    &:nth-child(3n-2) a:before
-      +transform(rotate(-3deg))
+    // &:nth-child(3n) a:before
+    //   +transform(rotate(-2deg))
+    // &:nth-child(3n-1) a:before
+    //   +transform(rotate(-1deg))
+    // &:nth-child(3n-2) a:before
+    //   +transform(rotate(-3deg))
     a
       font-size: 1.3em
       margin: 0 3px
@@ -413,7 +413,7 @@ hr.trans
         background: $blue_light
       &:hover:before
         background: $blue_dark
-        +transform(rotate(2deg))
+        // +transform(rotate(2deg))
       &.active:before
         background: $blue_dark
       &:hover,
