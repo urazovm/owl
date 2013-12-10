@@ -1,7 +1,14 @@
 #list_notes
   - if params[:category_id].blank?
-    %h2= t('.title_main')
-    %p= t('.text_main')
+    %h1= t('.title_main')
+    - if signed_in?
+      %span.create= link_to t('.create'), new_list_path, class: 'btn btn-primary create'
+    - else
+      %p.call_to_action
+        = link_to t('.login_link'), new_user_session_path(r: 1), class: 'btn btn-sm btn-default'
+        %strong or
+        = link_to t('.register_link'), new_user_registration_path(r: 1), class: 'btn btn-sm btn-default'
+        %span to create your first list!
   - else
-    %h2= ListCategories.at(params[:category_id].to_i)[0]
+    %h1= ListCategories.at(params[:category_id].to_i)[0]
     %p= t(".text_category_#{params[:category_id]}")
