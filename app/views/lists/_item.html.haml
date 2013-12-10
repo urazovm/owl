@@ -3,9 +3,8 @@
   %li.media
     .love.pull-left= list.total_lovers
     .media-body
+      %p
+        %span.user #{list.linked_user}
       %h3
         = list.linked_title
-      %p
-        = list.total_items_named
-        %span.text-muted - the #{list.date} by
-        %span.user= list.linked_user
+        %small.text-muted #{list.date} by
