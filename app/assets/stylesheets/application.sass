@@ -73,7 +73,14 @@ hr.trans
       display: block
 
 .container
+  position: relative
   margin-top: 2em
+  &:before
+    content: " "
+    width: 100%
+    height: 100%
+    background: #f9f9f9
+    position: absolute
 
 .btn
   color: $black_normal
@@ -397,39 +404,40 @@ hr.trans
   h2
     margin-top: 0
 
-#categories
-  margin-bottom: .5em
-  @media (min-width: 768px)
-    margin-bottom: 1.5em
-
 #categories-collapse
-  text-align: center
-  line-height: 30px
+  background: $white_normal
+  border: 1px solid $grey_light
+  padding: 10px 0
+  margin-bottom: 1em
+  max-height: 220px
+  overflow: auto
+  @media (min-width: 768px)
+    margin: 0
+    position: absolute
+    right: 10px
+    top: 40px
+    width: 400px
+    z-index: 100
+    max-height: none
+    overflow: hidden
+    +border-radius(5px)
+    +box-shadow(0 1px 4px 0 rgba(0, 0, 0, 0.44))
   li
-    display: inline
+    display: block
+    @media (min-width: 768px)
+      display: inline-block
     a
-      font-size: 1.3em
-      margin: 0 3px
-      padding: 1px 4px
+      display: block
+      margin: 2px 8px
+      padding: 2px 5px
       text-decoration: none
-      position: relative
-      &:before
-        content: ""
-        position: absolute
-        width: 100%
-        height: 100%
-        top: 0
-        left: 0
-        z-index: -1
-        background: $blue_light
-      &:hover:before
-        background: $blue_dark
-      &.active:before
-        background: $blue_dark
-      &:hover,
-      &.active
-        color: $white_normal
+      width: auto
       @media (min-width: 768px)
-        font-size: 1.5em
-        margin: 0 5px
-        padding: 2px 5px
+        width: 185px
+        margin-right: 0
+      &:hover
+        background: $grey_light
+        +border-radius(2px)
+      &.active
+        background: $blue_light
+        font-weight: bold

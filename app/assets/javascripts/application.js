@@ -19,27 +19,6 @@ window.owl.func['ready'] = function() {
     typeof window.owl.views[page] == 'function' && window.owl.views[page]();
 
     window.Echo.init();
-
-    var searchCollapsed = $('#search-collapse').hasClass('collapse');
-    var categoriesCollapsed = $('#categories-collapse').hasClass('collapse');
-    $('#search-collapse').on('hide.bs.collapse', function () {
-        searchCollapsed = true;
-        $('#header .search-collapser').removeClass('active');
-    });
-    $('#categories-collapse').on('hide.bs.collapse', function () {
-        categoriesCollapsed = true;
-        $('#header .categories-collapser').removeClass('active');
-    });
-    $('#search-collapse').on('show.bs.collapse', function () {
-        searchCollapsed = false;
-        if (!categoriesCollapsed) $('#categories-collapse').collapse('hide');
-        $('#header .search-collapser').addClass('active');
-    });
-    $('#categories-collapse').on('show.bs.collapse', function () {
-        categoriesCollapsed = false;
-        if (!searchCollapsed) $('#search-collapse').collapse('hide');
-        $('#header .categories-collapser').addClass('active');
-    });
 }
 
 $(document).ready(window.owl.func.ready)

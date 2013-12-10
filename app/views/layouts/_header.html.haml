@@ -41,9 +41,7 @@
             %span.visible-xs= t('.search')
             %i.hidden-xs.fa.fa-search
 
-#categories.row
-  .col-sm-12
-    %ul#categories-collapse.collapse.list-unstyled
-      %li.category_999= link_to t('.all'), lists_path
-      - ListCategories.each_with_index do |category, i|
-        %li{ class: "category_#{category[1]}" }= link_to category[0], lists_path(category_id: category[1])
+%ul#categories-collapse.collapse.list-unstyled
+  %li.category_999= link_to t('.all'), lists_path
+  - ListCategories.each_with_index do |category, i|
+    %li{ class: "category_#{category[1]}" }= link_to category[0], lists_path(category_id: category[1])
