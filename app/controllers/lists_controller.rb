@@ -23,12 +23,12 @@ class ListsController < ApplicationController
   end
 
   def edit
-    @list = List.find(params[:id])
+    @list = List.unscoped.find(params[:id])
     redirect_to home_path and return unless is_list_owner?(@list)
   end
 
   def update
-    @list = List.find(params[:id])
+    @list = List.unscoped.find(params[:id])
     redirect_to home_path and return unless is_list_owner?(@list)
     @list.assign_attributes(list_params)
     @list.items.each_with_index {|list, i| list.position = i }

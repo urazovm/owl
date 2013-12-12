@@ -8,9 +8,11 @@ class List
   has_many :reports
   embeds_many :items, cascade_callbacks: true
   embeds_many :comments, cascade_callbacks: true
+  validates_presence_of :title, :category_id, on: :update
   validates_length_of :title, maximum: 250, allow_blank: true
   validates_numericality_of :category_id, greater_than_or_equal_to: 0, less_than: ListCategories.length, allow_blank: true
   accepts_nested_attributes_for :items
+  after_validation :update_status
   after_save :check_search_index
   default_scope where(deleted_at: nil, completed: true)
 
@@ -19,7 +21,7 @@ class List
   field :title,       type: String
   field :deleted_at,  type: Time
   field :category_id, type: Integer
-  field :completed,   type: Boolean, default: ->{ !title.blank? && !category_id.blamk? && items.count > 0 }
+  field :completed,   type: Boolean, default: false
   field :lovers,      type: Array, default: []
   field :loves,       type: Integer
 
@@ -77,10 +79,14 @@ class List
 private
 
   def check_search_index
-    if deleted_at.nil? && !user_id.nil?
+    if completed && deleted_at.nil? && !user_id.nil?
       self.index.store self
     else
       self.index.remove self
     end
+  end
+
+  def update_status
+    self.completed = !title.blank? && !category_id.blank? && items.count > 0
   end
 end
