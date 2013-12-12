@@ -76,6 +76,9 @@ en:
     form:
       submit: "Save this list"
       delete_image: "delete image"
+      text: "Add text"
+      link: "Add a link"
+      image: "Add an image"
     list:
       search_title: "Search results for:"
       empty: "Nothing here for the moment…"
