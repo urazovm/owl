@@ -56,6 +56,11 @@ en:
     button:
       love: "I love this list!"
       ignore: "Ignore this list"
+  items:
+    form_fields:
+      name: "Name..."
+      link: "URL..."
+      text: "Message..."
   lists:
     info:
       edit: "edit"

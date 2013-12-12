@@ -15,6 +15,8 @@ $blue_light: #FCE3AB
 $blue_normal: #BE9D74
 $blue_dark: #715142
 
+$red_normal: #ff6666
+
 $white_normal: #ffffff
 
 $black_normal: #786556
@@ -202,6 +204,40 @@ hr.trans
         content: '\f03e'
       &.link:before
         content: '\f0c1'
+  .items
+    counter-reset: item
+    li
+      margin: 0 0 10px 0
+      padding: 5px 5px 0 35px
+      counter-increment: item
+      position: relative
+      border: solid 1px $grey_light
+      +border-radius(5px)
+      &:before
+        font-weight: bold
+        font-size: 2em
+        color: $white_normal
+        background: $grey_normal
+        content: counter(item)
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 30px
+        text-align: center
+        +border-radius(5px 0 0 5px)
+      .delete
+        position: absolute
+        font-size: 1em
+        color: $white_normal
+        bottom: 5px
+        left: 9px
+        &:hover
+          color: $black_dark
+      .field
+        margin-bottom: 5px
+        textarea
+          height: 80px
 
 #list
   margin-bottom: 1em
