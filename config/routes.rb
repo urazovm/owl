@@ -7,9 +7,7 @@ Owl::Application.routes.draw do
     resource :love, only: [:create, :destroy]
     resources :loves, only: [:index]
     resources :comments, only: [:index, :create, :destroy]
-    resources :items, only: [:new] do
-        resource :image, only: :destroy
-    end
+    resources :items, only: [:new, :destroy]
   end
 
   resources :reports, only: :create

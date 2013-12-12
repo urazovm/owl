@@ -1,11 +1,12 @@
 = simple_form_for(list, html: { class: 'list_form', id: "list_#{list.id}_form", multipart: true }) do |f|
   = f.input :title
   = f.input :category_id, as: :select, collection: ListCategories
-  - Item::TYPES.each_with_index do |type, i|
-    = link_to type, new_list_item_path(list_id: list.id, type: i), remote: true, class: 'btn btn-default'
   %ol.items
     - list.items.each do |item|
       = render partial: 'items/form_fields', locals: { item: item }
+  %div.btn-group.btn-group-justified.item_types
+    - Item::TYPES.each_with_index do |type, i|
+      = link_to type, new_list_item_path(list_id: list.id, type: i), remote: true, class: "btn btn-default #{type}"
   = f.button :submit, t('.submit'), class: 'btn btn-full btn-primary'
 
 - if list.persisted?

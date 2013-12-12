@@ -1,1 +1,7 @@
-$('<%= "#list_#{@list.id}_form .items" %>').append("<%= escape_javascript(render(partial: 'items/form_fields', locals: { item: @item })) %>");
+var item = $("<%= escape_javascript(render(partial: 'items/form_fields', locals: { item: @item })) %>");
+$('<%= "#list_#{@list.id}_form .items" %>').append(item);
+item.find('.fields').css('visibility', 'hidden');
+item.hide().slideDown('slow', function() {
+  item.find('.fields').hide().css('visibility', 'visible').fadeIn();
+  $('.list_form .item_types .btn').removeClass('disabled');
+});
