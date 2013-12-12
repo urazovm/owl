@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   end
 
   def index
-    redirect_to lists_path unless request.xhr?
+    redirect_to home_path unless request.xhr?
     list = List.find(params[:list_id])
     @comments = list.comments.where(:created_at.exists => true).desc(:created_at).includes(:user)
     @comment = list.comments.build

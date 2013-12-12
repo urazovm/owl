@@ -18,7 +18,7 @@ class ListDecorator < ApplicationDecorator
   end
 
   def linked_category
-    h.link_to model.category_name, h.lists_path(category_id: model.category_id), class: 'btn btn-default'
+    h.link_to model.category_name, h.home_path(category_id: model.category_id), class: 'btn btn-default'
   end
 
   def edit_button

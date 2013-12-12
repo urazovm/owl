@@ -10,7 +10,6 @@ class User
 
   slug :login, history: false
 
-  # TODO see if devise actions are cachable ?
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

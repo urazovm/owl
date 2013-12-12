@@ -1,0 +1,11 @@
+%li.item{ class: item.type_name }
+  %input{ type: :hidden, name: "list[items_attributes][#{item.index}][id]", value: item.id }
+  %input{ type: :hidden, name: "list[items_attributes][#{item.index}][type]", value: item.type }
+  %input{ type: :text, name: "list[items_attributes][#{item.index}][name]", value: item.name }
+  - case item.type
+  - when Item::TYPES.index(:text)
+    %textarea{ name: "list[items_attributes][#{item.index}][text]" }= item.text
+  - when Item::TYPES.index(:image)
+    %input{ type: :file, name: "list[items_attributes][#{item.index}][image]" }
+  - when Item::TYPES.index(:link)
+    %input{ type: :url, name: "list[items_attributes][#{item.index}][link]", value: item.link }

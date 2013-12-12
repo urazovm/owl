@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
 
   def destroy
     list = List.find(params[:list_id])
-    redirect_to lists_path and return unless is_list_owner?(list)
+    redirect_to home_path and return unless is_list_owner?(list)
     @item = list.items.find(params[:item_id])
     @item.image.clear
     list.save

@@ -8,18 +8,18 @@ class List
   has_many :reports
   embeds_many :items, cascade_callbacks: true
   embeds_many :comments, cascade_callbacks: true
-  validates_presence_of :title, :category_id
-  validates_numericality_of :category_id, greater_than_or_equal_to: 0, less_than: ListCategories.length
-  # TODO validate that there is at least one item
+  validates_length_of :title, maximum: 250, allow_blank: true
+  validates_numericality_of :category_id, greater_than_or_equal_to: 0, less_than: ListCategories.length, allow_blank: true
   accepts_nested_attributes_for :items
   after_save :check_search_index
-  default_scope where(deleted_at: nil)
+  default_scope where(deleted_at: nil, completed: true)
 
   slug :title, history: true, reserve: ListForbiddenNames
 
   field :title,       type: String
   field :deleted_at,  type: Time
   field :category_id, type: Integer
+  field :completed,   type: Boolean, default: ->{ !title.blank? && !category_id.blamk? && items.count > 0 }
   field :lovers,      type: Array, default: []
   field :loves,       type: Integer
 
@@ -44,7 +44,8 @@ class List
     tire.search({page: page, per_page: 12, load: true}) do
       query { string(params['query'], default_operator: "OR", fields: List.search_fields) } unless params['query'].blank?
       filter(:and, List.search_filters(params)) unless params.except('query').size == 0
-      sort { by :_score, 'desc' }
+      sort { by :created_at, 'desc' } if params['query'].blank?
+      sort { by :_score, 'desc' } unless params['query'].blank?
     end
   end
 

@@ -58,10 +58,16 @@ en:
       ignore: "Ignore this list"
   lists:
     info:
-      edit: "(edit)"
+      edit: "edit"
       report: "report"
       by: "by"
       the: "the"
+    edit:
+      title: "Edit your list"
+      text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
+    new:
+      title: "Create a new list"
+      text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
     form:
       submit: "Save this list"
       delete_image: "delete image"

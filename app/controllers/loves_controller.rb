@@ -13,7 +13,7 @@ class LovesController < ApplicationController
 
   def index
     if params[:list_id].present?
-      redirect_to lists_path unless request.xhr?
+      redirect_to home_path unless request.xhr?
       list = List.find(params[:list_id])
       @users = User.where(:id.in => list.lovers)
     elsif params[:user_id].present?

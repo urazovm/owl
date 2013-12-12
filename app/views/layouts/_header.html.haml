@@ -1,7 +1,7 @@
 #header.row
 
   .col-sm-2.col-xs-4
-    %span.logo= link_to 'OWL', lists_path
+    %span.logo= link_to 'OWL', home_path
 
   .col-sm-5.col-xs-8.col-sm-push-5.right
     - if signed_in?
@@ -32,16 +32,16 @@
         %i.fa.fa-bars
 
   .col-xs-12.col-sm-5.col-sm-pull-5.right.search
-    = form_tag lists_path, method: :get, id: 'search-collapse', class: 'collapse collapse-xs' do
+    = form_tag home_path, method: :get, id: 'search-collapse', class: 'collapse collapse-xs' do
       = hidden_field_tag :category_id, params[:category_id]
       .input-group
-        = text_field_tag :query, '', class: 'form-control', placeholder: '...'
+        = search_field :query, '', class: 'form-control', placeholder: '...'
         .input-group-btn
           %button.btn.btn-sm.btn-default.submit
             %span.visible-xs= t('.search')
             %i.hidden-xs.fa.fa-search
 
 %ul#categories-collapse.collapse.list-unstyled
-  %li.category_999= link_to t('.all'), lists_path
+  %li.category_999= link_to t('.all'), home_path
   - ListCategories.each_with_index do |category, i|
-    %li{ class: "category_#{category[1]}" }= link_to category[0], lists_path(category_id: category[1])
+    %li{ class: "category_#{category[1]}" }= link_to category[0], home_path(category_id: category[1])

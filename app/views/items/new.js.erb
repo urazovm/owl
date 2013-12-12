@@ -1,0 +1,1 @@
+$('<%= "#list_#{@list.id}_form .items" %>').append("<%= escape_javascript(render(partial: 'items/form_fields', locals: { item: @item })) %>");
