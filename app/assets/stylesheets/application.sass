@@ -204,6 +204,11 @@ hr.trans
         content: '\f03e'
       &.link:before
         content: '\f0c1'
+  .submit
+    +border-bottom-radius(0)
+  .cancel,
+  .delete
+    +border-top-radius(0)
   .items
     counter-reset: item
     li
@@ -212,6 +217,7 @@ hr.trans
       counter-increment: item
       position: relative
       border: solid 1px $grey_light
+      background: #f9f9f9
       +border-radius(5px)
       &:before
         font-weight: bold

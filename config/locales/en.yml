@@ -70,15 +70,16 @@ en:
     edit:
       title: "Edit your list"
       text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
-    new:
-      title: "Create a new list"
-      text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
-    form:
       submit: "Save this list"
       delete_image: "delete image"
       text: "Add text"
       link: "Add a link"
       image: "Add an image"
+      confirm_cancel: "All your changes will be lost!"
+      confirm_delete: "Are you sure you want to delete this list for ever?"
+    new:
+      title: "Create a new list"
+      text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
     list:
       search_title: "Search results for:"
       empty: "Nothing here for the moment…"
