@@ -5,6 +5,11 @@
       %span -
       = link_to t('.edit'), edit_list_item_path(item.list, item), remote: true
   - item = item.decorate
-  -# = item.image(:small)
   = item.name
-  = item.text
+  - case item.type
+  - when Item::TYPES.index(:text)
+    = item.text
+  - when Item::TYPES.index(:image)
+    = item.image(:small)
+  - when Item::TYPES.index(:link)
+    = item.link

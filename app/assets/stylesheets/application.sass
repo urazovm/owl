@@ -10,6 +10,7 @@ $legacy-support-for-ie7: false
 
 $grey_normal: #aaaaaa
 $grey_light: #e3e3e3
+$grey_pale: #f9f9f9
 
 $blue_light: #FCE3AB
 $blue_normal: #BE9D74
@@ -187,7 +188,7 @@ hr.trans
     height: auto !important
     display: block !important
 
-.list_form
+#list_form
   .submit
     margin-bottom: 20px
 
@@ -217,6 +218,46 @@ hr.trans
     margin-top: 0
   .tools
     float: right
+  .image_delete
+    position: absolute
+    top: 5px
+    right: 5px
+    cursor: pointer
+  .image_original
+    height: 100px
+  .image_input,
+  .image_preview
+    background: $grey_pale
+    border: dashed 1px $grey_light
+    text-align: center
+    padding: 2px
+    min-height: 60px
+    position: relative
+    margin-bottom: 10px
+    +border-radius(5px)
+  .image_preview
+    .dz-filename,
+    .dz-size,
+    .dz-success-mark,
+    .dz-error-mark
+      display: none
+  .image_input
+    &:before
+      content: '\f03e'
+      font-family: 'FontAwesome'
+      font-size: 3em
+      color: $grey_light
+      position: absolute
+      width: 100%
+      text-align: center
+      top: 0
+      left: 0
+    // &.loading:before
+    //   content: '\f110'
+    //   -webkit-animation: spin 2s infinite linear
+    //   -moz-animation: spin 2s infinite linear
+    //   -o-animation: spin 2s infinite linear
+    //   animation: spin 2s infinite linear
 
 #item_new_form
   margin-top: 20px

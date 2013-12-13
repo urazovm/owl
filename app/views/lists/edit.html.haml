@@ -1,6 +1,6 @@
 .row
   .col-sm-5
-    = simple_form_for(@list, html: { class: 'list_form', id: "list_#{@list.id}_form", multipart: true }) do |f|
+    = simple_form_for(@list, html: { class: 'list_form', id: "list_form", multipart: true }) do |f|
       = f.input :title
       = f.input :category_id, as: :select, collection: ListCategories
       = f.button :submit, t('.submit'), class: 'btn btn-full btn-primary submit'

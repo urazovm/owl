@@ -1,2 +1,72 @@
 var item = $("<%= escape_javascript(render(partial: 'items/edit_form', locals: { item: @item })) %>");
 $('#item_<%= @item.id %>').replaceWith(item);
+
+<% if @item.type == Item::TYPES.index(:image) %>
+
+    var formSelector = '#item_<%= @item.id %>_form';
+    var imageInputSelector = formSelector + ' .image_input';
+    var imagePreviewSelector = formSelector + ' .image_preview';
+    var nameInput = $(formSelector + ' .item_name');
+    var submit = $(formSelector + ' .submit');
+    var imageDelete = $(imagePreviewSelector + ' .image_delete');
+    var imageOriginal = $(imagePreviewSelector + ' .image_original');
+    var imagePreview = $(imagePreviewSelector);
+    var imageInput = $(imageInputSelector);
+
+    var dz = new Dropzone(formSelector, {
+        url: "<%= list_item_path(@item.list, @item) %>",
+        paramName: 'item[image]',
+        method: 'put',
+        parallelUploads: 1,
+        thumbnailHeight: 100,
+        maxFiles: 1,
+        maxFilesize: 1,
+        previewsContainer: imagePreviewSelector,
+        autoProcessQueue: false,
+        uploadMultiple: false,
+        addRemoveLinks: false,
+        acceptedFiles: 'image/*'
+    });
+    dz.on("maxfilesexceeded", function(file) {
+        dz.removeFile(file);
+    });
+    dz.on("addedfile", function(file) {
+        imageOriginal.remove();
+        imageInput.hide();
+        imagePreview.show();
+        nameInput.show();
+        submit.show();
+    });
+    dz.on("success", function(file, data) {
+        var item = $(data);
+        $('#item_<%= @item.id %>').replaceWith(item);
+        Echo.init();
+        item.hide().fadeIn();
+        $('#item_new_form .btn').removeClass('disabled');
+        $('#item_new_form').fadeIn();
+    });
+    submit.on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dz.processQueue();
+    });
+    imageDelete.on('click', function(e) {
+        dz.removeAllFiles();
+        imageInput.show();
+        imagePreview.hide();
+        nameInput.hide();
+        submit.hide();
+    });
+
+    if (imageOriginal.length == 0) {
+        imagePreview.hide();
+        nameInput.hide();
+        submit.hide();
+    } else {
+        imageInput.hide();
+        imagePreview.show();
+        nameInput.show();
+        submit.show();
+    }
+
+<% end %>

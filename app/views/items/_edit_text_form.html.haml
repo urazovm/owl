@@ -1,0 +1,8 @@
+= minimal_form_for([item.list, item], remote: true) do |f|
+  = f.input :id, as: :hidden
+  = f.input :list_id, as: :hidden, input_html: { value: item.list.id }
+  = f.input :type, as: :hidden
+  = f.input :name
+  = f.input :text, as: :text
+  = f.button :submit, t('.submit'), class: 'btn btn-primary submit'
+  = link_to t('.delete'), list_item_path(item.list, item), remote: true, method: :delete, class: 'btn btn-default'

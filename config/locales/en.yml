@@ -57,7 +57,13 @@ en:
       love: "I love this list!"
       ignore: "Ignore this list"
   items:
-    edit_form:
+    edit_text_form:
+      submit: "Save"
+      delete: "Remove"
+    edit_image_form:
+      submit: "Save"
+      delete: "Remove"
+    edit_link_form:
       submit: "Save"
       delete: "Remove"
     new_form:

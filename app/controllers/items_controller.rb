@@ -2,9 +2,6 @@ class ItemsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :accpet_xhr_requests_only!
 
-  def new
-  end
-
   def create
     @list = List.unscoped.find(params[:list_id])
     render inline: '0' and return unless is_list_owner?(@list)
@@ -22,7 +19,8 @@ class ItemsController < ApplicationController
     render inline: '0' and return unless is_list_owner?(list)
     @item = list.items.find(params[:id])
     @item.assign_attributes(item_params)
-    render :edit and return unless @item.save
+    @item.save
+    render partial: 'items/item', formats: :html, locals: { item: @item, editable: true }
   end
 
   def destroy
