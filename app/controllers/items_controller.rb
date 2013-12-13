@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
     @item = list.items.find(params[:id])
     @item.assign_attributes(item_params)
     @item.save
-    render partial: 'items/item', formats: :html, locals: { item: @item, editable: true }
   end
 
   def destroy

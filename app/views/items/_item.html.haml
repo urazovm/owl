@@ -10,6 +10,6 @@
   - when Item::TYPES.index(:text)
     = item.text
   - when Item::TYPES.index(:image)
-    = item.image(:small)
+    = item.image(:small, (!defined?(editable) || !editable))
   - when Item::TYPES.index(:link)
     = item.link
