@@ -4,6 +4,10 @@ class ItemDecorator < ApplicationDecorator
   end
 
   def name
-    h.content_tag :span, object.name, class: 'name'
+    h.content_tag :h4, object.name, class: 'name'
+  end
+
+  def text
+    h.content_tag :div, object.text, class: 'text'
   end
 end

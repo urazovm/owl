@@ -57,10 +57,16 @@ en:
       love: "I love this list!"
       ignore: "Ignore this list"
   items:
-    form_fields:
-      name: "Name..."
-      link: "URL..."
-      text: "Message..."
+    edit_form:
+      submit: "Save"
+      delete: "Remove"
+    new_form:
+      text: "Add text"
+      link: "Add a link"
+      image: "Add an image"
+    item:
+      edit: "Edit"
+      delete: "Delete"
   lists:
     info:
       edit: "edit"
@@ -72,9 +78,6 @@ en:
       text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
       submit: "Save this list"
       delete_image: "delete image"
-      text: "Add text"
-      link: "Add a link"
-      image: "Add an image"
       confirm_cancel: "All your changes will be lost!"
       confirm_delete: "Are you sure you want to delete this list for ever?"
     new:

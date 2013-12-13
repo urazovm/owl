@@ -12,4 +12,6 @@ en:
         message: "Add a comment..."
         title: "Title..."
         name: "Name..."
+        link: "URL..."
+        text: "Message..."
         description: "Description... (optional)"

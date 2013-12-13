@@ -1,2 +1,2 @@
 %ol#items
-  = render partial: 'items/item', collection: items, as: :item
+  = render partial: 'items/item', collection: items, as: :item, cache: Proc.new{|item| ['items/item', item]}

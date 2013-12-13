@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
   def is_list_owner? list
     has_tmp_list?(list) || (signed_in? && current_user.id == list.user_id)
   end
+  def accpet_xhr_requests_only!
+    redirect_to home_path unless request.xhr?
+  end
 
   # TMP LISTS
   def create_tmp_list list
