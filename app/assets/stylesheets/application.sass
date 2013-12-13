@@ -189,7 +189,7 @@ hr.trans
 
 .list_form
   .item_types
-    margin-bottom: 10px
+    margin-top: 20px
     .btn
       text-align: center
       &:before
@@ -205,41 +205,35 @@ hr.trans
       &.link:before
         content: '\f0c1'
   .submit
-    +border-bottom-radius(0)
-  .cancel,
-  .delete
-    +border-top-radius(0)
+    margin-bottom: 20px
   .items
     counter-reset: item
     li
-      margin: 0 0 10px 0
-      padding: 5px 5px 0 35px
+      margin: 0 0 15px 0
+      padding: 15px 5px 0 45px
       counter-increment: item
       position: relative
-      border: solid 1px $grey_light
-      background: #f9f9f9
-      +border-radius(5px)
+      border-top: 1px dashed $grey_light
+      &:first-child
+        border: none
       &:before
         font-weight: bold
         font-size: 2em
-        color: $white_normal
-        background: $grey_normal
+        color: $black_normal
         content: counter(item)
         position: absolute
-        top: 0
+        top: 10px
         left: 0
         height: 100%
-        width: 30px
+        width: 40px
         text-align: center
         +border-radius(5px 0 0 5px)
       .delete
         position: absolute
         font-size: 1em
-        color: $white_normal
         bottom: 5px
-        left: 9px
-        &:hover
-          color: $black_dark
+        left: 15px
+        color: $grey_normal
       .field
         margin-bottom: 5px
         textarea

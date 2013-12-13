@@ -12,5 +12,5 @@
         %input.form-control{ type: :file, name: "list[items_attributes][#{item.index}][image]" }
       - when Item::TYPES.index(:link)
         %input.form-control{ type: :url, name: "list[items_attributes][#{item.index}][link]", value: item.link, placeholder: t('.link') }
-    = link_to list_item_path(item.list, item), remote: true, method: :delete, class: 'delete' do
-      %i.fa.fa-times-circle
+  = link_to list_item_path(item.list, item), remote: true, method: :delete, class: 'delete' do
+    %i.fa.fa-times

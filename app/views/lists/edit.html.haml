@@ -5,9 +5,9 @@
       = f.input :title
       = f.input :category_id, as: :select, collection: ListCategories
       = f.button :submit, t('.submit'), class: 'btn btn-full btn-primary submit'
-      .btn-group.btn-group-justified
-        = link_to 'Cancel', list_path(@list), class: 'btn btn-default btn-xs cancel', confirm: t('.confirm_cancel')
-        = link_to 'Delete this list', list_path(@list), class: 'btn btn-default btn-xs delete', method: :delete, confirm: t('.confirm_delete')
+      %ul.list-unstyled
+        %li= link_to 'Cancel', list_path(@list), class: 'cancel', confirm: t('.confirm_cancel')
+        %li= link_to 'Delete this list', list_path(@list), class: 'delete', method: :delete, confirm: t('.confirm_delete')
 
     .col-sm-7
       %ol.items.list-unstyled
