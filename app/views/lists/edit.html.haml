@@ -9,7 +9,7 @@
         %li= link_to 'Delete this list', list_path(@list), class: 'delete', method: :delete, confirm: t('.confirm_delete')
 
   .col-sm-7
-    %ol#list_items_forms.list-unstyled
+    %ol#list_items_forms.items.list-unstyled
       - @list.items.each do |item|
         = render partial: 'items/item', locals: { item: item, editable: true }
     = render partial: 'items/new_form', locals: { list: @list }

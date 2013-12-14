@@ -1,15 +1,13 @@
 %li.item{ class: item.type_name, id: "item_#{item.id}" }
-  - if defined? editable && editable
+  - if defined?(editable) && editable
     .tools
       = link_to t('.delete'), list_item_path(item.list, item), remote: true, method: :delete, class: 'text-danger'
       %span -
       = link_to t('.edit'), edit_list_item_path(item.list, item), remote: true
-  - item = item.decorate
-  = item.name
   - case item.type
   - when Item::TYPES.index(:text)
-    = item.text
+    = render partial: 'items/item_text', locals: { item: item.decorate }
   - when Item::TYPES.index(:image)
-    = item.image(:small, (!defined?(editable) || !editable))
+    = render partial: 'items/item_image', locals: { item: item.decorate }
   - when Item::TYPES.index(:link)
-    = item.link
+    = render partial: 'items/item_link', locals: { item: item.decorate }

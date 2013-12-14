@@ -193,31 +193,8 @@ hr.trans
     margin-bottom: 20px
 
 #list_items_forms
-  counter-reset: item
-  li
-    margin: 0 0 15px 0
-    padding: 15px 5px 0 45px
-    counter-increment: item
-    position: relative
-    border-top: 1px dashed $grey_light
-    &:first-child
-      border: none
-    &:before
-      font-weight: bold
-      font-size: 2em
-      color: $black_normal
-      content: counter(item)
-      position: absolute
-      top: 10px
-      left: 0
-      height: 100%
-      width: 40px
-      text-align: center
-      +border-radius(5px 0 0 5px)
-  h4
-    margin-top: 0
-  .tools
-    float: right
+  .form-group
+    margin-bottom: 5px
   .imagePreview,
   .imageInput
     background: $grey_pale
@@ -226,7 +203,7 @@ hr.trans
     padding: 0
     height: 130px
     padding: 4px 0
-    margin-bottom: 10px
+    margin-bottom: 5px
     position: relative
     +border-radius(5px)
   .imagePreview
@@ -257,12 +234,6 @@ hr.trans
       position: absolute
       right: 0
       top: 0
-    // &.loading:before
-    //   content: '\f110'
-    //   -webkit-animation: spin 2s infinite linear
-    //   -moz-animation: spin 2s infinite linear
-    //   -o-animation: spin 2s infinite linear
-    //   animation: spin 2s infinite linear
 
 #item_new_form
   margin-top: 20px
@@ -368,26 +339,34 @@ hr.trans
       @media (min-width: 768px)
         margin-top: 10px
 
-#items
-  font-weight: bold
+.items
+  counter-reset: item
   li
-    margin: 0 0 8px 0
-    padding: 8px 0 0 0
-    font-size: 1.3em
-    clear: both
+    margin: 0 0 15px 0
+    padding: 15px 5px 0 45px
+    counter-increment: item
+    position: relative
+    border-top: 1px dashed $grey_light
     &:first-child
       border: none
-    .image
-      margin: 0 10px 8px 0
-      float: left
-      width: 90px
-      @media (min-width: 768px)
-        width: 120px
-    .name
-      font-weight: normal
-      font-size: 0.9em
-      @media (min-width: 768px)
-        font-size: 1em
+    &:before
+      font-weight: bold
+      font-size: 3em
+      color: $black_normal
+      content: counter(item)
+      position: absolute
+      top: 5px
+      left: 0
+      height: 100%
+      width: 40px
+      text-align: center
+      +border-radius(5px 0 0 5px)
+    h4
+      margin-top: 5px
+    img
+      width: 100%
+    .tools
+      float: right
 
 #comments
   textarea

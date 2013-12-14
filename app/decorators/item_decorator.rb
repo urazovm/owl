@@ -20,6 +20,6 @@ class ItemDecorator < ApplicationDecorator
   end
 
   def link
-    h.link_to "Got to: #{object.link}", object.link
+    h.link_to object.link, object.link, class: 'link'
   end
 end

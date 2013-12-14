@@ -16,7 +16,7 @@ class Item
     default_url: '/assets/images/:style.jpg',
     styles: {
       small: ['120x120#',   :jpg],
-      large: ['500x500#', :jpg] }
+      large: ['400x400#', :jpg] }
   validates_attachment_size :image, less_than: 800.kilobytes
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/png', 'image/gif']
 

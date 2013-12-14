@@ -1,2 +1,2 @@
-%ol#items
+%ol.items.list-unstyled
   = render partial: 'items/item', collection: items, as: :item, cache: Proc.new{|item| ['items/item', item]}
