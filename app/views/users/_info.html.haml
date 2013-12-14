@@ -4,9 +4,9 @@
       = user.avatar_image(:medium)
   %tr.right_1
     %td
-      .actions
+      .tools
         = user.follow_button
-        .btn-group.visible-xs
+        .btn-group.hidden.actions{ 'data-user' => user.id }
           = user.edit_link
           = user.logout_link
       %h1= user.linked_login

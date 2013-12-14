@@ -47,9 +47,6 @@ en:
       create: "Create a list"
       search: "Search"
       all: "All"
-      profile_link: "Profile"
-      settings_link: "Parameters"
-      logout_link: "Logout"
       register_link: "Register"
       login_link: "Login"
   loves:

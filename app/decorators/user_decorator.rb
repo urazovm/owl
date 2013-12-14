@@ -1,4 +1,6 @@
 class UserDecorator < ApplicationDecorator
+  delegate :id
+
   def login
     object.login
   end
@@ -16,11 +18,11 @@ class UserDecorator < ApplicationDecorator
   end
 
   def logout_link
-    h.link_to h.t('.logout'), h.destroy_user_session_path(r: 1), method: :delete, class: 'btn btn-default hidden logout'
+    h.link_to h.t('.logout'), h.destroy_user_session_path(r: 1), method: :delete, class: 'btn btn-default logout'
   end
 
   def edit_link
-    h.link_to h.content_tag(:i, '', class: 'fa fa-cog'), h.edit_user_registration_path(r: 1), class: 'btn btn-default hidden edit'
+    h.link_to h.content_tag(:i, '', class: 'fa fa-cog'), h.edit_user_registration_path(r: 1), class: 'btn btn-default edit'
   end
 
   def follow_button
