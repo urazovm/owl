@@ -4,3 +4,8 @@ item.find('form').css('visibility', 'hidden');
 item.hide().slideDown('slow', function() {
   item.find('form').hide().css('visibility', 'visible').fadeIn();
 });
+<% if @item.image? %>
+$('#item_<%= @item.id %>_form').itemEditImageForm({
+    'url' : '<%= list_item_path(@item.list, @item) %>'
+});
+<% end %>

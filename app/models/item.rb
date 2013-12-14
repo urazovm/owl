@@ -33,4 +33,16 @@ class Item
   def index
     list.items.index(self)
   end
+
+  def text?
+    type == TYPES.index(:text)
+  end
+
+  def image?
+    type == TYPES.index(:image)
+  end
+
+  def link?
+    type == TYPES.index(:link)
+  end
 end

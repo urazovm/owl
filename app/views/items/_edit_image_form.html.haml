@@ -1,11 +1,11 @@
 = minimal_form_for([item.list, item], remote: true, html: { id: "item_#{item.id}_form", multipart: true }) do |f|
-  .fileinput
-    %input{ name: 'item[image]', type: :file, id: 'fileupload' }
-  .filepreview
+  .imageInput
+    %input{ name: 'item[image]', type: :file }
+  .imagePreview
     .delete.fa.fa-times
     .files
       - if item.image.exists?
-        = image_tag item.image.url(:small), class: :image_original
+        = image_tag item.image.url(:small)
   = f.input :name
   = f.button :submit, t('.submit'), class: 'btn btn-primary submit'
   = link_to t('.delete'), list_item_path(item.list, item), remote: true, method: :delete, class: 'btn btn-default'
