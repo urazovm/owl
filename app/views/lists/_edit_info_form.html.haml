@@ -1,0 +1,5 @@
+#list_edit_info_form{ 'data-action' => list_path(list.id) }
+  %h1.edit.edit_title{ id: list.id, 'data-placeholder' => t('.placeholder') }= list.title
+  %p
+    %span= t('.category_label')
+    %strong.edit.edit_category{ id: list.id, 'data-categories' => List::categories_hash }= list.category

@@ -12,6 +12,7 @@ class List
   validates_length_of :title, maximum: 250, allow_blank: true
   validates_numericality_of :category_id, greater_than_or_equal_to: 0, less_than: ListCategories.length, allow_blank: true
   accepts_nested_attributes_for :items
+  before_validation :format_title
   after_validation :update_status
   after_save :check_search_index
   default_scope where(deleted_at: nil, completed: true)
@@ -20,7 +21,7 @@ class List
 
   field :title,       type: String
   field :deleted_at,  type: Time
-  field :category_id, type: Integer
+  field :category_id, type: Integer, default: 0
   field :completed,   type: Boolean, default: false
   field :lovers,      type: Array, default: []
   field :loves,       type: Integer
@@ -64,6 +65,14 @@ class List
     [:title, 'title.partial', :user_login]
   end
 
+  def self.categories_hash
+    Hash[*ListCategories.map(&:reverse).flatten].to_json
+  end
+
+  def display_title
+    title||'Untitled list'
+  end
+
   def soft_delete
     update_attribute(:deleted_at, Time.current)
   end
@@ -86,7 +95,11 @@ private
     end
   end
 
+  def format_title
+    self.title = self.title.strip.gsub(/\n{1,}/, ' ') if title.present?
+  end
+
   def update_status
-    self.completed = !title.blank? && !category_id.blank? && items.count > 0
+    self.completed = (items.count > 0 && items.all? {|item| item.completed })
   end
 end

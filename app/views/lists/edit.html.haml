@@ -1,12 +1,11 @@
 .row
   .col-sm-5
-    = simple_form_for(@list, html: { class: 'list_form', id: "list_form", multipart: true }) do |f|
-      = f.input :title
-      = f.input :category_id, as: :select, collection: ListCategories
-      = f.button :submit, t('.submit'), class: 'btn btn-full btn-primary submit'
-      %ul.list-unstyled
-        %li= link_to 'Cancel', list_path(@list), class: 'cancel', confirm: t('.confirm_cancel')
-        %li= link_to 'Delete this list', list_path(@list), class: 'delete', method: :delete, confirm: t('.confirm_delete')
+    = render partial: 'lists/edit_info_form', locals: { list: @list.decorate }
+    %hr
+    %p
+      %span= link_to 'Cancel', list_path(@list), class: 'cancel', confirm: t('.confirm_cancel')
+      %span -
+      %span= link_to 'Delete this list', list_path(@list), class: 'delete text-danger', method: :delete, confirm: t('.confirm_delete')
 
   .col-sm-7
     %ol#list_items_forms.items.list-unstyled

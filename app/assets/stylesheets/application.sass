@@ -37,10 +37,6 @@ a
   &:hover
     color: $blue_dark
 
-hr
-  border-color: transparent
-  margin-top: 0
-
 h1
   // font-family: 'Cabin Sketch', cursive
   font-size: 1.6em
@@ -522,3 +518,18 @@ hr.trans
       &.active
         background: $blue_light
         font-weight: bold
+
+#list_edit_info_form
+  .edit
+    cursor: pointer
+    &:after
+      font-family: 'FontAwesome'
+      margin-left: 0.5em
+      content: '\f044'
+    &.editing:after
+      content: ''
+    form
+      display: inline
+      textarea
+        resize: none
+        overflow: hidden

@@ -15,3 +15,5 @@
 //= require vendors/jquery.fileupload-image
 //= require vendors/echo
 //= require vendors/bootstrap
+//= require vendors/jquery.jeditable
+//= require vendors/jquery.autosize

@@ -77,12 +77,11 @@ en:
       by: "by"
       the: "the"
     edit:
-      title: "Edit your list"
-      text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
-      submit: "Save this list"
-      delete_image: "delete image"
       confirm_cancel: "All your changes will be lost!"
       confirm_delete: "Are you sure you want to delete this list for ever?"
+    edit_info_form:
+      category_label: "in category"
+      placeholder: "Untitled List"
     new:
       title: "Create a new list"
       text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"

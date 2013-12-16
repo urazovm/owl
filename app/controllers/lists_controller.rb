@@ -33,7 +33,12 @@ class ListsController < ApplicationController
     @list.assign_attributes(list_params)
     @list.items.each_with_index {|list, i| list.position = i }
     if @list.save
-      redirect_to list_path(@list)
+      if request.xhr?
+        render inline: @list.title.capitalize and return unless list_params['title'].blank?
+        render inline: @list.category_name and return unless list_params['category_id'].blank?
+      else
+        redirect_to list_path(@list)
+      end
     else
       render :edit
     end

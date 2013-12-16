@@ -2,7 +2,7 @@ class ListDecorator < ApplicationDecorator
   delegate :id
 
   def title
-    obect.title.capitalize
+    (object.title||'').capitalize
   end
 
   def comments
@@ -14,7 +14,11 @@ class ListDecorator < ApplicationDecorator
   end
 
   def linked_title
-    h.link_to model.title.capitalize, h.list_path(model)
+    h.link_to model.display_title.capitalize, h.list_path(model)
+  end
+
+  def category
+    model.category_name
   end
 
   def linked_category
