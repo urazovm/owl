@@ -266,6 +266,14 @@
                     }
                 });
 
+                /* remember original value */
+                var input_value;
+                if (settings.type == 'select') {
+                    input_value = $(input).find('option:selected').text();
+                } else {
+                    input_value = input.val();
+                }
+
                 /* discard, submit or nothing with changes when clicking outside */
                 /* do nothing is usable when navigating with tab */
                 var t;
@@ -319,6 +327,14 @@
                               if (!$.trim($(self).html())) {
                                   $(self).html(settings.placeholder);
                               }
+                          /* abort if nothing changed */
+                          } else if (input.val() === input_value) {
+                              $(self).html(input_value);
+                              self.editing = false;
+                              callback.apply(self, [input_value, settings]);
+                              if (!$.trim($(self).html())) {
+                                  $(self).html(settings.placeholder);
+                              }
                           } else {
                               /* add edited content and id of edited element to POST */
                               var submitdata = {};
@@ -347,6 +363,7 @@
                                   url     : settings.target,
                                   success : function(result, status) {
                                       if (ajaxoptions.dataType == 'html') {
+                                        input_value = result;
                                         $(self).html(result);
                                       }
                                       self.editing = false;
