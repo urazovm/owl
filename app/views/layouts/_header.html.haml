@@ -1,39 +1,42 @@
-#header.row
+#header
 
-  .col-sm-2.col-xs-4
-    %span.logo= link_to 'OWL', home_path
+  .container
+    .row
 
-  .col-sm-5.col-xs-8.col-sm-push-5.right
-    - if signed_in?
-      = link_to user_path(current_user), class: 'visible-xs btn btn-sm btn-default user' do
-        %i.fa.fa-user
-      = link_to user_path(current_user), class: 'btn btn-sm btn-default hidden-xs' do
-        = current_user.decorate.avatar_image :small
-        = current_user.login
-    - else
-      %div.btn-group.sign
-        = link_to t('.register_link'), new_user_registration_path(r: 1), class: 'btn btn-sm btn-default'
-        = link_to t('.login_link'), new_user_session_path(r: 1), class: 'btn btn-sm btn-default'
-    .tools
-      = link_to new_list_path, class: 'btn btn-sm btn-default create' do
-        %span.hidden-xs= t('.create')
-        %i.visible-xs.fa.fa-plus
-      %button.btn.btn-sm.btn-default.visible-xs.search-collapser{ 'data-toggle' => "collapse", 'data-target' => '#search-collapse' }
-        %i.fa.fa-search
-      %button.btn.btn-sm.btn-default.categories-collapser{ 'data-toggle' => "collapse", 'data-target' => '#categories-collapse' }
-        %i.fa.fa-bars
+      .col-sm-2.col-xs-4
+        %span.logo= link_to 'OWL', home_path
 
-  .col-xs-12.col-sm-5.col-sm-pull-5.right.search
-    = form_tag home_path, method: :get, id: 'search-collapse', class: 'collapse collapse-xs' do
-      = hidden_field_tag :category_id, params[:category_id]
-      .input-group
-        = search_field :query, '', class: 'form-control', placeholder: '...'
-        .input-group-btn
-          %button.btn.btn-sm.btn-default.submit
-            %span.visible-xs= t('.search')
-            %i.hidden-xs.fa.fa-search
+      .col-sm-5.col-xs-8.col-sm-push-5.right
+        - if signed_in?
+          = link_to user_path(current_user), class: 'visible-xs btn btn-sm btn-default user' do
+            %i.fa.fa-user
+          = link_to user_path(current_user), class: 'btn btn-sm btn-default hidden-xs' do
+            = current_user.decorate.avatar_image :small
+            = current_user.login
+        - else
+          %div.btn-group.sign
+            = link_to t('.register_link'), new_user_registration_path(r: 1), class: 'btn btn-sm btn-default'
+            = link_to t('.login_link'), new_user_session_path(r: 1), class: 'btn btn-sm btn-default'
+        .tools
+          = link_to new_list_path, class: 'btn btn-sm btn-default create' do
+            %span.hidden-xs= t('.create')
+            %i.visible-xs.fa.fa-plus
+          %button.btn.btn-sm.btn-default.visible-xs.search-collapser{ 'data-toggle' => "collapse", 'data-target' => '#search-collapse' }
+            %i.fa.fa-search
+          %button.btn.btn-sm.btn-default.categories-collapser{ 'data-toggle' => "collapse", 'data-target' => '#categories-collapse' }
+            %i.fa.fa-bars
 
-%ul#categories-collapse.collapse.list-unstyled
-  %li.category_999= link_to t('.all'), home_path
-  - ListCategories.each_with_index do |category, i|
-    %li{ class: "category_#{category[1]}" }= link_to category[0], home_path(category_id: category[1])
+      .col-xs-12.col-sm-5.col-sm-pull-5.right.search
+        = form_tag home_path, method: :get, id: 'search-collapse', class: 'collapse collapse-xs' do
+          = hidden_field_tag :category_id, params[:category_id]
+          .input-group
+            = search_field :query, '', class: 'form-control', placeholder: '...'
+            .input-group-btn
+              %button.btn.btn-sm.btn-default.submit
+                %span.visible-xs= t('.search')
+                %i.hidden-xs.fa.fa-search
+
+    %ul#categories-collapse.collapse.list-unstyled
+      %li.category_999= link_to t('.all'), home_path
+      - ListCategories.each_with_index do |category, i|
+        %li{ class: "category_#{category[1]}" }= link_to category[0], home_path(category_id: category[1])

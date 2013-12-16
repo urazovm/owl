@@ -59,6 +59,15 @@ h3
 hr.trans
   border-color: transparent
 
+.top
+  background-image: url('pattern.png')
+  border-bottom: solid 4px $grey_light
+  .container
+    color: $special_light
+    margin-top: -2em
+    padding: 2em 0 1em
+    +background-image(linear-gradient(center left, rgba(255,255,255,0), rgba(255,255,255,0.8) 90%, rgba(255,255,255,0)))
+
 .simple_form
   .error
     .help-inline
@@ -139,10 +148,10 @@ hr.trans
   background: $main_normal
   margin-bottom: 2em
   padding: 5px 0
-  margin-top: -28px
-  @media (min-width: 768px)
+  position: relative
+  border-bottom: solid 2px $grey_light
+  .container
     margin-top: 0
-    +border-radius(5px)
   .logo
     font-weight: bold
     font-size: 1.7em
@@ -469,11 +478,31 @@ hr.trans
   margin-top: 1em
 
 #list_notes
-  margin-bottom: 1.5em
+  text-align: right
+  padding-right: 80px
+  line-height: 70px
   h1
+    font-family: 'Cabin Sketch', cursive
+    font-weight: bold
+    font-size: 3.5em
     display: inline-block
+  h1,
+  .fa
+    color: $black_normal
+    +text-shadow(4px 3px 0 $white_normal, 9px 8px 0 rgba(0, 0, 0, 0.15))
   h2
     margin-top: 0
+  .items
+    top: 20px
+    left: 60px
+    position: absolute
+    +transform(rotate(20deg))
+    .fa
+      font-size: 1.9em
+      margin: -5px 0 0 10px
+      +transform(rotate(-10deg))
+  .btn
+    +box-shadow(4px 3px 0 $white_normal, 9px 8px 0 rgba(0, 0, 0, 0.15))
   .call_to_action
     margin: -5px 0 30px 0
     @media (min-width: 768px)

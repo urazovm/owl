@@ -1,8 +1,12 @@
 #list_notes
   - if params[:category_id].blank?
+    .items
+      .fa.fa-link
+        .fa.fa-picture-o
+          .fa.fa-font
     %h1= t('.title_main')
     - if signed_in?
-      %span.create= link_to t('.create_link'), new_list_path, class: 'btn btn-primary create'
+      %p.create= link_to t('.create_link'), new_list_path, class: 'btn btn-primary create'
     - else
       %p.call_to_action
         = link_to t('.login_link'), new_user_session_path(r: 1), class: 'btn btn-sm btn-default'

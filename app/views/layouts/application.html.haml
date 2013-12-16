@@ -6,15 +6,15 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = stylesheet_link_tag "vendor", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700'
     = csrf_meta_tags
 
   %body
 
     #main
-      .container
-        - cache ['v1', 'header', signed_in?, current_user||nil] do
-          = render partial: 'layouts/header'
-        = yield
+      - cache ['v1', 'header', signed_in?, current_user||nil] do
+        = render partial: 'layouts/header'
+      = yield
       #push_footer
 
     - cache ['v1', 'footer'] do

@@ -1,15 +1,20 @@
-.row
-  .col-sm-12
-    - if defined?(@tmp_lists)
-      - cache ['v1', tmp_list_cookie_updated_at] do
-        = render partial: 'lists/tmp', locals: { lists: @tmp_lists.decorate }
+.top
+  .container
+    .row
+      .col-sm-12
+        - if params[:query].blank?
+          - cache ['v1', 'category', params[:category_id], signed_in?] do
+            = render partial: 'lists/notes'
 
-    - if params[:query].blank?
-      - cache ['v1', 'category', params[:category_id], signed_in?] do
-        = render partial: 'lists/notes'
+.container
+  .row
+    .col-sm-12
+      - if defined?(@tmp_lists)
+        - cache ['v1', tmp_list_cookie_updated_at] do
+          = render partial: 'lists/tmp', locals: { lists: @tmp_lists.decorate }
 
-    - cache ['v1', cache_key_for_lists, params[:category_id], params[:query], params[:page]] do
-      = render partial: 'lists/list', locals: { lists: @lists }
+      - cache ['v1', cache_key_for_lists, params[:category_id], params[:query], params[:page]] do
+        = render partial: 'lists/list', locals: { lists: @lists }
 
 %script
   = "window.owl.env['category_id'] = #{@category_id||999};"
