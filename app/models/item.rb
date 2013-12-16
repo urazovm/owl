@@ -53,7 +53,7 @@ private
   def update_status
     case type
     when TYPES.index(:text) then self.completed = !name.blank? || !text.blank?
-    when TYPES.index(:image) then self.completed = !name.blank? || image.exist?
+    when TYPES.index(:image) then self.completed = !name.blank? || image.exists?
     when TYPES.index(:link) then self.completed = !name.blank? || !link.blank?
     else
       self.completed = false

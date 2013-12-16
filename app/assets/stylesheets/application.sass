@@ -6,36 +6,31 @@
 $legacy-support-for-ie6: false
 $legacy-support-for-ie7: false
 
-// http://www.colourlovers.com/palette/2170717/Sketch_APC284
-
-$grey_normal: #aaaaaa
-$grey_light: #e3e3e3
-$grey_pale: #f9f9f9
-
-$blue_light: #FCE3AB
-$blue_normal: #BE9D74
-$blue_dark: #715142
-
-$red_normal: #ff6666
-
+// http://www.colourlovers.com/palette/1565509/Second_Breakfast
+$grey_light: #f9f9f9
+$grey_normal: #e3e3e3
+$main_light: #D38487
+$main_normal: #D24566
+$special_light: #FEE9A1
+// $special_light: #ACD0A0
+$special_normal: adjust-lightness($special_light, -20)
 $white_normal: #ffffff
-
-$black_normal: #786556
-$black_dark: #362918
+$black_normal: adjust-lightness(#3F2102, 8)
 
 body
   // font-family: 'Cabin Sketch', cursive
   color: $black_normal
+  // background: adjust-lightness(#FEE9A1, 16)
   // background: url('background.jpg')
 
 a
   // font-family: 'Cabin Sketch', cursive
-  color: $blue_normal
+  color: $main_light
   +transition-property(color, background-color)
   +transition-timing-function(ease)
   +transition-duration(0.3s)
   &:hover
-    color: $blue_dark
+    color: $main_normal
 
 h1
   // font-family: 'Cabin Sketch', cursive
@@ -81,20 +76,29 @@ hr.trans
     background: #f9f9f9
     position: absolute
 
+.text-danger
+  color: #ff6666
+
 .btn
   color: $black_normal
   +transition-property(color, background-color)
   +transition-timing-function(ease)
   +transition-duration(0.3s)
-.btn.active
-  color: $black_dark
+.btn:hover
+  background: $special_light
+  color: $black_normal
+.btn.active,
+.btn.active:hover
+  background: $grey_light
+  color: $black_normal
 
 .btn-primary
-  color: $white_normal
-  background: $blue_normal
+  color: $black_normal
+  background: $special_light
   border: none
   &:hover
-    background: $blue_dark
+    color: $black_normal
+    background: $special_normal
 
 .hidden
   display: none
@@ -132,7 +136,7 @@ hr.trans
     margin: 0
 
 #header
-  background: $blue_dark
+  background: $main_normal
   margin-bottom: 2em
   padding: 5px 0
   margin-top: -28px
@@ -146,7 +150,7 @@ hr.trans
       color: $white_normal
       text-decoration: none
       &:hover
-        color: $blue_light
+        color: $special_light
   .avatar
     width: 28px
     margin: -6px 2px -5px -10px
@@ -193,8 +197,8 @@ hr.trans
     margin-bottom: 5px
   .imagePreview,
   .imageInput
-    background: $grey_pale
-    border: dashed 1px $grey_light
+    background: $grey_light
+    border: dashed 1px $grey_normal
     text-align: center
     padding: 0
     height: 130px
@@ -215,7 +219,7 @@ hr.trans
       content: '\f03e'
       font-family: 'FontAwesome'
       font-size: 3em
-      color: $grey_light
+      color: $grey_normal
       position: absolute
       width: 100%
       text-align: center
@@ -283,7 +287,7 @@ hr.trans
 
 #lists
   li
-    border-top: 1px dashed $grey_light
+    border-top: 1px dashed $grey_normal
     margin-top: 8px
     padding-top: 8px
     font-size: 0.8em
@@ -305,7 +309,7 @@ hr.trans
     .love
       position: relative
       padding: 0 0.3em
-      color: $blue_dark
+      color: $main_normal
       @media (min-width: 768px)
         padding: 0.1em 0.5em
       font-size: 2em
@@ -323,7 +327,7 @@ hr.trans
         left: 0
         z-index: -1
         background: $white_normal
-        border: solid 1px $blue_dark
+        border: solid 1px $main_normal
     h3
       margin: 0
       small
@@ -342,7 +346,7 @@ hr.trans
     padding: 15px 5px 0 45px
     counter-increment: item
     position: relative
-    border-top: 1px dashed $grey_light
+    border-top: 1px dashed $grey_normal
     &:first-child
       border: none
     &:before
@@ -370,7 +374,7 @@ hr.trans
     margin-bottom: 20px
     margin-top: -10px
   li
-    border-top: 1px dashed $grey_light
+    border-top: 1px dashed $grey_normal
     padding-top: 5px
     margin-top: -8px
     &:first-child
@@ -389,7 +393,7 @@ hr.trans
     @media (min-width: 768px)
       display: none
   li
-    border-top: 1px dashed $grey_light
+    border-top: 1px dashed $grey_normal
     padding-top: 5px
     margin-top: 5px
     &:first-child
@@ -483,7 +487,7 @@ hr.trans
 
 #categories-collapse
   background: $white_normal
-  border: 1px solid $grey_light
+  border: 1px solid $grey_normal
   padding: 10px 0
   margin-bottom: 1em
   max-height: 220px
@@ -513,10 +517,10 @@ hr.trans
         width: 185px
         margin-right: 0
       &:hover
-        background: $grey_light
+        background: $grey_normal
         +border-radius(2px)
       &.active
-        background: $blue_light
+        background: $special_light
         font-weight: bold
 
 #list_edit_info_form
