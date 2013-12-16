@@ -1,5 +1,5 @@
 var item = $("<%= escape_javascript(render(partial: 'items/item', locals: { item: @item, editable: true })) %>");
-$('#item_<%= @item.id %>').replaceWith(item);
 item.hide().fadeIn();
+$('#item_<%= @item.id %>').replaceWith(item);
 $('#item_new_form .btn').removeClass('disabled');
 $('#item_new_form').fadeIn();

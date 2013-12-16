@@ -55,14 +55,14 @@ en:
       ignore: "Ignore this list"
   items:
     edit_text_form:
-      submit: "Save"
-      delete: "Remove"
+      submit: "Save item"
+      delete: "Delete"
     edit_image_form:
-      submit: "Save"
-      delete: "Remove"
+      submit: "Save item"
+      delete: "Delete"
     edit_link_form:
-      submit: "Save"
-      delete: "Remove"
+      submit: "Save item"
+      delete: "Delete"
     new_form:
       text: "Add text"
       link: "Add a link"

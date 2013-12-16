@@ -1,12 +1,12 @@
 class ItemDecorator < ApplicationDecorator
   delegate :type
 
-  def image(style, lazy=true)
+  def image(style)
     if object.image.exists?
-      if lazy
-        h.image_lazy_tag object.image.url(style), class: :image
+      if h.request.parameters['action'] == 'edit'
+        h.image_lazy_tag object.image.url(style), class: "image #{style}"
       else
-        h.image_tag object.image.url(style), class: :image
+        h.image_tag object.image.url(style), class: "image #{style}"
       end
     end
   end
