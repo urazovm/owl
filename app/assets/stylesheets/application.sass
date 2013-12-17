@@ -9,6 +9,7 @@ $legacy-support-for-ie7: false
 // http://www.colourlovers.com/palette/1565509/Second_Breakfast
 $grey_light: #f9f9f9
 $grey_normal: #e3e3e3
+$grey_dark: #aaaaaa
 $main_light: #D38487
 $main_normal: #D24566
 $special_light: #FEE9A1
@@ -190,12 +191,13 @@ hr.trans
 
 #top
   background-image: url('pattern.png')
+  background-attachment: fixed
   border-bottom: solid 4px $grey_light
   .container
     color: $special_light
     margin-top: -2em
     padding: 2em 0 1em
-    +background-image(linear-gradient(center left, rgba(255,255,255,0), rgba(255,255,255,0.8) 90%, rgba(255,255,255,0)))
+    +background-image(linear-gradient(center left, rgba(255,255,255,0), rgba(255,255,255,0.8) 75%, rgba(255,255,255,0)))
 
 #list_form
   .submit
@@ -478,20 +480,53 @@ hr.trans
   margin-top: 1em
 
 #list_notes
-  text-align: right
-  padding-right: 80px
-  line-height: 70px
+  .main
+    margin-left: 320px
+  .category
+    margin-left: 60px
   h1
     font-family: 'Cabin Sketch', cursive
     font-weight: bold
     font-size: 3.5em
-    display: inline-block
-  h1,
-  .fa
+    &.category
+      margin-bottom: 5px
+    small
+      margin-left: 10px
+      font-size: 0.35em
+      display: inline
+      color: $black_normal
+      +text-shadow(2px 1px 0 $white_normal, 5px 4px 0 rgba(0, 0, 0, 0.15))
+  span
+    margin: 0 10px
+    color: $black_normal
+  h1, .fa
     color: $black_normal
     +text-shadow(4px 3px 0 $white_normal, 9px 8px 0 rgba(0, 0, 0, 0.15))
-  h2
-    margin-top: 0
+  .btn
+    +box-shadow(4px 3px 0 $white_normal, 9px 8px 0 rgba(0, 0, 0, 0.15))
+  .cloud
+    background: url('cloud.png')
+    width: 366px
+    height: 110px
+    position: absolute
+    text-align: center
+    padding: 25px 0 0 85px
+    top: 100px
+    left: 510px
+    &.signed-in
+      top: 90px
+      left: 480px
+    p
+      color: $grey_dark
+      line-height: 13px
+      +transform(rotate(-2deg))
+      &:before
+        content: '\f0eb'
+        font-family: 'FontAwesome'
+        margin-right: 0.5em
+        display: inline-block
+        color: $special_normal
+        +transform(rotate(-5deg))
   .items
     top: 20px
     left: 60px
@@ -501,18 +536,6 @@ hr.trans
       font-size: 1.9em
       margin: -5px 0 0 10px
       +transform(rotate(-10deg))
-  .btn
-    +box-shadow(4px 3px 0 $white_normal, 9px 8px 0 rgba(0, 0, 0, 0.15))
-  .call_to_action
-    margin: -5px 0 30px 0
-    @media (min-width: 768px)
-      margin-left: 20px
-    .btn
-      margin-left: 2px
-  .create
-    margin: -15px 0 0 5px
-    @media (min-width: 768px)
-      margin-left: 10px
 
 #categories-collapse
   background: $white_normal

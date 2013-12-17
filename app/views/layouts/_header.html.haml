@@ -30,7 +30,7 @@
         = form_tag home_path, method: :get, id: 'search-collapse', class: 'collapse collapse-xs' do
           = hidden_field_tag :category_id, params[:category_id]
           .input-group
-            = search_field :query, '', class: 'form-control', placeholder: '...'
+            = search_field :query, '', class: 'form-control', placeholder: t('.search_placeholder')
             .input-group-btn
               %button.btn.btn-sm.btn-default.submit
                 %span.visible-xs= t('.search')

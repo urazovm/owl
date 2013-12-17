@@ -1,18 +1,35 @@
 #list_notes
+
   - if params[:category_id].blank?
+
+    %h1.main
+      = t('.title_main_1')
+      %br
+      = t('.title_main_2')
+
+    - if signed_in?
+
+      %p.main= link_to t('.create_link'), new_list_path, class: 'btn btn-primary create'
+
+    - else
+
+      %p.main
+        = link_to t('.login_link'), new_user_session_path(r: 1), class: 'btn btn-primary'
+        %span= t('.or')
+        = link_to t('.register_link'), new_user_registration_path(r: 1), class: 'btn btn-primary'
+        %span= t('.to')
+
     .items
       .fa.fa-link
         .fa.fa-picture-o
           .fa.fa-font
-    %h1= t('.title_main')
-    - if signed_in?
-      %p.create= link_to t('.create_link'), new_list_path, class: 'btn btn-primary create'
-    - else
-      %p.call_to_action
-        = link_to t('.login_link'), new_user_session_path(r: 1), class: 'btn btn-sm btn-default'
-        %strong= t('.or')
-        = link_to t('.register_link'), new_user_registration_path(r: 1), class: 'btn btn-sm btn-default'
-        %span= t('.to')
+    .cloud{ class: signed_in? ? 'signed-in' : 'signed-out' }
+      %p= t('.example_1')
+      %p= t('.example_2')
+      %p= t('.example_3')
+
   - else
-    %h1= ListCategories.at(params[:category_id].to_i)[0]
-    %p= t(".text_category_#{params[:category_id]}")
+
+    %h1.category
+      = ListCategories.at(params[:category_id].to_i)[0]
+      %small= t(".text_category_#{params[:category_id]}")
