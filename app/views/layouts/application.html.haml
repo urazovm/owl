@@ -19,8 +19,7 @@
 
     - cache ['v1', 'footer'] do
       #footer
-        .container
-          = render partial: 'layouts/footer'
+        = render partial: 'layouts/footer'
 
     %script
       = "window.owl.env['controller'] = '#{request.parameters['controller']}';"
