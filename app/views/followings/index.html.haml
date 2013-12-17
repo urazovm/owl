@@ -7,9 +7,5 @@
 
   .row
     - cache ['v1', @user, 'followings'] do
-      .col-sm-8
+      .col-sm-12
         = render partial: 'followings/user_list', locals: { user: @user.decorate, users: @users }
-
-    - cache ['v1', @user, 'notes', :followings] do
-      .col-sm-4.hidden-xs
-        = render partial: 'users/notes', locals: { user: @user.decorate, type: :followings }

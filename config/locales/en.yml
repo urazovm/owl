@@ -80,12 +80,12 @@ en:
     edit:
       confirm_cancel: "All your changes will be lost!"
       confirm_delete: "Are you sure you want to delete this list for ever?"
+      help_1: "lalala lal alalalala la lalala la"
+      help_2: "lalala lal alalalala la lalala la"
+      help_3: "lalala lal alalalala la lalala la"
     edit_info_form:
       category_label: "in category"
       placeholder: "Untitled List"
-    new:
-      title: "Create a new list"
-      text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
     list:
       search_title: "Search results for:"
       empty: "Nothing here for the moment…"
@@ -123,15 +123,6 @@ en:
     legal:
       title: "Legal information"
   users:
-    notes:
-      title_lists: "All %{login}'s lists"
-      text_lists: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
-      title_loved: "%{login}'s loved lists"
-      text_loved: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
-      title_followings: "People %{login}'s following"
-      text_followings: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
-      title_followers: "People following %{login}"
-      text_followers: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal lala lala la"
     info:
       logout: "Logout"
       follow: "Follow"

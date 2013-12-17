@@ -6,6 +6,12 @@
       = render partial: 'lists/edit_info_form', locals: { list: @list.decorate }
       %hr
       %p
+        %ol
+          %li= t('.help_1')
+          %li= t('.help_2')
+          %li= t('.help_3')
+      %hr
+      %p
         %span= link_to 'Cancel', list_path(@list), class: 'cancel', confirm: t('.confirm_cancel')
         %span -
         %span= link_to 'Delete this list', list_path(@list), class: 'delete text-danger', method: :delete, confirm: t('.confirm_delete')

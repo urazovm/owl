@@ -6,14 +6,10 @@
         = render partial: 'users/info', locals: { user: @user.decorate }
 
   .row
-    .col-sm-8
+    .col-sm-12
       - if defined?(@tmp_lists)
         - cache ['v1', tmp_list_cookie_updated_at] do
           = render partial: 'lists/tmp', locals: { lists: @tmp_lists.decorate }
 
       - cache ['v1', @user, 'lists'] do
         = render partial: 'users/list_list', locals: { user: @user.decorate, lists: @lists }
-
-    .col-sm-4.hidden-xs
-      - cache ['v1', @user, 'notes', 'lists'] do
-        = render partial: 'users/notes', locals: { user: @user.decorate, type: :lists }
