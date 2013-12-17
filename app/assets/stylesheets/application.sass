@@ -161,7 +161,10 @@ hr.trans
     width: 28px
     margin: -6px 2px -5px -10px
   .sign
+    display: none
     margin-right: 10px
+    @media (min-width: 442px)
+      display: inline-block
   .right
     text-align: right
   .dropdown-menu
@@ -481,19 +484,31 @@ hr.trans
 
 #list_notes
   .main
-    margin-left: 420px
+    margin-left: 20px
+    @media (min-width: 442px)
+      margin-left: 18%
+    @media (min-width: 768px)
+      margin-left: 420px
   .category
-    margin-left: 60px
+    margin-left: 20px
+    @media (min-width: 768px)
+      margin-left: 60px
   h1
     font-family: 'Cabin Sketch', cursive
     font-weight: bold
-    font-size: 3.5em
+    font-size: 2.8em
+    @media (min-width: 768px)
+      font-size: 3.5em
     &.category
       margin-bottom: 5px
     small
       margin-left: 10px
       font-size: 0.35em
-      display: inline
+      display: none
+      @media (min-width: 442px)
+        display: block
+      @media (min-width: 768px)
+        display: inline
       color: $black_normal
       +text-shadow(2px 1px 0 $white_normal, 5px 4px 0 rgba(0, 0, 0, 0.15))
   span
@@ -513,6 +528,9 @@ hr.trans
     padding: 25px 45px 0 0px
     top: 30px
     left: 85px
+    display: none
+    @media (min-width: 768px)
+      display: block
     p
       color: $grey_dark
       line-height: 13px
