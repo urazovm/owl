@@ -34,12 +34,13 @@ a
     color: $main_normal
 
 h1
-  // font-family: 'Cabin Sketch', cursive
-  font-size: 1.6em
+  font-family: 'Cabin Sketch', cursive
+  font-size: 2em
+  font-weight: bold
   margin-top: 0
   margin-bottom: 20px
   @media (min-width: 768px)
-    font-size: 2.2em
+    font-size: 3em
   small
     font-size: 0.4em
     margin-top: 0.5em
@@ -364,8 +365,9 @@ hr.trans
     &:first-child
       border: none
     &:before
+      font-family: 'Cabin Sketch', cursive
       font-weight: bold
-      font-size: 3em
+      font-size: 2.8em
       color: $black_normal
       content: counter(item)
       position: absolute
@@ -449,6 +451,9 @@ hr.trans
     float: right
   h1
     margin-bottom: 0
+    line-height: 24px
+    @media (min-width: 768px)
+      line-height: 32px
   .loves
     font-size: 1.4em
     @media (min-width: 768px)
