@@ -481,7 +481,7 @@ hr.trans
 
 #list_notes
   .main
-    margin-left: 320px
+    margin-left: 420px
   .category
     margin-left: 60px
   h1
@@ -506,16 +506,13 @@ hr.trans
     +box-shadow(4px 3px 0 $white_normal, 9px 8px 0 rgba(0, 0, 0, 0.15))
   .cloud
     background: url('cloud.png')
-    width: 366px
-    height: 110px
+    width: 329px
+    height: 128px
     position: absolute
     text-align: center
-    padding: 25px 0 0 85px
-    top: 100px
-    left: 510px
-    &.signed-in
-      top: 90px
-      left: 480px
+    padding: 25px 45px 0 0px
+    top: 30px
+    left: 85px
     p
       color: $grey_dark
       line-height: 13px
@@ -527,15 +524,6 @@ hr.trans
         display: inline-block
         color: $special_normal
         +transform(rotate(-5deg))
-  .items
-    top: 20px
-    left: 60px
-    position: absolute
-    +transform(rotate(20deg))
-    .fa
-      font-size: 1.9em
-      margin: -5px 0 0 10px
-      +transform(rotate(-10deg))
 
 #categories-collapse
   background: $white_normal

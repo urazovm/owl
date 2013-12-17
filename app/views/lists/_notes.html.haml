@@ -19,11 +19,7 @@
         = link_to t('.register_link'), new_user_registration_path(r: 1), class: 'btn btn-primary'
         %span= t('.to')
 
-    .items
-      .fa.fa-link
-        .fa.fa-picture-o
-          .fa.fa-font
-    .cloud{ class: signed_in? ? 'signed-in' : 'signed-out' }
+    .cloud
       %p= t('.example_1')
       %p= t('.example_2')
       %p= t('.example_3')
