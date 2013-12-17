@@ -1,14 +1,17 @@
-.row
-  .col-sm-5
-    = render partial: 'lists/edit_info_form', locals: { list: @list.decorate }
-    %hr
-    %p
-      %span= link_to 'Cancel', list_path(@list), class: 'cancel', confirm: t('.confirm_cancel')
-      %span -
-      %span= link_to 'Delete this list', list_path(@list), class: 'delete text-danger', method: :delete, confirm: t('.confirm_delete')
+.container
 
-  .col-sm-7
-    %ol#list_items_forms.items.list-unstyled
-      - @list.items.each do |item|
-        = render partial: 'items/item', locals: { item: item, editable: true }
-    = render partial: 'items/new_form', locals: { list: @list }
+  .row
+
+    .col-sm-5
+      = render partial: 'lists/edit_info_form', locals: { list: @list.decorate }
+      %hr
+      %p
+        %span= link_to 'Cancel', list_path(@list), class: 'cancel', confirm: t('.confirm_cancel')
+        %span -
+        %span= link_to 'Delete this list', list_path(@list), class: 'delete text-danger', method: :delete, confirm: t('.confirm_delete')
+
+    .col-sm-7
+      %ol#list_items_forms.items.list-unstyled
+        - @list.items.each do |item|
+          = render partial: 'items/item', locals: { item: item, editable: true }
+      = render partial: 'items/new_form', locals: { list: @list }

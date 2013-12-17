@@ -1,10 +1,15 @@
-- cache ['v1', @user, 'info'] do
-  = render partial: 'users/info', locals: { user: @user.decorate }
+.container
 
-- cache ['v1', @user, 'followings'] do
-  .col-sm-8
-    = render partial: 'followings/user_list', locals: { user: @user.decorate, users: @users }
+  .row
+    .col-sm-12
+      - cache ['v1', @user, 'info'] do
+        = render partial: 'users/info', locals: { user: @user.decorate }
 
-- cache ['v1', @user, 'notes', :followings] do
-  .col-sm-4.hidden-xs
-    = render partial: 'users/notes', locals: { user: @user.decorate, type: :followings }
+  .row
+    - cache ['v1', @user, 'followings'] do
+      .col-sm-8
+        = render partial: 'followings/user_list', locals: { user: @user.decorate, users: @users }
+
+    - cache ['v1', @user, 'notes', :followings] do
+      .col-sm-4.hidden-xs
+        = render partial: 'users/notes', locals: { user: @user.decorate, type: :followings }

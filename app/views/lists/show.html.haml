@@ -1,18 +1,21 @@
-.row
-  .col-sm-8
-    - cache ['v1', @list] do
-      = render partial: 'lists/info', locals: { list: @list.decorate, user: @user.decorate }
-      = render partial: 'items/list', locals: { items: @items }
+.container
 
-  .col-sm-4
-    #list_side
-      - cache ['v1', @list, 'side', signed_in?] do
-        = render partial: 'lists/nav', locals: { list: @list.decorate }
-        #list_side_info
-          - cache ['v1', @list, 'comments'] do
-            = render partial: 'comments/list', locals: { comment: @comment, comments: @comments, list: @list.decorate }
-          - cache ['v1', @list, 'lovers'] do
-            = render partial: 'loves/user_list', locals: { users: @users }
+  .row
+
+    .col-sm-8
+      - cache ['v1', @list] do
+        = render partial: 'lists/info', locals: { list: @list.decorate, user: @user.decorate }
+        = render partial: 'items/list', locals: { items: @items }
+
+    .col-sm-4
+      #list_side
+        - cache ['v1', @list, 'side', signed_in?] do
+          = render partial: 'lists/nav', locals: { list: @list.decorate }
+          #list_side_info
+            - cache ['v1', @list, 'comments'] do
+              = render partial: 'comments/list', locals: { comment: @comment, comments: @comments, list: @list.decorate }
+            - cache ['v1', @list, 'lovers'] do
+              = render partial: 'loves/user_list', locals: { users: @users }
 
 %script
   = "window.owl.env['loving'] = #{signed_in? && current_user.loves?(@list)};"
