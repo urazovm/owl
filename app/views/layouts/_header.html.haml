@@ -39,4 +39,4 @@
     %ul#categories-collapse.collapse.list-unstyled
       %li.category_999= link_to t('.all'), home_path
       - ListCategories.each_with_index do |category, i|
-        %li{ class: "category_#{category[1]}" }= link_to category[0], home_path(category_id: category[1])
+        %li{ class: "category_#{category[1]}" }= link_to List::category_name(category[1]), home_path(category_id: category[1])

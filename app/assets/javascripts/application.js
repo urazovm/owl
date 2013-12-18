@@ -19,6 +19,16 @@ window.owl.func['ready'] = function() {
     typeof window.owl.views[page] == 'function' && window.owl.views[page]();
 
     window.Echo.init();
+
+    var categoriesCollapsed = true;
+    $('#categories-collapse')
+        .on('hide.bs.collapse', function () { categoriesCollapsed = true; })
+        .on('show.bs.collapse', function () { categoriesCollapsed = false; })
+        .on('click', function(e) { e.stopPropagation(); });
+    $('body').on('click', function () {
+        console.log(1);
+        if (categoriesCollapsed == false) $('#categories-collapse').collapse('hide');
+    });
 }
 
 $(document).ready(window.owl.func.ready)

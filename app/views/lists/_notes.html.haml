@@ -27,5 +27,5 @@
   - else
 
     %h1.category
-      = ListCategories.at(params[:category_id].to_i)[0]
+      = List::category_name(params[:category_id])
       %small= t(".text_category_#{params[:category_id]}")

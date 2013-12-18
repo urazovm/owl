@@ -68,6 +68,11 @@ class List
     Hash[*ListCategories.map(&:reverse).flatten].to_json
   end
 
+  def self.category_name(id=nil)
+    I18n.t(ListCategories.at(id.to_i)[0], scope: 'categories')
+  end
+
+
   def display_title
     title||'Untitled'
   end
@@ -78,7 +83,7 @@ class List
   end
 
   def category_name
-    ListCategories.at(category_id)[0]
+    List::category_name(category_id)
   end
 
   def items_ordered
