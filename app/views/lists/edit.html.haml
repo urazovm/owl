@@ -10,6 +10,9 @@
           %li= t('.help_1')
           %li= t('.help_2')
           %li= t('.help_3')
+      %div{ class: (@list.completed ? '' : 'hidden'), id: :completed_button }
+        %hr
+        %p= link_to t('.view'), list_path(@list), class: 'btn btn-default btn-full'
       %hr
       %p
         %span= link_to 'Delete this list', list_path(@list), class: 'delete text-danger', method: :delete, confirm: t('.confirm_delete')

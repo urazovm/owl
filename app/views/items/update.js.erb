@@ -3,3 +3,8 @@ item.hide().fadeIn();
 $('#item_<%= @item.id %>').replaceWith(item);
 $('#item_new_form .btn').removeClass('disabled');
 $('#item_new_form').fadeIn();
+<% if @item.list.completed %>
+  $('#completed_button').removeClass('hidden');
+<% else %>
+  $('#completed_button').addClass('hidden');
+<% end %>

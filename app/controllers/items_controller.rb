@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
     render inline: '0' and return unless is_list_owner?(list)
     @item = list.items.find(params[:id])
     @item.destroy
+    list.save
   end
 
 private
