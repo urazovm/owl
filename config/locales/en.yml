@@ -85,7 +85,7 @@ en:
       help_3: "lalala lal alalalala la lalala la"
     edit_info_form:
       category_label: "in category"
-      placeholder: "Untitled List"
+      placeholder: "Untitled"
     list:
       search_title: "Search results for:"
       empty: "Nothing here for the moment…"

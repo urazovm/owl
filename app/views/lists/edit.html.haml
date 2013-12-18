@@ -12,9 +12,9 @@
           %li= t('.help_3')
       %hr
       %p
-        %span= link_to 'Cancel', list_path(@list), class: 'cancel', confirm: t('.confirm_cancel')
-        %span -
         %span= link_to 'Delete this list', list_path(@list), class: 'delete text-danger', method: :delete, confirm: t('.confirm_delete')
+        %span -
+        %span= link_to 'Cancel', list_path(@list), class: 'cancel', confirm: t('.confirm_cancel')
 
     .col-sm-7
       %ol#list_items_forms.items.list-unstyled

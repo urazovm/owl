@@ -45,10 +45,11 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    list = List.find(params[:id])
+    list = List.unscoped.find(params[:id])
     redirect_to home_path and return unless is_list_owner?(list)
     list.soft_delete
     remove_tmp_list(list)
+    redirect_to user_path(current_user)
   end
 
 private

@@ -8,7 +8,6 @@ class List
   has_many :reports
   embeds_many :items, cascade_callbacks: true
   embeds_many :comments, cascade_callbacks: true
-  validates_presence_of :title, :category_id, on: :update
   validates_length_of :title, maximum: 250, allow_blank: true
   validates_numericality_of :category_id, greater_than_or_equal_to: 0, less_than: ListCategories.length, allow_blank: true
   accepts_nested_attributes_for :items
@@ -70,10 +69,11 @@ class List
   end
 
   def display_title
-    title||'Untitled list'
+    title||'Untitled'
   end
 
   def soft_delete
+    index.remove self
     update_attribute(:deleted_at, Time.current)
   end
 
@@ -89,9 +89,9 @@ private
 
   def check_search_index
     if completed && deleted_at.nil? && !user_id.nil?
-      self.index.store self
+      index.store self
     else
-      self.index.remove self
+      index.remove self
     end
   end
 

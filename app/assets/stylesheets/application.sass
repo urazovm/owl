@@ -145,14 +145,18 @@ hr.trans
 #header
   background: $main_normal
   margin-bottom: 2em
-  padding: 5px 0
+  padding: 3px 0 5px 0
   position: relative
-  border-bottom: solid 2px $grey_light
+  border-bottom: solid 2px $grey_normal
   .container
     margin-top: 0
   .logo
+    font-family: 'Cabin Sketch', cursive
     font-weight: bold
-    font-size: 1.7em
+    font-family: "Cabin Sketch", cursive
+    font-size: 3em
+    position: absolute
+    top: -12px
     a
       color: $white_normal
       text-decoration: none
@@ -534,16 +538,18 @@ hr.trans
     height: 128px
     position: absolute
     text-align: center
-    padding: 25px 45px 0 0px
+    padding: 28px 50px 0 0px
     top: 30px
     left: 85px
     display: none
     @media (min-width: 768px)
       display: block
     p
-      color: $grey_dark
-      line-height: 13px
-      +transform(rotate(-2deg))
+      font-family: 'Cabin Sketch', cursive
+      color: $black_normal
+      line-height: 11px
+      font-size: 1.15em
+      +transform(rotate(-3deg))
       &:before
         content: '\f0eb'
         font-family: 'FontAwesome'
