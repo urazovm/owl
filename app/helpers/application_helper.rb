@@ -4,6 +4,14 @@ module ApplicationHelper
     "lists/all-#{max_updated_at}"
   end
 
+  def has_tmp_list? list
+    cookies.signed[:owl_lists] && cookies.signed[:owl_lists].include?(list.id.to_s)
+  end
+
+  def tmp_list_cookie_updated_at
+    cookies.signed[:owl_updated_at] || 0
+  end
+
   def minimal_form_for(object, *args, &block)
     options = args.extract_options!
     options[:html] = (options[:html] || {})

@@ -117,8 +117,8 @@ en:
       text_category_6: "lala llalala lalalal lala lala laaalalala lalalal lala lala la"
       text_category_7: "lala llalala lalalal lala lala laaalalala lalalal lala lala la"
     tmp:
-      title: "Tmp lists:"
-      link: "register to save your lists"
+      title: "You created your first lists!"
+      link: "register to save them!"
   pages:
     about:
       title: "About us"

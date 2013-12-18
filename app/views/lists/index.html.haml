@@ -11,7 +11,7 @@
     .col-sm-12
       - if defined?(@tmp_lists)
         - cache ['v1', tmp_list_cookie_updated_at] do
-          = render partial: 'lists/tmp', locals: { lists: @tmp_lists.decorate }
+          = render partial: 'lists/tmp', locals: { lists: @tmp_lists }
 
       - cache ['v1', cache_key_for_lists, params[:category_id], params[:query], params[:page]] do
         = render partial: 'lists/list', locals: { lists: @lists }

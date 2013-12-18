@@ -31,7 +31,11 @@ class ApplicationController < ActionController::Base
     cookies.signed[:owl_lists] && cookies.signed[:owl_lists].count > 0
   end
   def assign_tmp_lists user
-    tmp_lists.each {|id| user.lists << List.find(id) }
+    tmp_lists.each do |id|
+      list = List.unscoped.find(id)
+      user.lists << list
+      list.check_search_index
+    end
     touch_tmp_list_cookie
   end
   def clear_tmp_lists
@@ -40,9 +44,6 @@ class ApplicationController < ActionController::Base
   end
   def touch_tmp_list_cookie
     cookies.permanent.signed[:owl_updated_at] = Time.now.to_i
-  end
-  def tmp_list_cookie_updated_at
-    cookies.signed[:owl_updated_at] || 0
   end
 
   # DEVISE

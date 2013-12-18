@@ -1,5 +1,8 @@
-%h2= t('.title')
-%p
-  %a{href: new_user_registration_path}= t('.link')
-%ul
-  = render partial: 'lists/item', collection: lists, as: :list
+#tmp_lists
+
+  = link_to t('.link'), new_user_registration_path, class: 'btn btn-primary pull-right'
+  %h3
+    = t('.title')
+
+  %ul
+    = render partial: 'lists/item_small', collection: lists, as: :list

@@ -1,8 +1,13 @@
 class ListsController < ApplicationController
-  before_filter :authenticate_user!, only: [:edit, :update, :destroy]
+  # before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def new
-    list = List.find_or_create_by(completed: false, user_id: current_user.id)
+    if signed_in?
+      list = List.find_or_create_by(completed: false, user_id: current_user.id)
+    else
+      list = List.create
+      create_tmp_list(list)
+    end
     redirect_to edit_list_path(id: list.id.to_s), status: :found
   end
 
@@ -18,7 +23,6 @@ class ListsController < ApplicationController
     @comments = @list.comments.where(:created_at.exists => true).desc(:created_at).includes(:user)
     @comment = @list.comments.build
     @category_id = @list.category_id
-    @user = @list.user
     @items = @list.items_ordered
   end
 

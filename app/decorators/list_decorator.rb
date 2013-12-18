@@ -26,7 +26,11 @@ class ListDecorator < ApplicationDecorator
   end
 
   def edit_button
-    h.link_to h.t('.edit'), h.edit_list_path(model), class: 'edit_button hidden', 'data-user' => object.user.id.to_s
+    if model.user.blank?
+      h.link_to h.t('.edit'), h.edit_list_path(model), class: 'edit_button' if h.has_tmp_list? object
+    else
+      h.link_to h.t('.edit'), h.edit_list_path(model), class: 'edit_button hidden', 'data-user' => object.user.id.to_s
+    end
   end
 
   def report_button
@@ -46,9 +50,24 @@ class ListDecorator < ApplicationDecorator
   end
 
   def linked_user
+    return if model.user.blank?
     user = model.user.decorate
     user.linked_avatar_image(:small) + \
     user.linked_login
+  end
+
+  def user_linked_avatar_image(style)
+    return if model.user.blank?
+    model.user.decorate.linked_avatar_image(style)
+  end
+
+  def user_linked_login
+    return if model.user.blank?
+    model.user.decorate.linked_login
+  end
+
+  def user_linked_login
+    return if model.user.blank?
   end
 
   def love_link
