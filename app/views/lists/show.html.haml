@@ -1,5 +1,11 @@
 .container
 
+  - if defined?(@tmp_lists)
+    - cache ['v1', tmp_list_cookie_updated_at] do
+      .row
+        .col-sm-12
+          = render partial: 'lists/tmp', locals: { lists: @tmp_lists }
+
   .row
 
     .col-sm-8

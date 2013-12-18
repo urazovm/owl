@@ -19,6 +19,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @tmp_lists = List.where(:_id.in => tmp_lists) if has_tmp_lists?
     @list = List.find(params[:id])
     @comments = @list.comments.where(:created_at.exists => true).desc(:created_at).includes(:user)
     @comment = @list.comments.build
@@ -28,6 +29,7 @@ class ListsController < ApplicationController
 
   def edit
     @list = List.unscoped.find(params[:id])
+    @list.items.where(completed: false).destroy
     redirect_to home_path and return unless is_list_owner?(@list)
   end
 
