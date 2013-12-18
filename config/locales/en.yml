@@ -82,9 +82,9 @@ en:
     edit:
       confirm_cancel: "All your changes will be lost!"
       confirm_delete: "Are you sure you want to delete this list for ever?"
-      help_1: "lalala lal alalalala la lalala la"
-      help_2: "lalala lal alalalala la lalala la"
-      help_3: "lalala lal alalalala la lalala la"
+      help_1: "Edit the title above"
+      help_2: "Ad some text, image or links"
+      help_3: "That's it, you're done :)"
       view: "I'm done editing!"
     edit_info_form:
       category_label: "in category"
@@ -141,17 +141,17 @@ en:
     passwords:
       edit:
         title: "Change your password"
-        text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal la"
+        text: "You can now choose a new password for your account."
         submit: "Change my password"
       new:
         title: "Forgot your password?"
-        text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal la"
+        text: "Simply fill the form with the email address you used to register and we will send you instruction on how to recover your passord to this address. Please remember to check your spams if you don't receive our email within a few minutes."
         submit: "Send me reset password instructions"
         hint: "Enter the email address you registered with"
     sessions:
       new:
         title: "Login in to your account"
-        text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal la"
+        text: "Welcome back :) Use your email and passord to sign in."
         sign_up_text: "Don't have an account?"
         sign_up_link: "sign up now!"
         forgot_password_text: "Forgot your password?"
@@ -160,7 +160,7 @@ en:
     registrations:
       new:
         title: "Create a new account"
-        text: "lalala lalalal lala lala llalala lalalal lala lala llalala lalalal lala lala laaalalala lalalal la"
+        text: "Greatings! Choose a login and you'll be ready to share lists with everyone in a sec'."
         sign_in_text: "Allready have an account?"
         sign_in_link: "sign in"
         submit: "Let's go!"
