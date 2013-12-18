@@ -14,8 +14,6 @@
           #list_side_info
             - cache ['v1', @list, 'comments'] do
               = render partial: 'comments/list', locals: { comment: @comment, comments: @comments, list: @list.decorate }
-            - cache ['v1', @list, 'lovers'] do
-              = render partial: 'loves/user_list', locals: { users: @users }
 
 %script
   = "window.owl.env['loving'] = #{signed_in? && current_user.loves?(@list)};"

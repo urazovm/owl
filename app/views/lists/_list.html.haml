@@ -9,5 +9,5 @@
     = link_to t('.empty_link'), new_list_path
 
 - else
-%ul#lists.list-unstyled
-  = render partial: 'lists/item', collection: lists, as: :list
+  %ul#lists.list-unstyled
+    = render partial: 'lists/item', collection: lists, as: :list

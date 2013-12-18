@@ -1,9 +1,9 @@
 en:
 
   comment_html:
-    zero: "<strong>%{count}</strong> com"
-    one: "<strong>%{count}</strong> com"
-    other: "<strong>%{count}</strong> coms"
+    zero: "<strong>%{count}</strong> comment"
+    one: "<strong>%{count}</strong> comment"
+    other: "<strong>%{count}</strong> comments"
 
   list_html:
     zero: "<strong>%{count}</strong> list"
@@ -54,6 +54,8 @@ en:
     button:
       love: "I love this list!"
       ignore: "Ignore this list"
+    user_list:
+      empty: "No loves yet…"
   items:
     edit_text_form:
       submit: "Save item"
@@ -132,6 +134,8 @@ en:
       delete: "Delete"
     form:
       submit: "Comment"
+    list:
+      empty: "No comments yet…"
   devise:
     passwords:
       edit:

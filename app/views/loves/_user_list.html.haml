@@ -1,2 +1,5 @@
-#loves_users
-  = render partial: 'users/list', locals: { users: users }
+- if users.count == 0
+  %p.empty= t('.empty')
+- else
+  #loves_users
+    = render partial: 'users/list', locals: { users: users }
