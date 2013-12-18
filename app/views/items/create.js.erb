@@ -1,7 +1,7 @@
 var item = $("<%= escape_javascript(render(partial: 'items/edit_form', locals: { item: @item })) %>");
 $('#list_items_forms').append(item);
 item.find('form').css('visibility', 'hidden');
-item.hide().slideDown('slow', function() {
+item.hide().slideDown(function() {
   item.find('form').hide().css('visibility', 'visible').fadeIn();
 });
 <% if @item.image? %>

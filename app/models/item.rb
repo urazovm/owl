@@ -6,10 +6,11 @@ class Item
   TYPES = [ :text, :image, :link ]
 
   embedded_in :list
+  validate :must_not_be_empty, on: :update
+  validates_presence_of :type
   validates_length_of :name, maximum: 250, allow_blank: true
   validates_length_of :text, maximum: 1000, allow_blank: true
   validates_length_of :link, maximum: 2000, allow_blank: true
-  validates_presence_of :type
   after_validation :update_status
 
   has_mongoid_attached_file :image,
@@ -48,13 +49,32 @@ class Item
     type == TYPES.index(:link)
   end
 
+  def link_valid?
+    uri = URI.parse(link)
+    uri.kind_of?(URI::HTTP||URI::HTTPS)
+  rescue URI::InvalidURIError
+    false
+  end
+
 private
+
+  def must_not_be_empty
+    case type
+    when TYPES.index(:text)
+      errors.add(:name, :name_or_text_missing) if name.blank? || text.blank?
+    when TYPES.index(:image)
+      errors.add(:image, :missing) unless image.exists?
+    when TYPES.index(:link)
+      errors.add(:link, :missing) if link.blank?
+      errors.add(:link, :invalid) if !link.blank? && !link_valid?
+    end
+  end
 
   def update_status
     case type
     when TYPES.index(:text) then self.completed = !name.blank? || !text.blank?
-    when TYPES.index(:image) then self.completed = !name.blank? || image.exists?
-    when TYPES.index(:link) then self.completed = !name.blank? || !link.blank?
+    when TYPES.index(:image) then self.completed = image.exists?
+    when TYPES.index(:link) then self.completed = !link.blank?
     else
       self.completed = false
     end

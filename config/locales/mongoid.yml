@@ -1,0 +1,13 @@
+en:
+  mongoid:
+    errors:
+      models:
+        item:
+          attributes:
+            name:
+              name_or_text_missing: "You must specify a name and / or a message."
+            image:
+              missing: "Image is missing."
+            link:
+              missing: "You must specify a link."
+              invalid: "The link must be of the form http://www.somesite.com."

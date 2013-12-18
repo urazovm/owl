@@ -3,6 +3,6 @@
   = f.input :list_id, as: :hidden, input_html: { value: item.list.id }
   = f.input :type, as: :hidden
   = f.input :name
-  = f.input :link, as: :url
+  = f.input :link, as: :url, input_html: { value: item.link||'http://' }
   = f.button :submit, t('.submit'), class: 'btn btn-primary submit'
   = link_to t('.delete'), list_item_path(item.list, item), remote: true, method: :delete, class: 'text-danger pull-right'

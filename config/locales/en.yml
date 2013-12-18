@@ -89,7 +89,7 @@ en:
     list:
       search_title: "Search results for:"
       empty: "Nothing here for the moment…"
-      empty_link: "be the 1st the create a list about this!"
+      empty_link: "let's create a list now!"
     nav:
       register_link: "Register"
       login_link: "Login"

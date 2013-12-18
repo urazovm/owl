@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     render inline: '0' and return unless is_list_owner?(list)
     @item = list.items.find(params[:id])
     @item.assign_attributes(item_params)
-    list.save
+    render :edit and return unless list.save
   end
 
   def destroy
