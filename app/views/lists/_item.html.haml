@@ -1,10 +1,13 @@
 - cache ['v1', list, 'item'] do
   - list = list.decorate
-  %li.media
-    .love.pull-left= list.total_lovers
-    .media-body
-      %p
+  %li
+    .row
+      .col-sm-9.col-xs-9
+        .media
+          .love.pull-left= list.total_lovers
+          .media-body
+            %h3
+              = list.linked_title
+              %small.text-muted #{list.date} (#{list.linked_category})
+      .col-sm-3.col-xs-3
         %span.user #{list.linked_user}
-      %h3
-        = list.linked_title
-        %small.text-muted #{list.date} (#{list.linked_category})
