@@ -38,15 +38,12 @@ class ListsController < ApplicationController
     redirect_to home_path and return unless is_list_owner?(@list)
     @list.assign_attributes(list_params)
     @list.items.each_with_index {|list, i| list.position = i }
-    if @list.save
-      if request.xhr?
-        render inline: @list.title.capitalize and return unless list_params['title'].blank?
-        render inline: @list.category_name and return unless list_params['category_id'].blank?
-      else
-        redirect_to list_path(@list)
-      end
+    @list.save(validate: false)
+    if request.xhr?
+      render inline: @list.title.capitalize and return unless list_params['title'].blank?
+      render inline: @list.category_name and return unless list_params['category_id'].blank?
     else
-      render :edit
+      redirect_to list_path(@list)
     end
   end
 

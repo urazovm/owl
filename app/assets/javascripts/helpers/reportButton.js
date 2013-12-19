@@ -4,13 +4,24 @@
         this.el = $(el);
         this.options = options;
         this.list = this.el.data('list');
+        this.user = this.el.data('user');
         this.init();
     };
 
     ReportButton.prototype.init = function(e) {
-        console.log(1);
+        if (window.owl.env['signed_in']) {
+            if (window.owl.env['current_user'] == this.user) {
+                this.el.remove();
+            } else {
+                this.bind();
+            }
+        } else {
+            this.bind();
+        }
+    };
+
+    ReportButton.prototype.bind = function(e) {
         this.el.on('click', $.proxy(function(e) {
-        console.log(2);
             e.preventDefault();
             if (confirm('Are you realy sure you want to report this list as inapropriate?\n\nClick "ok" if so, otherwise click "cancel".\n\nWARNING: Duplicated reports will be ignored and abusive reports will be punished.')) {
                 var m = prompt('Please explain briefly the reason why this list is inapropriate.', '');

@@ -20,6 +20,6 @@ class ItemDecorator < ApplicationDecorator
   end
 
   def link
-    h.link_to object.link, object.link, class: 'link'
+    h.link_to h.truncate(object.link, length: 50, omission: '…'), object.link, class: 'link', target: '_blank'
   end
 end

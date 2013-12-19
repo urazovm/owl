@@ -1,11 +1,11 @@
 #list
   %h1
     = list.linked_title
+
   %p.info
-    %span= t('.by')
+    %span.pull-right
+      = list.report_button
+      = list.edit_button
+    %span.text-muted #{list.date} (#{list.linked_category}) #{t('.by')}
     = list.user_linked_avatar_image(:small)
     = list.user_linked_login
-    %span= t('.the')
-    = list.date
-    = list.edit_button
-    = list.report_button

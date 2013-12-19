@@ -1,7 +1,7 @@
-- if comments.count == 0
-  %p.empty= t('.empty')
-- else
-  #comments
-    = render partial: 'comments/form', locals: { comment: comment }
+#comments
+  = render partial: 'comments/form', locals: { comment: comment }
+  - if comments.count == 0
+    %p.empty= t('.empty')
+  - else
     %ul.list-unstyled
       = render partial: 'comments/item', collection: comments, as: :comment

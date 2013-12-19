@@ -11,16 +11,17 @@ class Item
   validates_length_of :name, maximum: 250, allow_blank: true
   validates_length_of :text, maximum: 1000, allow_blank: true
   validates_length_of :link, maximum: 2000, allow_blank: true
-  after_validation :update_status
+  after_validation :update_status, on: :update
 
   has_mongoid_attached_file :image,
     url: '/system/:class/:id/:basename-:style.:extension',
     default_url: '/assets/images/:style.jpg',
     styles: {
-      small: ['120x120#',   :jpg],
-      large: ['400x400#', :jpg] }
+      small: ['120x120>',   :jpg],
+      large: ['400x400>', :jpg] }
   validates_attachment_size :image, less_than: 800.kilobytes
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/png', 'image/gif']
+  validates_attachment_presence :image, on: :update, if: Proc.new { |m| m.image? }
 
   field :name,      type: String
   field :text,      type: String
@@ -61,9 +62,7 @@ private
   def must_not_be_empty
     case type
     when TYPES.index(:text)
-      errors.add(:name, :name_or_text_missing) if name.blank? || text.blank?
-    when TYPES.index(:image)
-      errors.add(:image, :missing) unless image.exists?
+      errors.add(:name, :name_or_text_missing) if name.blank? && text.blank?
     when TYPES.index(:link)
       errors.add(:link, :missing) if link.blank?
       errors.add(:link, :invalid) if !link.blank? && !link_valid?
@@ -73,7 +72,7 @@ private
   def update_status
     case type
     when TYPES.index(:text) then self.completed = !name.blank? || !text.blank?
-    when TYPES.index(:image) then self.completed = image.exists?
+    when TYPES.index(:image) then self.completed = true
     when TYPES.index(:link) then self.completed = !link.blank?
     else
       self.completed = false

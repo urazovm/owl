@@ -38,7 +38,6 @@ h1
   overflow: hidden
   font-family: 'Cabin Sketch', cursive
   font-size: 1.8em
-  font-weight: bold
   margin-top: 0
   margin-bottom: 20px
   @media (min-width: 768px)
@@ -396,10 +395,13 @@ hr.trans
       text-align: center
     h4
       margin-top: 5px
-    img.large
-      width: 100%
     .tools
       float: right
+    .link
+      &:before
+        font-family: 'FontAwesome'
+        margin-right: 5px
+        content: '\f08e'
 
 #comments
   textarea

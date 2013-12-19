@@ -22,7 +22,7 @@ class ListDecorator < ApplicationDecorator
   end
 
   def linked_category
-    h.link_to model.category_name, h.home_path(category_id: model.category_id), class: 'btn btn-default'
+    h.link_to model.category_name, h.home_path(category_id: model.category_id)
   end
 
   def edit_button
@@ -34,7 +34,11 @@ class ListDecorator < ApplicationDecorator
   end
 
   def report_button
-    h.link_to h.t('.report'), '#', remote: false, class: 'report_button text-danger', 'data-list' => object.id.to_s
+    if model.user.blank?
+      h.link_to h.t('.report'), '#', remote: false, class: 'report_button text-danger', 'data-list' => object.id.to_s
+    else
+      h.link_to h.t('.report'), '#', remote: false, class: 'report_button text-danger', 'data-list' => object.id.to_s, 'data-user' => object.user.id.to_s
+    end
   end
 
   def love_button
@@ -64,10 +68,6 @@ class ListDecorator < ApplicationDecorator
   def user_linked_login
     return if model.user.blank?
     model.user.decorate.linked_login
-  end
-
-  def user_linked_login
-    return if model.user.blank?
   end
 
   def love_link

@@ -101,7 +101,6 @@ en:
       edit: "edit"
       report: "report"
       by: "by"
-      the: "the"
     edit:
       confirm_cancel: "All your changes will be lost!"
       confirm_delete: "Are you sure you want to delete this list for ever?"

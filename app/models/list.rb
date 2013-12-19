@@ -10,7 +10,6 @@ class List
   embeds_many :comments, cascade_callbacks: true
   validates_length_of :title, maximum: 250, allow_blank: true
   validates_numericality_of :category_id, greater_than_or_equal_to: 0, less_than: ListCategories.length, allow_blank: true
-  accepts_nested_attributes_for :items
   before_validation :format_title
   after_validation :update_status
   after_save :check_search_index
@@ -65,7 +64,7 @@ class List
   end
 
   def self.categories_hash
-    Hash[*ListCategories.map(&:reverse).flatten].to_json
+    Hash[*ListCategories.map(&:reverse).map{|c| [c[0], List::category_name(c[0])]}.flatten].to_json
   end
 
   def self.category_name(id=nil)
@@ -78,7 +77,6 @@ class List
   end
 
   def soft_delete
-    index.remove self
     update_attribute(:deleted_at, Time.current)
   end
 

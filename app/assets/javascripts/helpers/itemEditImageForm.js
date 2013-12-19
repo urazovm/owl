@@ -23,7 +23,7 @@
             disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),
             previewMaxWidth: 120,
             previewMaxHeight: 120,
-            previewCrop: true
+            previewCrop: false
         })
         .on('fileuploadadd', $.proxy(this.onAdd, this))
         .on('fileuploadprocessalways', $.proxy(this.onProcess, this))
