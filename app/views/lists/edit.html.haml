@@ -4,14 +4,13 @@
 
     .col-sm-5
       = render partial: 'lists/edit_info_form', locals: { list: @list.decorate }
-      %hr
-      %p
-        %ol
-          %li= t('.help_1')
-          %li= t('.help_2')
-          %li= t('.help_3')
+      .help
+        %p
+          %ul
+            %li= t('.help_1')
+            %li= t('.help_2')
+            %li= t('.help_3')
       %div{ class: (@list.completed ? '' : 'hidden'), id: :completed_button }
-        %hr
         %p= link_to t('.view'), list_path(@list), class: 'btn btn-default btn-full'
       %hr
       %p

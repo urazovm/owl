@@ -105,8 +105,8 @@ en:
       confirm_cancel: "All your changes will be lost!"
       confirm_delete: "Are you sure you want to delete this list for ever?"
       help_1: "Edit the title above"
-      help_2: "Ad some text, image or links"
-      help_3: "That's it, you're done :)"
+      help_2: "Ad texts, images or links"
+      help_3: "That's it! :-)"
       view: "I'm done editing!"
     edit_info_form:
       category_label: "in category"

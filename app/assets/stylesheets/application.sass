@@ -14,8 +14,9 @@ $main_light: #D38487
 $main_normal: #D24566
 $special_light: #FEE9A1
 // $special_light: #ACD0A0
+$special_dark: adjust-lightness($special_light, -40)
 $special_normal: adjust-lightness($special_light, -20)
-$special_pale: adjust-lightness($special_light, 15)
+$special_pale: adjust-lightness($special_light, 16)
 $white_normal: #ffffff
 $black_normal: adjust-lightness(#3F2102, 8)
 
@@ -129,11 +130,17 @@ hr.trans
     height: auto !important
     display: block !important
 
+.help
+  background: $special_pale
+  border: dashed 1px $special_light
+  color: $special_dark
+  +border-radius(5px)
+
 #main
   overflow: hidden
 
 #footer
-  padding-top: 10px
+  padding-top: 30px
   .container
     margin-top: 0
   span:before
@@ -613,6 +620,7 @@ hr.trans
         font-weight: bold
 
 #list_edit_info_form
+  margin-bottom: 2em
   .edit
     cursor: pointer
     &:after
