@@ -3,10 +3,10 @@
   .container
     .row
 
-      .col-sm-2.col-xs-4
+      .col-sm-2.col-xs-3
         %span.logo= link_to 'OWL', home_path
 
-      .col-sm-5.col-xs-8.col-sm-push-5.right
+      .col-sm-5.col-xs-9.col-sm-push-5.right
         - if signed_in?
           = link_to user_path(current_user), class: 'visible-xs btn btn-sm btn-default user' do
             %i.fa.fa-user
@@ -18,9 +18,10 @@
             = link_to t('.register_link'), new_user_registration_path(r: 1), class: 'btn btn-sm btn-default'
             = link_to t('.login_link'), new_user_session_path(r: 1), class: 'btn btn-sm btn-default'
         .tools
-          = link_to new_list_path, class: 'btn btn-sm btn-default create' do
-            %span.hidden-xs= t('.create')
-            %i.visible-xs.fa.fa-plus
+          - if signed_in?
+            = link_to new_list_path, class: 'btn btn-sm btn-default create' do
+              %span.hidden-xs= t('.create')
+              %i.visible-xs.fa.fa-plus
           %button.btn.btn-sm.btn-default.visible-xs.search-collapser{ 'data-toggle' => "collapse", 'data-target' => '#search-collapse' }
             %i.fa.fa-search
           %button.btn.btn-sm.btn-default.categories-collapser{ 'data-toggle' => "collapse", 'data-target' => '#categories-collapse' }

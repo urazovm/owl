@@ -52,6 +52,9 @@ GEM
       nokogiri (>= 1.4.4, < 1.6.0)
       uuidtools (~> 2.1)
     bcrypt-ruby (3.1.2)
+    bourbon (3.1.8)
+      sass (>= 3.2.0)
+      thor
     bson (2.0.0.rc3)
     bson_ext (1.5.1)
     builder (3.1.4)
@@ -202,6 +205,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
+  bourbon
   bson_ext
   compass-rails (~> 2.0.alpha.0)
   dalli

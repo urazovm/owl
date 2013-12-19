@@ -1,31 +1,32 @@
 #list_notes
+  .container
 
-  - if params[:category_id].blank?
+    - if params[:category_id].blank?
 
-    %h1.main
-      = t('.title_main_1')
-      %br
-      = t('.title_main_2')
+      .row
+        .col-sm-5.col-sm-offset-1.col-xs-offset-1
 
-    - if signed_in?
+          %h1
+            = t('.title_main_1')
+            %br
+            = t('.title_main_2')
 
-      %p.main= link_to t('.create_link'), new_list_path, class: 'btn btn-primary create'
+        .col-sm-5.col-xs-8.col-sm-offset-0.col-xs-offset-2.center
+          .hidden-xs= link_to t('.create_link'), new_list_path, class: 'btn btn-primary create-sm btn-lg'
+          .visible-xs= link_to t('.create_link'), new_list_path, class: 'btn btn-primary create-xs btn-full'
+
+          .cloud.hidden-xs
+            .content
+              %p &nbsp;
+              .scroll
+                %p.idea= t('.example_1')
+                %p.idea= t('.example_2')
+                %p.idea= t('.example_3')
 
     - else
 
-      %p.main
-        = link_to t('.login_link'), new_user_session_path(r: 1), class: 'btn btn-primary'
-        %span= t('.or')
-        = link_to t('.register_link'), new_user_registration_path(r: 1), class: 'btn btn-primary'
-        %span= t('.to')
-
-    .cloud
-      %p= t('.example_1')
-      %p= t('.example_2')
-      %p= t('.example_3')
-
-  - else
-
-    %h1.category
-      = List::category_name(params[:category_id])
-      %small= t(".text_category_#{params[:category_id]}")
+      .row
+        .col-sm-12
+          %h1.category
+            = List::category_name(params[:category_id])
+            %small= t(".text_category_#{params[:category_id]}")

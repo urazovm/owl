@@ -1,33 +1,54 @@
-@import compass/css3
-@import compass/layout
-
-+sticky-footer(55px, "#main", "#push_footer", "#footer")
+@import bourbon
+@import compass/css3/border-radius
+@import compass/css3/text-shadow
+@import compass/layout/sticky-footer
 
 $legacy-support-for-ie6: false
 $legacy-support-for-ie7: false
 
 // http://www.colourlovers.com/palette/1565509/Second_Breakfast
+
 $grey_light: #f9f9f9
 $grey_normal: #e3e3e3
 $grey_dark: #aaaaaa
 $main_light: #D38487
 $main_normal: #D24566
 $special_light: #FEE9A1
-// $special_light: #ACD0A0
 $special_dark: adjust-lightness($special_light, -40)
 $special_normal: adjust-lightness($special_light, -20)
 $special_pale: adjust-lightness($special_light, 16)
 $white_normal: #ffffff
 $black_normal: adjust-lightness(#3F2102, 8)
 
+$preview_ideas: 3
+$preview_time: 3s
+
++sticky-footer(55px, "#main", "#push_footer", "#footer")
+
++keyframes(scroll)
+  0%
+    top: 0
+  100%
+    top: -100% * $preview_ideas
+
++keyframes(fadeInOutUp)
+  0%
+    opacity: 0
+    +transform(translateY(10px))
+  10%
+    opacity: 1
+    +transform(translateY(0))
+  90%
+    opacity: 1
+    +transform(translateY(0))
+  100%
+    opacity: 0
+    +transform(translateY(-10px))
+
 body
-  // font-family: 'Cabin Sketch', cursive
   color: $black_normal
-  // background: adjust-lightness(#FEE9A1, 16)
-  // background: url('background.jpg')
 
 a
-  // font-family: 'Cabin Sketch', cursive
   color: $main_light
   +transition-property(color, background-color)
   +transition-timing-function(ease)
@@ -49,13 +70,11 @@ h1
     display: block
 
 h2
-  // font-family: 'Cabin Sketch', cursive
   font-size: 1.6em
   @media (min-width: 768px)
     font-size: 1.8em
 
 h3
-  // font-family: 'Cabin Sketch', cursive
   font-size: 1.4em
   @media (min-width: 768px)
     font-size: 1.6em
@@ -174,11 +193,6 @@ hr.trans
   .avatar
     width: 28px
     margin: -6px 2px -5px -10px
-  .sign
-    display: none
-    margin-right: 10px
-    @media (min-width: 442px)
-      display: inline-block
   .right
     text-align: right
   .dropdown-menu
@@ -205,16 +219,6 @@ hr.trans
     display: inline-block !important
     @media (min-width: 768px)
       display: none !important
-
-#top
-  background-image: url('pattern.png')
-  background-attachment: fixed
-  border-bottom: solid 4px $grey_light
-  .container
-    color: $special_light
-    margin-top: -2em
-    padding: 2em 0 1em
-    +background-image(linear-gradient(center left, rgba(255,255,255,0), rgba(255,255,255,0.8) 75%, rgba(255,255,255,0)))
 
 #tmp_lists
   padding: 8px 10px
@@ -514,22 +518,30 @@ hr.trans
   margin-top: 1em
 
 #list_notes
-  .main
-    margin-left: 20px
-    @media (min-width: 442px)
-      margin-left: 18%
-    @media (min-width: 768px)
-      margin-left: 420px
-  .category
-    margin-left: 20px
-    @media (min-width: 768px)
-      margin-left: 60px
+  background-image: url('pattern.png')
+  background-attachment: fixed
+  // background: #fcf1f0
+  border-bottom: solid 4px $grey_light
+  position: relative
+  &:before
+    content: ' '
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    position: absolute
+    display: block
+    +background-image(linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,0.8) 75%, rgba(255,255,255,0)))
+  .container
+    margin-top: -2em
+    padding: 2em 0 0.5em 0
   h1
     font-family: 'Cabin Sketch', cursive
     font-weight: bold
     font-size: 2.8em
     @media (min-width: 768px)
       font-size: 3.5em
+      margin-bottom: 5px
     &.category
       margin-bottom: 5px
     small
@@ -548,33 +560,41 @@ hr.trans
   h1, .fa
     color: $black_normal
     +text-shadow(4px 3px 0 $white_normal, 9px 8px 0 rgba(0, 0, 0, 0.15))
+  .create-sm
+    margin-top: 15px
+  .create-xs
+    margin-bottom: 15px
+    float: right
   .btn
     +box-shadow(4px 3px 0 $white_normal, 9px 8px 0 rgba(0, 0, 0, 0.15))
-  .cloud
-    background: url('cloud.png')
-    width: 329px
-    height: 128px
-    position: absolute
+  .center
     text-align: center
-    padding: 28px 50px 0 0px
-    top: 30px
-    left: 85px
-    display: none
-    @media (min-width: 768px)
-      display: block
+  .cloud
+    margin-top: 10px
+    .content
+      position: relative
+      overflow: hidden
+    .scroll
+      position: absolute
+      top: 0
+      width: 100%
     p
+      padding: 10px 0 10px 0
+      margin: 0
+    .idea
       font-family: 'Cabin Sketch', cursive
       color: $black_normal
-      line-height: 11px
       font-size: 1.15em
-      +transform(rotate(-3deg))
+      +text-shadow(0px 0px 4px white, 0px 0px 6px white, 0px 0px 8px white, 0px 0px 10px white)
       &:before
         content: '\f0eb'
         font-family: 'FontAwesome'
         margin-right: 0.5em
-        display: inline-block
         color: $special_normal
-        +transform(rotate(-5deg))
+    .scroll
+      +animation(scroll steps($preview_ideas) $preview_time*$preview_ideas infinite)
+    .idea
+      +animation(fadeInOutUp steps(10) $preview_time infinite)
 
 #categories-collapse
   background: $white_normal

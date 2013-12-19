@@ -1,10 +1,6 @@
-#top
-  .container
-    .row
-      .col-sm-12
-        - if params[:query].blank?
-          - cache ['v1', 'category', params[:category_id], signed_in?] do
-            = render partial: 'lists/notes'
+- if params[:query].blank?
+  - cache ['v1', 'category', params[:category_id], signed_in?] do
+    = render partial: 'lists/notes'
 
 .container
   .row

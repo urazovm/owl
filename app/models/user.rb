@@ -18,8 +18,7 @@ class User
     default_url: '/assets/avatars/:style.jpg',
     styles: {
       small:    ['48x48#',   :jpg],
-      medium:   ['128x128#', :jpg],
-      large:    ['250x250#', :jpg] }
+      medium:   ['128x128#', :jpg] }
   validates_attachment_size :avatar, less_than: 800.kilobytes
   validates_attachment_content_type :avatar, content_type: ['image/jpeg', 'image/png', 'image/gif']
 
