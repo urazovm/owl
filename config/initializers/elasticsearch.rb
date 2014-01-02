@@ -1,0 +1,2 @@
+#https://gist.github.com/2041121
+ENV['ELASTICSEARCH_URL'] = ENV['SEARCHBOX_URL']
