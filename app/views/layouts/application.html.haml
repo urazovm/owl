@@ -9,11 +9,16 @@
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700'
     = csrf_meta_tags
 
-  %body
+  %body{ class: "#{request.parameters['controller']} #{request.parameters['action']}" }
 
     #main
-      - cache ['v1', 'header', signed_in?, current_user||nil] do
-        = render partial: 'layouts/header'
+      #top
+        - cache ['v1', 'header', signed_in?, current_user||nil] do
+          = render partial: 'layouts/header'
+        - if request.parameters['controller'] == 'lists' && request.parameters['action'] == 'index' && params[:query].blank?
+          - cache ['v1', 'category', params[:category_id], signed_in?] do
+            = render partial: 'lists/notes'
+
       = yield
       #push_footer
 

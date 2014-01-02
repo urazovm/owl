@@ -68,7 +68,6 @@ en:
       legal: "Legal"
     header:
       create: "Create a list"
-      search: "Search"
       all: "All"
       register_link: "Register"
       login_link: "Login"

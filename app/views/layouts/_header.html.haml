@@ -1,12 +1,20 @@
 #header
 
   .container
+
     .row
 
-      .col-sm-2.col-xs-3
-        %span.logo= link_to 'OWL', home_path
+      .col-sm-3.col-xs-3
+        = link_to 'OWL', home_path, class: 'logo'
 
-      .col-sm-5.col-xs-9.col-sm-push-5.right
+      .col-sm-9.right
+        = form_tag home_path, method: :get, class: 'search' do
+          = hidden_field_tag :category_id, params[:category_id]
+          .input-group
+            = search_field :query, '', class: 'form-control', placeholder: t('.search_placeholder')
+            .input-group-btn
+              %button.btn.btn-sm.btn-default.submit
+                %i.fa.fa-search
         - if signed_in?
           = link_to user_path(current_user), class: 'visible-xs btn btn-sm btn-default user' do
             %i.fa.fa-user
@@ -22,20 +30,8 @@
             = link_to new_list_path, class: 'btn btn-sm btn-default create' do
               %span.hidden-xs= t('.create')
               %i.visible-xs.fa.fa-plus
-          %button.btn.btn-sm.btn-default.visible-xs.search-collapser{ 'data-toggle' => "collapse", 'data-target' => '#search-collapse' }
-            %i.fa.fa-search
           %button.btn.btn-sm.btn-default.categories-collapser{ 'data-toggle' => "collapse", 'data-target' => '#categories-collapse' }
             %i.fa.fa-bars
-
-      .col-xs-12.col-sm-5.col-sm-pull-5.right.search
-        = form_tag home_path, method: :get, id: 'search-collapse', class: 'collapse collapse-xs' do
-          = hidden_field_tag :category_id, params[:category_id]
-          .input-group
-            = search_field :query, '', class: 'form-control', placeholder: t('.search_placeholder')
-            .input-group-btn
-              %button.btn.btn-sm.btn-default.submit
-                %span.visible-xs= t('.search')
-                %i.hidden-xs.fa.fa-search
 
     %ul#categories-collapse.collapse.list-unstyled
       %li.category_999= link_to t('.all'), home_path

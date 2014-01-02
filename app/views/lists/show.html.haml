@@ -1,6 +1,6 @@
 .container
 
-  - if defined?(@tmp_lists)
+  - if defined?(@tmp_lists) && @tmp_lists.count > 0
     - cache ['v1', tmp_list_cookie_updated_at] do
       .row
         .col-sm-12

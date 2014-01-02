@@ -12,7 +12,7 @@ class ListsController < ApplicationController
   end
 
   def index
-    @tmp_lists = List.where(:_id.in => tmp_lists) if has_tmp_lists?
+    @tmp_lists = List.where(:_id.in => tmp_lists, completed: true) if has_tmp_lists?
     @lists = List.search(params, params[:page])
     @query = params[:query] unless params[:query].blank?
     @category_id = params[:category_id] unless params[:category_id].blank?

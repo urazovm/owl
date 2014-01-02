@@ -1,8 +1,7 @@
 #tmp_lists
 
-  = link_to t('.link'), new_user_registration_path, class: 'btn btn-primary pull-right'
-  %h3
-    = t('.title')
+  = link_to t('.link'), new_user_registration_path, class: 'btn btn-sm btn-primary pull-right'
+  %strong= t('.title')
 
   %ul
     = render partial: 'lists/item_small', collection: lists, as: :list

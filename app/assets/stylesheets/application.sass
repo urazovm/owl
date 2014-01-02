@@ -144,16 +144,19 @@ hr.trans
   display: block
   width: 100%
 
-.collapse-xs
-  @media (min-width: 768px)
-    height: auto !important
-    display: block !important
+// .collapse-xs
+//   @media (min-width: 768px)
+//     height: auto !important
+//     display: block !important
 
 .help
   background: $special_pale
   border: dashed 1px $special_light
   color: $special_dark
   +border-radius(5px)
+
+body.lists.index #header .logo
+  display: none
 
 #main
   overflow: hidden
@@ -170,26 +173,35 @@ hr.trans
     content: ""
     margin: 0
 
+#top
+  background-image: url('pattern.png')
+  background-attachment: fixed
+  // background: #fcf1f0
+  border-bottom: solid 4px $grey_light
+  position: relative
+  &:before
+    content: ' '
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    position: absolute
+    display: block
+    +background-image(linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,0.8) 75%, rgba(255,255,255,0)))
+
 #header
-  background: $main_normal
-  margin-bottom: 2em
+  z-index: 2
   padding: 3px 0 5px 0
   position: relative
-  border-bottom: solid 2px $grey_normal
   .container
     margin-top: 0
   .logo
+    z-index: 3
     font-family: 'Cabin Sketch', cursive
     font-weight: bold
-    font-family: "Cabin Sketch", cursive
-    font-size: 3em
+    font-size: 2em
     position: absolute
-    top: -12px
-    a
-      color: $white_normal
-      text-decoration: none
-      &:hover
-        color: $special_light
+    color: $main_normal
   .avatar
     width: 28px
     margin: -6px 2px -5px -10px
@@ -201,16 +213,21 @@ hr.trans
     display: inline-block
     margin-top: 2px
   .search
-    clear: both
-    @media (min-width: 768px)
-      clear: none
-    form
-      margin-top: 2px
-      padding-top: 10px
-      @media (min-width: 768px)
-        padding-top: 0
-      .form-control
-        height: 30px
+    display: none
+    @media (min-width: 640px)
+      display: inline-block
+    width: 100%
+    width: 130px
+    margin-bottom: -11px
+    +transition-property(width)
+    +transition-timing-function(ease)
+    +transition-duration(0.3s)
+    +transition-delay(0.3s)
+    &:focus,
+    &:hover
+      width: 200px
+    .form-control
+      height: 30px
   .hidden-xs
     display: none !important
     @media (min-width: 768px)
@@ -223,13 +240,11 @@ hr.trans
 #tmp_lists
   padding: 8px 10px
   background: $special_pale
-  border: dashed 2px $special_light
   margin-bottom: 2em
   +border-radius(5px)
-  h3
-    margin: 0
   ul
     margin-top: 10px
+    margin-bottom: 0
 
 #list_form
   .submit
@@ -518,24 +533,15 @@ hr.trans
   margin-top: 1em
 
 #list_notes
-  background-image: url('pattern.png')
-  background-attachment: fixed
-  // background: #fcf1f0
-  border-bottom: solid 4px $grey_light
-  position: relative
-  &:before
-    content: ' '
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    position: absolute
-    display: block
-    +background-image(linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,0.8) 75%, rgba(255,255,255,0)))
-  .container
-    margin-top: -2em
-    padding: 2em 0 0.5em 0
+  padding: 1.5em 0 1.5em 0
   h1
+    font-family: 'Cabin Sketch', cursive
+    font-weight: bold
+    font-size: 3em
+    position: absolute
+    color: $main_normal
+    top: -35px
+  h2
     font-family: 'Cabin Sketch', cursive
     font-weight: bold
     font-size: 2.8em
@@ -554,14 +560,10 @@ hr.trans
         display: inline
       color: $black_normal
       +text-shadow(2px 1px 0 $white_normal, 5px 4px 0 rgba(0, 0, 0, 0.15))
-  span
-    margin: 0 10px
-    color: $black_normal
-  h1, .fa
-    color: $black_normal
-    +text-shadow(4px 3px 0 $white_normal, 9px 8px 0 rgba(0, 0, 0, 0.15))
+  .container
+    margin-top: 0
   .create-sm
-    margin-top: 15px
+    margin-top: 35px
   .create-xs
     margin-bottom: 15px
     float: right
