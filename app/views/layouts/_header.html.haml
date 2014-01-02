@@ -11,7 +11,7 @@
         = form_tag home_path, method: :get, class: 'search' do
           = hidden_field_tag :category_id, params[:category_id]
           .input-group
-            = search_field :query, '', class: 'form-control', placeholder: t('.search_placeholder')
+            %input#search_query.form-control{ name: 'query', placeholder: t('.search_placeholder'), type: 'search' }
             .input-group-btn
               %button.btn.btn-sm.btn-default.submit
                 %i.fa.fa-search

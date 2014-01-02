@@ -1,13 +1,18 @@
-- unless params[:query].blank?
-  %h1
-    = t('.search_title')
-    = params[:query]
+#lists
 
-- if @lists.count == 0
-  %p.empty
-    = t('.empty')
-    = link_to t('.empty_link'), new_list_path
+  - unless params[:query].blank?
+    = link_to home_path, class: 'pull-right btn btn-default' do
+      %i.fa.fa-times-circle
+    %h2.search_title
+      = t('.search_title')
+      = params[:query]
+    %hr
 
-- else
-  %ul#lists.list-unstyled
-    = render partial: 'lists/item', collection: lists, as: :list
+  - if @lists.count == 0
+    %p.empty
+      = t('.empty')
+      = link_to t('.empty_link'), new_list_path
+
+  - else
+    %ul.list-unstyled
+      = render partial: 'lists/item', collection: lists, as: :list

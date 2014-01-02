@@ -111,6 +111,7 @@ en:
       category_label: "in category"
       placeholder: "Untitled"
     list:
+      back: 'back...'
       search_title: "Search results for:"
       empty: "Nothing here for the moment…"
       empty_link: "let's create a list now!"

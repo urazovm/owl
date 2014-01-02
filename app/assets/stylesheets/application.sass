@@ -201,7 +201,6 @@ body.lists.index #header .logo
     font-weight: bold
     font-size: 2em
     position: absolute
-    color: $main_normal
   .avatar
     width: 28px
     margin: -6px 2px -5px -10px
@@ -344,6 +343,8 @@ body.lists.index #header .logo
 //     content: '\f0e5'
 
 #lists
+  .search_title
+    margin-top: 0
   li
     border-top: 1px dashed $grey_normal
     margin-top: 8px
@@ -534,22 +535,25 @@ body.lists.index #header .logo
 
 #list_notes
   padding: 1.5em 0 1.5em 0
-  h1
+  h1.big
     font-family: 'Cabin Sketch', cursive
     font-weight: bold
     font-size: 3em
     position: absolute
     color: $main_normal
     top: -35px
-  h2
+  h2,
+  .category
     font-family: 'Cabin Sketch', cursive
     font-weight: bold
     font-size: 2.8em
     @media (min-width: 768px)
       font-size: 3.5em
       margin-bottom: 5px
-    &.category
       margin-bottom: 5px
+  .category
+    margin-top: -15px
+    margin-bottom: -10px
     small
       margin-left: 10px
       font-size: 0.35em
@@ -569,8 +573,6 @@ body.lists.index #header .logo
     float: right
   .btn
     +box-shadow(4px 3px 0 $white_normal, 9px 8px 0 rgba(0, 0, 0, 0.15))
-  .center
-    text-align: center
   .cloud
     margin-top: 10px
     .content

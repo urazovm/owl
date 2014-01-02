@@ -15,7 +15,7 @@
       #top
         - cache ['v1', 'header', signed_in?, current_user||nil] do
           = render partial: 'layouts/header'
-        - if request.parameters['controller'] == 'lists' && request.parameters['action'] == 'index' && params[:query].blank?
+        - if request.parameters['controller'] == 'lists' && request.parameters['action'] == 'index'
           - cache ['v1', 'category', params[:category_id], signed_in?] do
             = render partial: 'lists/notes'
 
