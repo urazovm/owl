@@ -21,7 +21,7 @@ gem 'devise'
 gem 'dalli'
 gem 'multi_fetch_fragments'
 gem 'mongoid-paperclip', require: 'mongoid_paperclip'
-gem 'aws-sdk'
+gem 'fog'
 gem 'tire'
 group :development do
   gem 'quiet_assets'

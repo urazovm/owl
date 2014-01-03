@@ -47,10 +47,6 @@ GEM
     ansi (1.4.3)
     arel (4.0.1)
     atomic (1.1.14)
-    aws-sdk (1.31.3)
-      json (~> 1.4)
-      nokogiri (>= 1.4.4)
-      uuidtools (~> 2.1)
     bcrypt-ruby (3.1.2)
     bourbon (3.1.8)
       sass (>= 3.2.0)
@@ -96,7 +92,19 @@ GEM
       request_store (~> 1.0.3)
     erubis (2.7.0)
     eventmachine (1.0.3)
+    excon (0.31.0)
     execjs (2.0.2)
+    fog (1.19.0)
+      builder
+      excon (~> 0.31.0)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.1)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5)
+      ruby-hmac
+    formatador (0.2.4)
     fssm (0.2.10)
     haml (4.0.4)
       tilt
@@ -124,6 +132,9 @@ GEM
       optionable (~> 0.2.0)
     multi_fetch_fragments (0.0.17)
     multi_json (1.8.2)
+    net-scp (1.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.7.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     optionable (0.2.0)
@@ -162,6 +173,7 @@ GEM
     request_store (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    ruby-hmac (0.4.0)
     sass (3.2.13)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -205,7 +217,6 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -213,13 +224,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk
   bourbon
   bson_ext
   compass-rails
   dalli
   devise
   draper
+  fog
   haml
   jquery-rails
   mongoid!
